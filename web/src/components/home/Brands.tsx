@@ -1,36 +1,30 @@
-import React from 'react'
-import { BRANDS, VEHICLES } from '@/data/vehicles'
-import Link from 'next/link'
+import { BrandCarousel } from './BrandCarousel'
+import { VEHICLES } from '@/data/vehicles'
 
-/** Text treatments rather than invented logos. Swap in licensed logo files when available. */
+const brands = [
+  { name: 'Audi', logo: '/brands/audi-logo.svg' },
+  { name: 'Land Rover', logo: '/brands/land-rover-logo.svg' },
+  { name: 'BMW', logo: '/brands/bmw-logo.svg' },
+  { name: 'Honda', logo: '/brands/honda-logo.png' },
+  { name: 'Toyota', logo: '/brands/toyota-logo.svg' },
+  { name: 'Nissan', logo: '/brands/nissan-logo.svg' },
+  { name: 'Suzuki', logo: '/brands/suzuki-logo.svg' },
+  { name: 'Mercedes-Benz', logo: '/brands/mercedes-benz-logo.svg' },
+  { name: 'Kia', logo: '/brands/kia-logo.svg' },
+  { name: 'Hyundai', logo: '/brands/hyundai-logo.svg' },
+].map((brand) => ({
+  ...brand,
+  href: VEHICLES.some((vehicle) => vehicle.make === brand.name)
+    ? `/vehicles?make=${encodeURIComponent(brand.name)}`
+    : '/contact',
+}))
+
 export function Brands() {
   return (
-    <section className="bg-paper pb-24">
+    <section className="bg-white pb-24 pt-16" aria-labelledby="popular-brands-heading">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
-          <h2 className="text-[22px] font-bold text-ink">Popular brands</h2>
-          <p className="text-[14px] text-muted">Not in stock? We can source most makes on request.</p>
-        </div>
-        <ul className="mt-8 grid grid-cols-2 border-l border-t border-line sm:grid-cols-5">
-          {BRANDS.map((b) => {
-            const count = VEHICLES.filter((v) => v.make === b).length
-            return (
-              <li key={b} className="border-b border-r border-line">
-                <Link
-                  href={count ? `/vehicles?make=${encodeURIComponent(b)}` : '/contact'}
-                  className="group flex h-28 flex-col items-center justify-center gap-1 px-3 transition-colors duration-150 hover:bg-white"
-                >
-                  <span className="text-center text-[17px] font-extrabold uppercase tracking-[0.06em] text-ink sm:text-[18px]">
-                    {b}
-                  </span>
-                  <span className="text-[12px] text-muted transition-colors duration-150 group-hover:text-accent">
-                    {count ? `${count} in stock` : 'On request'}
-                  </span>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
+        <h2 id="popular-brands-heading" className="text-[22px] font-bold text-ink">Popular brands</h2>
+        <BrandCarousel brands={brands} />
       </div>
     </section>
   )
