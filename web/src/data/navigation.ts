@@ -27,6 +27,7 @@ export const MAIN_NAV: NavItem[] = [
   { key: 'financing', label: 'Financing', to: '/financing' },
   { key: 'about', label: 'About Us', to: '/about' },
   { key: 'contact', label: 'Contact', to: '/contact' },
+  { key: 'faq', label: 'FAQ', to: '/faq' },
 ]
 
 export const FOOTER_LINKS = [

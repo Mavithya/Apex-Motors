@@ -11,7 +11,7 @@ export function FinanceTradeCta() {
   ]
   return (
     <section className="grid bg-ink lg:grid-cols-2">
-      <img src={IMAGES.handover} alt="An Apex Motors advisor handing car keys to a customer" className="aspect-[4/3] h-full w-full object-cover lg:aspect-auto" />
+      <img src={IMAGES.handover} alt="An Apex Motors advisor handing car keys to a customer" className="aspect-[16/11] h-full w-full object-cover lg:aspect-auto" />
       <div className="flex flex-col justify-center px-5 py-16 sm:px-12 lg:px-16 lg:py-24">
         <h2 className="max-w-md text-[34px] font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[46px]">
           Your next car is closer than you think.

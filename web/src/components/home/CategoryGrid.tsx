@@ -9,9 +9,9 @@ import { SectionHeading } from '@/components/ui/PageHeader'
 /** Asymmetric tile mosaic: SUVs lead, as the largest share of stock. */
 export function CategoryGrid() {
   return (
-    <section className="mx-auto max-w-[1320px] px-5 pb-24 pt-20 sm:px-8 lg:pt-28">
+    <section className="mx-auto max-w-[1320px] px-5 pb-24 pt-20 sm:px-8 lg:py-28">
       <SectionHeading title="Explore by category" intro="Start with the shape of car that fits your life, then narrow it down." />
-      <div className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
         {CATEGORIES.map((c, i) => {
           const count = VEHICLES.filter((v) => v.categories.includes(c.slug)).length
           const lead = i === 0
@@ -34,7 +34,7 @@ export function CategoryGrid() {
                 alt=""
                 className="absolute inset-0 -z-10 h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-300 ease-out group-hover:scale-[1.03] group-hover:opacity-90"
               />
-              <div className="mt-auto w-full bg-ink/70 p-4 sm:p-5">
+              <div className="mt-auto w-full bg-ink/80 p-4 sm:p-6">
                 <div className="flex items-end justify-between gap-3">
                   <div className="min-w-0">
                     <h3 className={cn('font-bold text-white', lead ? 'text-[26px] sm:text-[30px]' : 'text-[17px] sm:text-[19px]')}>

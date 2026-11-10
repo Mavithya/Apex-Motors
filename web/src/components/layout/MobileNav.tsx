@@ -73,9 +73,6 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                   )}
                 </div>
               ))}
-              <Link href="/faq" onClick={onClose} className="block border-b border-line py-4 text-[17px] font-semibold text-ink">
-                FAQ
-              </Link>
               <Link href="/vehicles?view=saved" onClick={onClose} className="block border-b border-line py-4 text-[17px] font-semibold text-ink">
                 Saved vehicles
               </Link>

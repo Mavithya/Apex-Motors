@@ -6,7 +6,7 @@ import { ButtonLink } from '@/components/ui/Button'
 import { HeroSearch } from '@/components/home/HeroSearch'
 import { CategoryGrid } from '@/components/home/CategoryGrid'
 import { FeaturedVehicles } from '@/components/home/FeaturedVehicles'
-import { NewArrivals } from '@/components/home/NewArrivals'
+// import { NewArrivals } from '@/components/home/NewArrivals'
 import { Spotlight } from '@/components/home/Spotlight'
 import { Brands } from '@/components/home/Brands'
 import { WhyChooseUs } from '@/components/home/WhyChooseUs'
@@ -50,7 +50,7 @@ export default function Home() {
 
       <CategoryGrid />
       <FeaturedVehicles count={featuredCount} />
-      <NewArrivals />
+      {/* <NewArrivals /> */}
       <Spotlight />
       <Brands />
       <WhyChooseUs />

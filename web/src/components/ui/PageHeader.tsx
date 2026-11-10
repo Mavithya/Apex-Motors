@@ -78,7 +78,7 @@ export function SectionHeading({
     <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div className="max-w-2xl">
         <h2
-          className={`text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[42px] ${
+          className={`text-[32px] font-extrabold leading-[1.12] tracking-[-0.035em] sm:text-[40px] ${
             tone === 'dark' ? 'text-ink' : 'text-white'
           }`}
         >

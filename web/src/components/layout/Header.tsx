@@ -25,8 +25,8 @@ function HeaderContent({ active }: { active?: NavKey }) {
 
   return (
     <>
-    <div className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-[72px] max-w-[1320px] items-center justify-between gap-6 px-5 sm:px-8">
+    <div className="sticky top-0 z-40 border-b border-line bg-white/95 shadow-[0_8px_24px_-22px_rgba(23,26,29,0.45)] backdrop-blur-md">
+      <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between gap-4 px-5 sm:px-8">
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center xl:flex">
@@ -132,7 +132,7 @@ function HeaderContent({ active }: { active?: NavKey }) {
 
 function navClass(active: boolean) {
   return cn(
-    'relative flex h-[72px] items-center gap-1 whitespace-nowrap px-3 text-[14px] font-semibold transition-colors duration-150',
+    'relative flex h-[76px] items-center gap-1 whitespace-nowrap px-2.5 text-[13px] font-semibold tracking-[0.01em] transition-colors duration-200 2xl:px-3 2xl:text-[14px]',
     active ? 'text-ink' : 'text-graphite/75 hover:text-ink'
   )
 }

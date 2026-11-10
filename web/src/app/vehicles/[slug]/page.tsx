@@ -57,29 +57,29 @@ export default async function VehicleDetails({ params }: { params: Promise<{ slu
         />
       </div>
 
-      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_400px] xl:gap-14">
+      <div className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] xl:gap-14">
         {/* Left: gallery and detail */}
         <div className="min-w-0">
           <Gallery key={v.id} images={v.images} name={name} />
 
           {/* Quick specifications */}
-          <section aria-labelledby="specs" className="mt-14">
-            <h2 id="specs" className="text-[24px] font-extrabold tracking-[-0.01em] text-ink">
+          <section aria-labelledby="specs" className="mt-16">
+            <h2 id="specs" className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">
               Specifications
             </h2>
-            <dl className="mt-6 grid grid-cols-2 border-l border-t border-line bg-white sm:grid-cols-3">
+            <dl className="mt-6 grid grid-cols-2 gap-x-6 bg-white px-5 sm:gap-x-10 sm:px-7">
               {specs.map((s) => (
-                <div key={s.label} className="border-b border-r border-line px-4 py-4 sm:px-5">
+                <div key={s.label} className="border-b border-line py-5">
                   <dt className="text-[12px] font-medium text-muted">{s.label}</dt>
-                  <dd className="mt-1 text-[15px] font-bold text-ink">{s.value}</dd>
+                  <dd className="mt-1.5 text-[15px] font-semibold text-ink">{s.value}</dd>
                 </div>
               ))}
             </dl>
           </section>
 
           {/* Description */}
-          <section aria-labelledby="about-car" className="mt-14">
-            <h2 id="about-car" className="text-[24px] font-extrabold tracking-[-0.01em] text-ink">
+          <section aria-labelledby="about-car" className="mt-16">
+            <h2 id="about-car" className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">
               About this vehicle
             </h2>
             <p className="mt-5 text-[19px] font-semibold leading-snug text-ink">{v.tagline}</p>
@@ -95,8 +95,8 @@ export default async function VehicleDetails({ params }: { params: Promise<{ slu
 
           {/* Key features */}
           {groups.length > 0 && (
-            <section aria-labelledby="features" className="mt-14">
-              <h2 id="features" className="text-[24px] font-extrabold tracking-[-0.01em] text-ink">
+            <section aria-labelledby="features" className="mt-16">
+              <h2 id="features" className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">
                 Key features
               </h2>
               <div className="mt-6 grid gap-x-10 sm:grid-cols-2">
@@ -118,8 +118,8 @@ export default async function VehicleDetails({ params }: { params: Promise<{ slu
           )}
 
           {/* Finance calculator */}
-          <section aria-labelledby="finance" className="mt-14">
-            <h2 id="finance" className="text-[24px] font-extrabold tracking-[-0.01em] text-ink">
+          <section aria-labelledby="finance" className="mt-16">
+            <h2 id="finance" className="text-[26px] font-extrabold tracking-[-0.03em] text-ink">
               Estimate your monthly payment
             </h2>
             <p className="mt-2 text-[15px] text-muted">Adjust the deposit and term to see how this {v.model} could fit your budget.</p>
@@ -130,7 +130,7 @@ export default async function VehicleDetails({ params }: { params: Promise<{ slu
         </div>
 
         {/* Right: info + enquiry */}
-        <aside className="lg:sticky lg:top-[88px] lg:self-start">
+        <aside className="lg:sticky lg:top-[96px] lg:self-start">
           <EnquiryPanel key={v.id} vehicle={v} waMessage={waMessage} initialMode="info" />
         </aside>
       </div>

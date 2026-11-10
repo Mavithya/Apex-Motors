@@ -70,11 +70,11 @@ export function Inventory() {
     <>
       {/* Page header */}
       <section className="border-b border-line bg-white">
-        <div className="mx-auto max-w-[1320px] px-5 pb-10 pt-8 sm:px-8 lg:pb-14">
+        <div className="mx-auto max-w-[1320px] px-5 pb-12 pt-8 sm:px-8 lg:pb-16">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: savedView ? 'Saved' : filters.arrivals ? 'New Arrivals' : 'Vehicles' }]} />
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <h1 className="text-[40px] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink sm:text-[56px]">{title}</h1>
+              <h1 className="text-[40px] font-extrabold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[56px]">{title}</h1>
               <p className="mt-4 text-[16px] leading-relaxed text-muted">
                 {savedView
                   ? 'Vehicles you have saved on this device. Saved cars are stored in your browser only.'
@@ -88,8 +88,8 @@ export function Inventory() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1320px] px-5 pb-24 pt-8 sm:px-8">
-        <div className="lg:grid lg:grid-cols-[288px_minmax(0,1fr)] lg:gap-10">
+      <div className="mx-auto max-w-[1320px] px-5 pb-24 pt-10 sm:px-8 lg:pt-12">
+        <div className="lg:grid lg:grid-cols-[272px_minmax(0,1fr)] lg:gap-9 xl:gap-12">
           {/* Desktop sidebar */}
           <aside aria-label="Filters" className="hidden lg:block">
             <div>
@@ -105,7 +105,7 @@ export function Inventory() {
 
           <div className="min-w-0">
             {/* Toolbar */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-col gap-3 border-b border-line pb-5 sm:flex-row sm:items-center">
               <form
                 role="search"
                 className="relative flex-1"
@@ -155,7 +155,7 @@ export function Inventory() {
             </div>
 
             {/* Result count + chips */}
-            <div className="mt-5 flex flex-wrap items-center gap-2">
+            <div className="mt-5 flex min-h-8 flex-wrap items-center gap-2">
               <p className="mr-2 text-[14px] text-muted" aria-live="polite">
                 Showing <span className="font-bold text-ink">{results.length}</span> {results.length === 1 ? 'vehicle' : 'vehicles'}
               </p>
@@ -185,7 +185,7 @@ export function Inventory() {
             {/* Results */}
             {results.length ? (
               <>
-                <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="mt-7 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
                   {results.slice(0, visible).map((v, i) => (
                     <VehicleCard key={v.id} vehicle={v} priority={i < 3} />
                   ))}

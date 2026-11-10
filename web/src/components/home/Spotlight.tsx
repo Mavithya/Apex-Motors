@@ -17,7 +17,7 @@ export function Spotlight() {
     { value: v.drive, unit: '', label: 'Terrain Response 2 & air suspension' },
   ]
   return (
-    <section className="bg-paper py-24">
+    <section className="bg-paper py-20 lg:py-28">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <h2 className="text-[40px] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[60px] lg:col-span-7 lg:text-[76px]">
@@ -31,7 +31,7 @@ export function Spotlight() {
       </div>
 
       <div className="mx-auto mt-12 max-w-[1600px] sm:px-8">
-        <img src={IMAGES.spotlight} alt="Land Rover Defender on a mountain road through tea plantations at dawn" className="aspect-[16/9] w-full object-cover sm:aspect-[21/9]" />
+        <img src={IMAGES.spotlight} alt="Land Rover Defender on a mountain road through tea plantations at dawn" className="aspect-[16/10] w-full object-cover sm:aspect-[21/9]" />
       </div>
 
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">

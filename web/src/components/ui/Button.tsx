@@ -22,7 +22,7 @@ type Common = { variant?: Variant; size?: Size; className?: string; children: Re
 
 export function buttonClass(variant: Variant = 'primary', size: Size = 'md', className?: string) {
   return cn(
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[3px] font-semibold transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] font-semibold tracking-[0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0',
     variants[variant],
     sizes[size],
     className

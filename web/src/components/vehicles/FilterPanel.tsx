@@ -38,8 +38,8 @@ export function FilterPanel({
       className={cn('flex flex-col', !bare && 'border border-line bg-white')}
     >
       {!bare && (
-        <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <h2 className="text-[16px] font-bold text-ink">Filter vehicles</h2>
+        <div className="flex items-center justify-between border-b border-line px-5 py-5">
+          <h2 className="text-[16px] font-bold tracking-[-0.02em] text-ink">Filter vehicles</h2>
           <button type="button" onClick={onClear} className="text-[13px] font-semibold text-accent underline-offset-4 hover:underline">
             Clear all
           </button>
@@ -216,7 +216,7 @@ export function FilterPanel({
 
 function Group({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <fieldset className="py-5">
+    <fieldset className="py-6">
       <legend className="mb-3 float-left w-full text-[13px] font-bold uppercase tracking-[0.08em] text-ink">{title}</legend>
       <div className="clear-both">{children}</div>
     </fieldset>

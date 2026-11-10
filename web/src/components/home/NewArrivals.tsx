@@ -21,7 +21,7 @@ export function NewArrivals() {
   }
 
   return (
-    <section className="overflow-hidden bg-ink py-24 text-white">
+    <section className="overflow-hidden bg-ink py-20 text-white lg:py-28">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
         <SectionHeading
           tone="light"
@@ -52,7 +52,7 @@ export function NewArrivals() {
 
       <div
         ref={track}
-        className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-5 sm:px-8 xl:px-[max(2rem,calc((100%-1320px)/2+2rem))]"
+        className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-5 sm:px-8 xl:px-[max(2rem,calc((100%-1320px)/2+2rem))]"
       >
         {arrivals.map((v) => (
           <article key={v.id} className="group w-[84%] shrink-0 snap-start sm:w-[58%] lg:w-[42%]">

@@ -27,7 +27,7 @@ export function Gallery({ images, name }: { images: VehicleImage[]; name: string
 
   return (
     <div>
-      <div className="group relative aspect-[4/3] overflow-hidden bg-stone sm:aspect-[16/11]">
+      <div className="group relative aspect-[4/3] overflow-hidden bg-stone sm:aspect-[16/10]">
         {/* Image swaps are keyboard/click-frequent, so they cut rather than animate */}
         <img src={current.src} alt={`${name} — ${current.label}`} className="h-full w-full object-cover" />
         <button
@@ -49,7 +49,7 @@ export function Gallery({ images, name }: { images: VehicleImage[]; name: string
         </div>
       </div>
 
-      <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto" role="tablist" aria-label="Vehicle photos">
+      <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto" role="tablist" aria-label="Vehicle photos">
         {images.map((img, i) => (
           <button
             key={img.src + i}
@@ -59,8 +59,8 @@ export function Gallery({ images, name }: { images: VehicleImage[]; name: string
             aria-label={img.label}
             onClick={() => setIndex(i)}
             className={cn(
-              'relative aspect-[4/3] w-24 shrink-0 overflow-hidden bg-stone sm:w-28',
-              'after:absolute after:inset-0 after:border-2 after:transition-colors after:duration-150',
+              'relative aspect-[16/10] w-24 shrink-0 overflow-hidden bg-stone sm:w-28',
+              'after:absolute after:inset-0 after:border-2 after:transition-colors after:duration-200',
               i === index ? 'after:border-accent' : 'opacity-70 after:border-transparent hover:opacity-100'
             )}
           >
@@ -117,7 +117,7 @@ function NavButton({ side, onClick, always }: { side: 'left' | 'right'; onClick:
       onClick={onClick}
       aria-label={side === 'left' ? 'Previous image' : 'Next image'}
       className={cn(
-        'absolute top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center bg-white/95 text-ink transition-opacity duration-150',
+        'absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-ink shadow-sm transition-[opacity,background-color] duration-200 hover:bg-white',
         side === 'left' ? 'left-3' : 'right-3',
         !always && 'opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:focus-visible:opacity-100'
       )}

@@ -29,13 +29,13 @@ const BENEFITS = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto grid max-w-[1320px] gap-14 px-5 sm:px-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <h2 className="text-[32px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[42px]">
             Why buyers come back to Apex.
           </h2>
-          <img src={IMAGES.showroom} alt="The Apex Motors showroom" className="mt-10 aspect-[4/3] w-full object-cover" />
+          <img src={IMAGES.showroom} alt="The Apex Motors showroom" className="mt-10 aspect-[16/11] w-full object-cover lg:aspect-[4/3]" />
         </div>
         <ul className="grid content-start gap-x-10 sm:grid-cols-2 lg:col-span-7 lg:pt-3">
           {BENEFITS.map(({ icon: Icon, title, body }) => (

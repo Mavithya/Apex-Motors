@@ -41,7 +41,7 @@ export function EnquiryPanel({ vehicle: v, waMessage, initialMode }: { vehicle: 
   return (
     <div className="border border-line bg-white">
       {/* Vehicle information */}
-      <div className="border-b border-line p-6">
+      <div className="border-b border-line p-6 lg:p-7">
         <div className="flex flex-wrap items-center gap-2">
           <Badge tone={v.condition === 'New' ? 'dark' : 'light'}>{v.condition === 'New' ? 'Brand New' : 'Pre-Owned'}</Badge>
           <span className="flex items-center gap-1.5 text-[13px] font-semibold text-graphite">
@@ -52,12 +52,12 @@ export function EnquiryPanel({ vehicle: v, waMessage, initialMode }: { vehicle: 
         <p className="mt-4 text-[13px] font-semibold text-muted">
           {v.make} · {v.year}
         </p>
-        <h1 className="mt-1 text-[30px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink">{v.model}</h1>
+        <h1 className="mt-1 text-[32px] font-extrabold leading-[1.08] tracking-[-0.035em] text-ink">{v.model}</h1>
         <p className="mt-1 text-[15px] text-muted">{v.variant}</p>
         <div className="mt-5 flex items-end justify-between gap-4">
           <div>
             <p className="text-[12px] text-muted">Price</p>
-            <p className="text-[28px] font-extrabold tracking-[-0.02em] text-ink">{formatLKR(v.price)}</p>
+            <p className="text-[27px] font-extrabold tracking-[-0.035em] text-ink">{formatLKR(v.price)}</p>
           </div>
           <WishlistButton id={v.id} label={`${v.make} ${v.model}`} variant="text" />
         </div>
@@ -65,7 +65,7 @@ export function EnquiryPanel({ vehicle: v, waMessage, initialMode }: { vehicle: 
       </div>
 
       {/* Quick actions */}
-      <div className="grid grid-cols-2 gap-2 border-b border-line p-6">
+      <div className="grid grid-cols-2 gap-2 border-b border-line p-6 lg:px-7">
         <ButtonAnchor href={DEALER.phoneHref} variant="dark">
           <Phone className="h-4 w-4" /> Call now
         </ButtonAnchor>
@@ -75,7 +75,7 @@ export function EnquiryPanel({ vehicle: v, waMessage, initialMode }: { vehicle: 
       </div>
 
       {/* Enquiry form */}
-      <div className="p-6">
+      <div className="p-6 lg:p-7">
         {sent ? (
           <FormSuccess
             title={mode === 'test-drive' ? 'Test drive requested' : 'Enquiry received'}

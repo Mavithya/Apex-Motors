@@ -30,6 +30,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -38,6 +53,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *,
   *::before,
   *::after {
@@ -45,5 +61,3 @@ body {
     animation-duration: 0.01ms !important;
   }
 }
-
-html { scroll-padding-top: 96px; }

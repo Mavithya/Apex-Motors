@@ -10,14 +10,14 @@ import { WishlistButton } from './WishlistButton'
 export const VehicleCard: React.FC<{ vehicle: Vehicle; priority?: boolean }> = ({ vehicle: v, priority }) => {
   const to = `/vehicles/${v.slug}`
   return (
-    <article className="group flex h-full flex-col border border-line bg-white">
-      <div className="relative aspect-[4/3] overflow-hidden bg-stone">
-        <Link href={to} tabIndex={-1} aria-hidden>
+    <article className="group flex h-full flex-col border border-line bg-white transition-[border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-1 hover:border-ink/20 hover:shadow-[0_18px_36px_-25px_rgba(23,26,29,0.35)]">
+      <div className="relative aspect-[16/11] overflow-hidden bg-stone">
+        <Link href={to} tabIndex={-1} aria-hidden className="block h-full w-full">
           <img
             src={v.images[0].src}
             alt=""
             loading={priority ? 'eager' : 'lazy'}
-            className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+            className="block h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
           />
         </Link>
         <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
@@ -30,27 +30,27 @@ export const VehicleCard: React.FC<{ vehicle: Vehicle; priority?: boolean }> = (
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-muted">
           {v.make} · {v.year}
         </p>
-        <h3 className="mt-1.5 text-[19px] font-bold leading-snug text-ink">
+        <h3 className="mt-1.5 line-clamp-2 min-h-[3.2rem] text-[20px] font-bold leading-tight tracking-[-0.02em] text-ink">
           <Link href={to} className="transition-colors duration-150 hover:text-accent">
             {v.model}
           </Link>
         </h3>
-        <p className="mt-0.5 truncate text-[14px] text-muted">{v.variant}</p>
+        <p className="mt-0.5 min-h-5 truncate text-[14px] text-muted">{v.variant}</p>
 
-        <dl className="mt-5 grid grid-cols-3 border-y border-line py-3 text-[13px]">
+        <dl className="mt-5 grid grid-cols-3 border-y border-line py-3.5 text-[13px]">
           <Spec label="Mileage" value={formatKm(v.mileage)} />
           <Spec label="Fuel" value={v.fuel} className="border-x border-line px-3" />
           <Spec label="Gearbox" value={v.transmission === 'Automatic' ? 'Auto' : 'Manual'} className="pl-3" />
         </dl>
 
-        <div className="mt-auto flex items-end justify-between gap-3 pt-5">
+        <div className="mt-auto flex flex-wrap items-end justify-between gap-x-3 gap-y-1.5 pt-5">
           <div>
             <p className="text-[11px] font-medium text-muted">Price</p>
-            <p className="text-[18px] font-extrabold tracking-[-0.01em] text-ink">{formatLKR(v.price)}</p>
+            <p className="text-[18px] font-extrabold tracking-[-0.03em] text-ink">{formatLKR(v.price)}</p>
           </div>
           <Link
             href={to}
