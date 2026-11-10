@@ -144,6 +144,12 @@ export const VEHICLES: Vehicle[] = [
       Technology: ['10.5" touchscreen', 'Wireless phone charging', 'Panoramic view monitor'],
     },
     images: gallery('b1633f6b-d18e-4dfa-8955-563dc55a4ab3.jpg'),
+    model3DUrl: '/models/toyota-corolla-cross.glb',
+    model3DAttribution: {
+      creator: 'Nieve5677',
+      sourceUrl: 'https://sketchfab.com/3d-models/cc503d26ea694dce85e7d0f1491b0e30',
+      license: 'CC BY',
+    },
   },
   {
     id: 'v04',

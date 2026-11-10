@@ -49,6 +49,9 @@ export interface Vehicle {
   description: string[]
   features: Partial<Record<FeatureGroup, string[]>>
   images: VehicleImage[]
+  /** Optional real 3D model. Listings without one keep the viewer unavailable. */
+  model3DUrl?: string
+  model3DAttribution?: { creator: string; sourceUrl: string; license: string }
 }
 
 export interface Testimonial {

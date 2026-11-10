@@ -3,13 +3,18 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react'
-import type { VehicleImage } from '@/types/vehicle'
+import { Box, ChevronLeft, ChevronRight, Expand, X } from 'lucide-react'
+import dynamic from 'next/dynamic'
+import type { Vehicle, VehicleImage } from '@/types/vehicle'
 import { cn } from '@/lib/utils'
 
-export function Gallery({ images, name }: { images: VehicleImage[]; name: string }) {
+const Vehicle3DModal = dynamic(() => import('./Vehicle3DModal').then((module) => module.Vehicle3DModal), { ssr: false })
+
+export function Gallery({ images, name, model3DUrl, model3DAttribution }: { images: VehicleImage[]; name: string; model3DUrl?: string; model3DAttribution?: Vehicle['model3DAttribution'] }) {
   const [index, setIndex] = useState(0)
   const [viewer, setViewer] = useState(false)
+  const [viewer3D, setViewer3D] = useState(false)
+  const close3D = useCallback(() => setViewer3D(false), [])
   const current = images[index]
 
   const go = useCallback((dir: 1 | -1) => setIndex((i) => (i + dir + images.length) % images.length), [images.length])
@@ -43,8 +48,19 @@ export function Gallery({ images, name }: { images: VehicleImage[]; name: string
             {index + 1} / {images.length} · {current.label}
             {current.representative && <span className="font-normal text-white/60"> · representative image</span>}
           </span>
-          <span className="flex h-9 w-9 items-center justify-center bg-white/95 text-ink">
-            <Expand className="h-4 w-4" aria-hidden />
+          <span className="pointer-events-auto relative z-10 flex items-center gap-2">
+            {model3DUrl ? (
+              <button type="button" onClick={() => setViewer3D(true)} className="flex h-10 items-center gap-2 bg-white/95 px-3.5 text-[12px] font-bold text-ink shadow-sm transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-accent sm:text-[13px]">
+                <Box className="h-4 w-4 text-accent" aria-hidden /> View in 3D
+              </button>
+            ) : (
+              <span className="flex h-10 items-center gap-2 bg-ink/80 px-3 text-[11px] font-semibold text-white/80" aria-label="3D view not available for this vehicle">
+                <Box className="h-4 w-4" aria-hidden /> 3D unavailable
+              </span>
+            )}
+            <span className="flex h-10 w-10 items-center justify-center bg-white/95 text-ink">
+              <Expand className="h-4 w-4" aria-hidden />
+            </span>
           </span>
         </div>
       </div>
@@ -105,6 +121,7 @@ export function Gallery({ images, name }: { images: VehicleImage[]; name: string
           </motion.div>
         )}
       </AnimatePresence>
+      {viewer3D && <Vehicle3DModal name={name} model3DUrl={model3DUrl} attribution={model3DAttribution} onClose={close3D} />}
     </div>
   )
 }

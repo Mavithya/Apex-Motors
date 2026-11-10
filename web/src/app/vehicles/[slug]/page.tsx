@@ -60,7 +60,7 @@ export default async function VehicleDetails({ params }: { params: Promise<{ slu
       <div className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] xl:gap-14">
         {/* Left: gallery and detail */}
         <div className="min-w-0">
-          <Gallery key={v.id} images={v.images} name={name} />
+          <Gallery key={v.id} images={v.images} name={name} model3DUrl={v.model3DUrl} model3DAttribution={v.model3DAttribution} />
 
           {/* Quick specifications */}
           <section aria-labelledby="specs" className="mt-16">
