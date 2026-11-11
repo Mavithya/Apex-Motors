@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'
+import Link from '@/components/ui/SiteLink'
 import { cn } from '@/lib/utils'
 
 type Variant = 'primary' | 'dark' | 'outline' | 'light' | 'outline-light'
@@ -22,7 +22,7 @@ type Common = { variant?: Variant; size?: Size; className?: string; children: Re
 
 export function buttonClass(variant: Variant = 'primary', size: Size = 'md', className?: string) {
   return cn(
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] font-semibold tracking-[0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[2px] font-semibold tracking-[0.01em] transition-[background-color,border-color,color,transform] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 max-[400px]:px-4',
     variants[variant],
     sizes[size],
     className
@@ -30,9 +30,9 @@ export function buttonClass(variant: Variant = 'primary', size: Size = 'md', cla
 }
 
 /** Internal route link styled as a button. */
-export function ButtonLink({ to, variant, size, className, children }: Common & { to: string }) {
+export function ButtonLink({ to, variant, size, className, children, ...attributes }: Common & { to: string; 'data-preview-field-path'?: string }) {
   return (
-    <Link href={to} className={buttonClass(variant, size, className)}>
+    <Link href={to} className={buttonClass(variant, size, className)} {...attributes}>
       {children}
     </Link>
   )
@@ -46,16 +46,18 @@ export function ButtonAnchor({
   className,
   children,
   newTab,
-}: Common & { href: string; newTab?: boolean }) {
+  ...attributes
+}: Common & { href: string; newTab?: boolean; 'data-preview-field-path'?: string }) {
   return (
-    <a
+    <Link
       href={href}
       target={newTab ? '_blank' : undefined}
       rel={newTab ? 'noreferrer' : undefined}
       className={buttonClass(variant, size, className)}
+      {...attributes}
     >
       {children}
-    </a>
+    </Link>
   )
 }
 

@@ -2,6 +2,11 @@ export function cn(...parts: (string | false | null | undefined)[]) {
   return parts.filter(Boolean).join(' ')
 }
 
+/** Formats editable copy while keeping calculated values separate from stored text. */
+export function interpolateCopy(template: string, values: Record<string, string | number | undefined>) {
+  return template.replace(/\{(\w+)\}/g, (token, key: string) => values[key] === undefined ? token : String(values[key]))
+}
+
 export function formatLKR(value: number) {
   return 'LKR ' + Math.round(value).toLocaleString('en-LK')
 }

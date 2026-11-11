@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react'
 import { motion } from 'framer-motion'
@@ -30,16 +30,20 @@ export function WishlistButton({
           'inline-flex h-11 items-center gap-2 whitespace-nowrap rounded-[3px] border px-4 text-sm font-semibold transition-colors duration-150',
           saved ? 'border-accent text-accent' : 'border-line text-ink hover:border-ink',
           className
-        )}
+        )} data-preview-static="Interface label, control, or calculated value"
       >
-        <Heart className={cn('h-4 w-4', saved && 'fill-accent')} aria-hidden />
+        <Heart
+          className={cn('h-4 w-4', saved && 'fill-accent')}
+          aria-hidden
+
+          data-preview-static="Decorative icon" />
         {saved ? 'Saved' : 'Save'}
       </button>
-    )
+    );
   }
 
   return (
-    <motion.button
+    <motion.button data-preview-static="Wishlist action"
       type="button"
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.12 }}
@@ -55,7 +59,11 @@ export function WishlistButton({
         className
       )}
     >
-      <Heart className={cn('h-[18px] w-[18px]', saved && 'fill-accent')} aria-hidden />
+      <Heart
+        className={cn('h-[18px] w-[18px]', saved && 'fill-accent')}
+        aria-hidden
+
+        data-preview-static="Decorative icon" />
     </motion.button>
-  )
+  );
 }

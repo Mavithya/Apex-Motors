@@ -1,53 +1,44 @@
 # Apex Motors
 
-The Apex Motors Magic Patterns design, migrated into the existing Next.js 16 App Router project with React, TypeScript, Tailwind CSS 4, Lucide React and Framer Motion.
+The existing Apex Motors design runs on Next.js App Router, React, TypeScript, Tailwind CSS 4, Lucide React and Framer Motion. It exports a frontend-only Fivora DENEB template.
 
-## Run locally
-
-Run commands from this directory:
+## Development and checks
 
 ```sh
 npm install
 npm run dev
-```
-
-Open [localhost:3000](http://localhost:3000). On Windows, use `npm.cmd` if PowerShell blocks the npm script shim.
-
-```sh
 npm run lint
 npx tsc --noEmit
 npm run build
-npm start
 ```
 
-## Routes and content
+On Windows, use `npm.cmd` if PowerShell blocks the npm script shim. The production build writes [out/](./out), which can be served by a static host. There is no production Next.js server or backend API.
 
-- `/` — home
-- `/vehicles` — inventory, filters, sorting, new arrivals and saved vehicles
-- `/vehicles/[slug]` — matching local vehicle, gallery, enquiry and finance calculator
-- `/financing`, `/sell-your-car`, `/about`, `/contact`, `/faq`
+## Routes and editable content
 
-Page entry points are in [src/app](./src/app), with shared components in [src/components](./src/components). Edit the sample inventory in [vehicles.ts](./src/data/vehicles.ts), business information and section photos in [dealer.ts](./src/data/dealer.ts), and links in [navigation.ts](./src/data/navigation.ts). FAQs and reviews also live in [src/data](./src/data).
+The original routes remain: `/`, `/vehicles`, `/vehicles/[slug]`, `/financing`, `/sell-your-car`, `/about`, `/contact` and `/faq`.
 
-The original Manrope font, colors and Tailwind theme are in [globals.css](./src/app/globals.css). Photography keeps its original Magic Patterns CDN URLs and native image sizing. The existing Tailwind Turbopack integration is retained, so no PostCSS configuration is needed.
+Merchant-created vehicles use the exported `/products/detail/?id=VEHICLE_ID` route. This supports vehicles added after the build. Original slug routes remain available for the supplied sample vehicles.
 
-Forms validate locally and display demonstration success states. They do not send email or save submissions. Wishlist saves use `apex-motors:wishlist` in localStorage, with an in-memory fallback when storage is unavailable. Applied filters and sort order live in the URL; `?view=saved` shows saved vehicles and `?view=new-arrivals` shows recent arrivals.
+[site-data.json](./src/data/site-data.json) is the shared content source. Vehicles live in `content.catalog.products`; prices are numbers in LKR. It also holds dealership information, FAQs, testimonials and section copy. [fivora-template.json](./fivora-template.json) declares the editor schema and visual-editing contract. The SDK provider handles Merchant Studio messages; catalog updates work through both the shared collection and the platform's root products collection.
 
-## Browser validation
+Navigation uses Next.js links and URL parameters. Saved vehicles use browser localStorage. Forms validate locally and show demonstration success states. They do not send enquiries. Finance estimates remain illustrative.
 
-[verify-migration.mjs](./scripts/verify-migration.mjs) checks local data, finance math, all routes, filters, history, wishlist synchronization, forms, gallery controls, responsive widths and CDN images using headless Playwright. Playwright is a separate verification tool and is not an application dependency.
+The original photography and styling are preserved. Manrope is self-hosted through [deneb-fonts.css](./src/fonts/deneb-fonts.css). Set `NEXT_PUBLIC_BASE_PATH` when building for a subdirectory; Next.js navigation receives logical routes, while local assets receive the deployment prefix.
 
-With `playwright-core` available to Node and Microsoft Edge installed, start the app and run:
+## Validate and package for Fivora
 
 ```sh
-node scripts/verify-migration.mjs
+npm run validate
+npm run package:template
 ```
 
-To use an isolated installation, set `APEX_PLAYWRIGHT_MODULE` to its absolute `playwright-core` package directory. Optional settings:
+Packaging runs the DENEB preflight in an isolated source snapshot, including dependency installation, empty-state and populated-state builds, visual editing, styles and reusable preview checks. Upload the generated ZIP reported by the command. Build and validation reports are local outputs and should not be committed.
 
-- `APEX_BASE_URL` — defaults to `http://localhost:3000`; set this to test a production server on another port.
-- `APEX_BROWSER_CHANNEL` — defaults to `msedge`; for example, use `chrome` for installed Google Chrome.
-- `APEX_BROWSER_PATH` — use a specific installed Chromium executable instead of a channel.
-- `APEX_SCREENSHOT_DIR` — save QA screenshots here; defaults to a temporary directory.
+The contract merge script runs before build, validate and packaging. [fix-static-segments.js](./scripts/fix-static-segments.js) handles Next.js static-export segment filenames on Windows without patching framework packages.
 
-The image and font checks require internet access. See [MIGRATION.md](./MIGRATION.md) for the migration inventory and validation results.
+## 3D model and repository files
+
+The **Toyota Corolla Cross** is the only vehicle with a configured real 3D model. Other vehicles display an unavailable state. The representative model is by Nieve5677 under CC BY; its [source and attribution](https://sketchfab.com/3d-models/cc503d26ea694dce85e7d0f1491b0e30) are also displayed in the viewer. Model year and trim may differ from the listing.
+
+Commit both [toyota-corolla-cross.glb](./public/models/toyota-corolla-cross.glb) and [meshopt_decoder.js](./public/models/meshopt_decoder.js): the viewer needs both at runtime. Commit application source, package and lock files, the template manifest and build scripts. Exclude dependencies, build output, conversion backups, migration-only scripts and generated ZIPs.
