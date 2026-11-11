@@ -3,12 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "node init && next dev",
+    "lint": "eslint src scripts/merge-platform-contract.js scripts/fix-static-segments.js",
+    "prebuild": "node scripts/merge-platform-contract.js",
+    "build": "node init && next build",
+    "postbuild": "node scripts/fix-static-segments.js",
+    "lab": "deneb lab .",
+    "validate": "deneb validate .",
+    "prevalidate": "node scripts/merge-platform-contract.js",
+    "zip": "deneb zip .",
+    "package:template": "node node_modules/@deneb-ui/cli/src/tools/deneb-template-validator.cjs package . --output fivora-template.zip --force",
+    "update:deneb": "deneb update",
+    "validate-and-zip": "deneb validate-and-zip .",
+    "prevalidate-and-zip": "node scripts/merge-platform-contract.js",
+    "fonts:install": "deneb fonts install .",
+    "prepackage:template": "node scripts/merge-platform-contract.js"
   },
   "dependencies": {
+    "@deneb-ui/core": "^2.0.131",
+    "@deneb-ui/ui": "^2.0.131",
+    "@fontsource/manrope": "^5.3.0",
     "@google/model-viewer": "^4.4.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.577.0",
@@ -17,6 +31,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@deneb-ui/cli": "^2.0.131",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -25,5 +40,11 @@
     "eslint-config-next": "16.4.6",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
+  },
+  "overrides": {
+    "content-type": "2.1.0",
+    "@octokit/request": {
+      "content-type": "2.1.0"
+    }
   }
 }

@@ -40,4 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.. migration-source
+# Local DENEB conversion and packaging artifacts
+/.deneb/
+/.deneb-backup-*/
+/deneb-conversion-report.json
+/fivora-template.zip
+/scripts/verify-migration.mjs

@@ -1,20 +1,26 @@
-'use client'
+'use client';
+import { useSiteData } from "@deneb-ui/ui";
+import { useDealer } from '@/lib/useDealer'
 
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, MessageCircle, Phone, X } from 'lucide-react'
-import { DEALER, whatsappLink } from '@/data/dealer'
-import { MAIN_NAV, type NavKey } from '@/data/navigation'
-import Link from 'next/link'
+import { type NavKey } from '@/data/navigation'
+import { useNavigation } from '@/lib/useNavigation'
+import Link from '@/components/ui/SiteLink'
 import { cn } from '@/lib/utils'
 import { Logo } from './Logo'
 
 export function MobileNav({ open, onClose, active }: { open: boolean; onClose: () => void; active?: NavKey }) {
+  const siteData = useSiteData();
+  const navigation = useNavigation()
+  const DEALER = useDealer()
+  const whatsappLink = (message?: string) => (DEALER.whatsappUrl ?? `https://wa.me/${DEALER.whatsappNumber}`) + (message ? '?text=' + encodeURIComponent(message) : '')
   const [expanded, setExpanded] = useState(false)
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-50 xl:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="fixed inset-0 z-50 xl:hidden" role="dialog" aria-modal="true" aria-labelledby="label-mobilenav-0"><span id="label-mobilenav-0" className="sr-only" data-preview-static="Accessibility label">Menu</span>
           <motion.div
             className="absolute inset-0 bg-ink/50"
             initial={{ opacity: 0 }}
@@ -32,12 +38,12 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
           >
             <div className="flex h-[72px] items-center justify-between border-b border-line px-5">
               <Logo />
-              <button type="button" onClick={onClose} aria-label="Close menu" className="flex h-11 w-11 items-center justify-center">
-                <X className="h-6 w-6" />
+              <button type="button" onClick={onClose} aria-label="Close menu" className="flex h-11 w-11 items-center justify-center" data-preview-static="Interface label, control, or calculated value">
+                <X className="h-6 w-6" data-preview-static="decorative-icon" />
               </button>
             </div>
-            <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 py-3">
-              {MAIN_NAV.map((item) => (
+            <nav aria-labelledby="label-mobilenav-1" className="flex-1 overflow-y-auto px-5 py-3"><span id="label-mobilenav-1" className="sr-only" data-preview-static="Accessibility label">Mobile</span>
+              {navigation.map((item) => (
                 <div key={item.key} className="border-b border-line">
                   <div className="flex items-center justify-between">
                     <Link
@@ -48,7 +54,7 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                         active === item.key ? 'text-accent' : 'text-ink'
                       )}
                     >
-                      {item.label}
+                      <span data-preview-static="Computed interface value">{item.label}</span>
                     </Link>
                     {item.children && (
                       <button
@@ -56,9 +62,11 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                         onClick={() => setExpanded((v) => !v)}
                         aria-expanded={expanded}
                         aria-label="Show vehicle categories"
-                        className="flex h-11 w-11 items-center justify-center text-muted"
+                        className="flex h-11 w-11 items-center justify-center text-muted" data-preview-static="Interface label, control, or calculated value"
                       >
-                        <ChevronDown className={cn('h-5 w-5 transition-transform duration-200', expanded && 'rotate-180')} />
+                        <ChevronDown
+                          className={cn('h-5 w-5 transition-transform duration-200', expanded && 'rotate-180')}
+                          data-preview-static="decorative-icon" />
                       </button>
                     )}
                   </div>
@@ -66,7 +74,7 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                     <div className="grid grid-cols-2 gap-x-4 pb-4">
                       {item.children.map((c) => (
                         <Link key={c.to} href={c.to} onClick={onClose} className="py-2 text-[15px] text-graphite">
-                          {c.label}
+                          <span data-preview-static="Computed interface value">{c.label}</span>
                         </Link>
                       ))}
                     </div>
@@ -74,7 +82,10 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                 </div>
               ))}
               <Link href="/vehicles?view=saved" onClick={onClose} className="block border-b border-line py-4 text-[17px] font-semibold text-ink">
-                Saved vehicles
+                <span
+                  data-preview-field-path="common.header.savedVehicles"
+                  data-preview-style-target="common.header.savedVehicles"
+                  data-preview-style-type="text">{siteData?.content?.common?.header?.savedVehicles ?? "Saved vehicles"}</span>
               </Link>
             </nav>
             <div className="space-y-3 border-t border-line p-5">
@@ -83,25 +94,34 @@ export function MobileNav({ open, onClose, active }: { open: boolean; onClose: (
                 onClick={onClose}
                 className="flex h-12 items-center justify-center rounded-[3px] bg-accent text-sm font-semibold text-white"
               >
-                Find Your Car
+                <span
+                  data-preview-field-path="common.header.findCar"
+                  data-preview-style-target="common.header.findCar"
+                  data-preview-style-type="text">{siteData?.content?.common?.header?.findCar ?? "Find Your Car"}</span>
               </Link>
               <div className="grid grid-cols-2 gap-3">
-                <a href={DEALER.phoneHref} className="flex h-12 items-center justify-center gap-2 rounded-[3px] border border-line text-sm font-semibold text-ink">
-                  <Phone className="h-4 w-4" /> Call
-                </a>
-                <a
+                <Link href={DEALER.phoneHref} className="flex h-12 items-center justify-center gap-2 rounded-[3px] border border-line text-sm font-semibold text-ink">
+                  <Phone className="h-4 w-4" /> <span
+                    data-preview-field-path="common.header.call"
+                    data-preview-style-target="common.header.call"
+                    data-preview-style-type="text">{siteData?.content?.common?.header?.call ?? "Call"}</span>
+                </Link>
+                <Link
                   href={whatsappLink()}
                   target="_blank"
                   rel="noreferrer"
                   className="flex h-12 items-center justify-center gap-2 rounded-[3px] border border-line text-sm font-semibold text-ink"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp
-                </a>
+                  <MessageCircle className="h-4 w-4" /> <span
+                    data-preview-field-path="common.header.whatsapp"
+                    data-preview-style-target="common.header.whatsapp"
+                    data-preview-style-type="text">{siteData?.content?.common?.header?.whatsapp ?? "WhatsApp"}</span>
+                </Link>
               </div>
             </div>
           </motion.aside>
         </div>
       )}
     </AnimatePresence>
-  )
+  );
 }

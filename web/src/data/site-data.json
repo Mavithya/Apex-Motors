@@ -1,0 +1,2391 @@
+{
+  "arcVersion": "2.2.0",
+  "schemaVersion": 2,
+  "project": {
+    "title": "Apex Motors",
+    "status": "APPROVED"
+  },
+  "merchant": {
+    "businessName": "Apex Motors",
+    "description": "An independent dealership in Colombo offering brand-new and carefully inspected pre-owned vehicles, with financing assistance and trade-in valuations under one roof."
+  },
+  "template": {
+    "id": "web-template",
+    "name": "Apex Motors",
+    "engine": "NEXT_STATIC_EXPORT",
+    "structure": {
+      "pages": [
+        "home",
+        "about",
+        "contact",
+        "faq",
+        "financing",
+        "products_detail",
+        "sell-your-car",
+        "vehicles"
+      ],
+      "theme": {
+        "primaryColor": "#B52C35",
+        "secondaryColor": "#171A1D",
+        "accentColor": "#B52C35",
+        "backgroundColor": "#F6F5F1",
+        "cardBackgroundColor": "#FFFFFF",
+        "textColor": "#24282B",
+        "borderColor": "#E6E5E0",
+        "headingFont": "Manrope, sans-serif",
+        "bodyFont": "Manrope, sans-serif",
+        "borderRadius": "2px"
+      }
+    }
+  },
+  "requirements": {
+    "requiredPages": [
+      "home",
+      "vehicles",
+      "about",
+      "contact",
+      "faq",
+      "financing",
+      "sell-your-car"
+    ],
+    "requiredFeatures": []
+  },
+  "content": {
+    "common": {
+      "websiteTitle": "Apex Motors",
+      "shortDescription": "An independent dealership in Colombo offering brand-new and carefully inspected pre-owned vehicles, with financing assistance and trade-in valuations under one roof.",
+      "logoUrl": "",
+      "headerCtaLabel": "Contact Us",
+      "copyright": "© 2026 Apex Motors. All rights reserved.",
+      "navLabels": {
+        "home": "Home",
+        "about": "About Us",
+        "contact": "Contact",
+        "faq": "FAQ",
+        "financing": "Financing",
+        "sell-your-car": "Sell / Trade In",
+        "vehicles": "Browse Cars",
+        "arrivals": "New Arrivals"
+      },
+      "business": {
+        "phone": "",
+        "whatsapp": "",
+        "email": ""
+      },
+      "faq": {},
+      "form": {
+        "description": "Template demo: this form validates in the browser only. No enquiry has been sent — connect it to your CRM or email service before going live."
+      },
+      "footer": {
+        "brandNewUrl": "/vehicles?condition=New",
+        "brandNewLabel": "Brand new",
+        "preOwnedUrl": "/vehicles?condition=Used",
+        "preOwnedLabel": "Pre-owned",
+        "visitShowroom": "Visit the showroom",
+        "description": "Vehicle prices, specifications and availability shown are illustrative sample data for this template and are not verified listings.",
+        "tel": "Tel",
+        "whatsapp": "WhatsApp",
+        "explore2": "Explore",
+        "vehicles2": "Vehicles"
+      },
+      "FOOTER_LINKS": [
+        {
+          "label": "Home",
+          "to": "/"
+        },
+        {
+          "label": "All vehicles",
+          "to": "/vehicles"
+        },
+        {
+          "label": "New arrivals",
+          "to": "/vehicles?view=new-arrivals"
+        },
+        {
+          "label": "Financing",
+          "to": "/financing"
+        },
+        {
+          "label": "Sell or trade in",
+          "to": "/sell-your-car"
+        },
+        {
+          "label": "About us",
+          "to": "/about"
+        },
+        {
+          "label": "Contact",
+          "to": "/contact"
+        },
+        {
+          "label": "FAQ",
+          "to": "/faq"
+        }
+      ],
+      "CATEGORIES": [
+        {
+          "slug": "suv",
+          "label": "SUVs"
+        },
+        {
+          "slug": "sedan",
+          "label": "Sedans"
+        },
+        {
+          "slug": "hatchback",
+          "label": "Hatchbacks"
+        },
+        {
+          "slug": "mpv",
+          "label": "MPVs"
+        },
+        {
+          "slug": "luxury",
+          "label": "Luxury"
+        },
+        {
+          "slug": "sports",
+          "label": "Sports Cars"
+        }
+      ],
+      "contact": {
+        "whatsappUrl": "https://wa.me/94771234567",
+        "whatsappLabel": "WhatsApp"
+      },
+      "optionalLabel": "Optional",
+      "featuredBadge": "Featured",
+      "mileage": "Mileage",
+      "fuel": "Fuel",
+      "gearbox": "Gearbox",
+      "subtitle": "Price",
+      "header": {
+        "subtitle": "Browse by",
+        "savedVehicles": "Saved vehicles",
+        "findCar": "Find Your Car",
+        "call": "Call",
+        "whatsapp": "WhatsApp"
+      },
+      "viewDetails": "View details",
+      "loadingVehicleDetails": "Loading vehicle details…",
+      "specLabels": {
+        "spec0": "Engine capacity",
+        "spec1": "Fuel type",
+        "spec2": "Transmission",
+        "spec3": "Mileage",
+        "spec4": "Drive type",
+        "spec5": "Body type",
+        "spec6": "Exterior colour",
+        "spec7": "Doors / seats",
+        "spec8": "Registration"
+      },
+      "sectionCopy": {
+        "financing_page_0": "We help you compare leasing and loan options from partner lenders, explain every figure, and take care of the paperwork.",
+        "sell-your-car_page_0": "Sell it to us outright or trade it in against your next vehicle. A clear valuation, no obligation, and no strangers on your doorstep.",
+        "home_CategoryGrid_0": "Start with the shape of car that fits your life, then narrow it down.",
+        "home_FeaturedVehicles_0": "A rotating selection from our current stock — each one inspected, photographed and priced by our team.",
+        "home_NewArrivals_0": "The latest additions to the showroom floor. New stock moves quickly — enquire early to arrange a viewing."
+      }
+    },
+    "contact": {
+      "title": "Visit, call or message us.",
+      "description": "WhatsApp is usually the quickest way to reach an advisor. For visits outside our opening hours, book an appointment.",
+      "label": "",
+      "heading": "Showroom",
+      "heading2": "Business hours",
+      "form": {
+        "messageReceived": "Message received",
+        "messageReceived2": "Message received",
+        "heading": "Send us a message",
+        "fullName": "Full name",
+        "fullName2": "Full name",
+        "item0771234567Placeholder": "077 123 4567",
+        "phoneNumber": "Phone number",
+        "phoneNumber2": "Phone number",
+        "email": "Email",
+        "email2": "Email",
+        "whatItAbout": "What is it about?",
+        "whatItAbout2": "What is it about?",
+        "message": "Message",
+        "message2": "Message",
+        "formWhatsappUrl": "https://wa.me/1234567890",
+        "formSubmitLabel": "Send message"
+      }
+    },
+    "sell-your-car": {
+      "hero": {
+        "yourCurrentCarWorthMore": "Your current car is worth more than you think.",
+        "getValuation": "Get a valuation",
+        "image": "https://cdn.magicpatterns.com/patterns/generated-images/73f1c7b3-e7c7-4c88-bf5b-6eedfd5f5f5c.jpg"
+      },
+      "heading": "How it works",
+      "STEPS": [
+        {
+          "title": "Tell us about your car",
+          "body": "Submit the form below with the basics. Photos can follow on WhatsApp."
+        },
+        {
+          "title": "Inspection",
+          "body": "Bring the car to our showroom, or we can arrange to inspect it in the Colombo area."
+        },
+        {
+          "title": "Clear valuation",
+          "body": "You receive an itemised offer explaining how we reached the figure."
+        },
+        {
+          "title": "Settle or trade",
+          "body": "Take payment, or put the value straight towards your next vehicle."
+        }
+      ],
+      "heading2": "Why trade in with us",
+      "form": {
+        "valuationRequestReceived": "Valuation request received",
+        "valuationRequestReceived2": "Valuation request received",
+        "heading": "Your vehicle",
+        "eGToyotaPlaceholder": "e.g. Toyota",
+        "vehicleMake": "Vehicle make",
+        "vehicleMake2": "Vehicle make",
+        "eGAxioPlaceholder": "e.g. Axio",
+        "model": "Model",
+        "model2": "Model",
+        "selectYearPlaceholder": "Select year",
+        "year": "Year",
+        "year2": "Year",
+        "eG68000Placeholder": "e.g. 68000",
+        "mileageKm": "Mileage (km)",
+        "mileageKm2": "Mileage (km)",
+        "selectConditionPlaceholder": "Select condition",
+        "condition": "Condition",
+        "condition2": "Condition",
+        "heading2": "Your details",
+        "contactName": "Contact name",
+        "contactName2": "Contact name",
+        "item0771234567Placeholder": "077 123 4567",
+        "phoneNumber": "Phone number",
+        "phoneNumber2": "Phone number",
+        "email": "Email",
+        "email2": "Email",
+        "serviceHistoryModificationsOutstandingLease": "Service history, modifications, outstanding lease, the car you’d like next…",
+        "additionalDetails": "Additional details",
+        "additionalDetails2": "Additional details"
+      },
+      "stepLabel": "Step",
+      "benefits": [
+        {
+          "title": "One visit, not weeks of listings",
+          "body": "No calls from strangers, no test drives with people you do not know."
+        },
+        {
+          "title": "Seamless upgrade",
+          "body": "Your trade-in value is deducted from your next car in a single transaction."
+        },
+        {
+          "title": "Paperwork handled",
+          "body": "We manage the transfer documents and settle any outstanding lease."
+        },
+        {
+          "title": "Prompt payment",
+          "body": "If you are selling outright, payment can be arranged once documents are verified."
+        }
+      ]
+    },
+    "financing": {
+      "hero": {
+        "financeFitsWayDrive": "Finance that fits the way you drive.",
+        "estimatePayment": "Estimate a payment",
+        "speakFinanceAdvisor": "Speak to a finance advisor",
+        "image": "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg"
+      },
+      "heading": "How financing assistance works",
+      "description": "We are not a lender. Our role is to help you understand your options and to work with banks and leasing companies so you get a clear, comparable offer — at no extra charge from us.",
+      "STEPS": [
+        {
+          "title": "Choose your vehicle",
+          "body": "Pick a car from our stock, or tell us your budget and we will suggest options that fit."
+        },
+        {
+          "title": "Share a few details",
+          "body": "Income, employment and preferred term. We use this to approach suitable partner lenders on your behalf."
+        },
+        {
+          "title": "Compare offers",
+          "body": "We lay out each lender’s rate, fees and instalment side by side so you can choose."
+        },
+        {
+          "title": "Sign and drive",
+          "body": "Once approved, we handle the documentation with the lender and prepare your car for handover."
+        }
+      ],
+      "vehiclePriceLkrLabel": "Vehicle price (LKR)",
+      "downPaymentLabel": "Down payment",
+      "item10Label": "10%",
+      "item80Label": "80%",
+      "interestRatePerYearLabel": "Interest rate (% per year)",
+      "subtitle": "Estimated monthly instalment",
+      "amountFinanced": "Amount financed",
+      "totalInterest": "Total interest",
+      "totalPayable": "Total payable",
+      "description2": "Illustrative estimate only. This is not a financing offer or approval; actual rates, fees and terms are set by the lender after assessment.",
+      "heading2": "Monthly instalment calculator",
+      "description3": "Enter a vehicle price, your down payment, a loan period and an interest rate to see an indicative monthly figure.",
+      "heading3": "Talk to a finance advisor",
+      "description4": "Share a few details and an advisor will call to understand your situation. There is no obligation and no impact on your credit record from this enquiry.",
+      "description5": "All calculations on this site are estimates for illustration. Final rates, fees, loan-to-value limits and approval are determined by the lender and current regulations. Apex Motors does not provide credit.",
+      "form": {
+        "financeEnquiryReceived": "Finance enquiry received",
+        "financeEnquiryReceived2": "Finance enquiry received",
+        "fullName": "Full name",
+        "fullName2": "Full name",
+        "item0771234567Placeholder": "077 123 4567",
+        "phoneNumber": "Phone number",
+        "phoneNumber2": "Phone number",
+        "email": "Email",
+        "email2": "Email",
+        "notDecidedYetPlaceholder": "Not decided yet",
+        "vehicleInterest": "Vehicle of interest",
+        "vehicleInterest2": "Vehicle of interest",
+        "employment": "Employment",
+        "employment2": "Employment",
+        "preferredLoanPeriod": "Preferred loan period",
+        "preferredLoanPeriod2": "Preferred loan period",
+        "anythingElse": "Anything else",
+        "anythingElse2": "Anything else",
+        "subtitle": "Your current estimate will be attached:"
+      },
+      "contact": {
+        "formSubmitLabel": "Request a call back"
+      },
+      "stepLabel": "Step",
+      "loanPeriod": "Loan period",
+      "subtitle2": "for {months} months",
+      "important": "Important."
+    },
+    "home": {
+      "hero": {
+        "anyMakePlaceholder": "Any make",
+        "anyModelPlaceholder": "Any model",
+        "anyBodyTypePlaceholder": "Any body type",
+        "noLimitPlaceholder": "No limit",
+        "searchLabel": "Search",
+        "make2": "Make",
+        "model2": "Model",
+        "bodyType2": "Body type",
+        "maximumBudget2": "Maximum budget"
+      },
+      "testimonials": {
+        "heading": "Questions, answered.",
+        "description": "The things buyers ask us most often. Anything else, our team is a call or message away.",
+        "readAllFaqsUrl": "/faq",
+        "readAllFaqsLabel": "Read all FAQs",
+        "heading2": "In our customers’ words",
+        "sampleTestimonialsReplaceRealReviews": "Sample testimonials — replace with real reviews"
+      },
+      "heroImage": "https://cdn.magicpatterns.com/patterns/generated-images/78bcac7a-39fa-4361-9548-6443c1d64b77.jpg",
+      "title2": "Find the Car That Moves You.",
+      "subtitle3": "Explore carefully selected vehicles and discover your next journey.",
+      "form": {
+        "subtitle": "Price",
+        "vehicleLabel": "Vehicle:",
+        "fullName": "Full name",
+        "fullName2": "Full name",
+        "item0771234567Placeholder": "077 123 4567",
+        "phoneNumber": "Phone number",
+        "phoneNumber2": "Phone number",
+        "email": "Email",
+        "email2": "Email",
+        "preferredDate": "Preferred date",
+        "preferredDate2": "Preferred date",
+        "time": "Time",
+        "time2": "Time",
+        "message": "Message",
+        "message2": "Message",
+        "srcImage": "",
+        "subtitle2": "Stock ref {ref} · illustrative sample listing",
+        "callNow": "Call now",
+        "whatsapp": "WhatsApp"
+      },
+      "about": {
+        "heading": "Popular brands"
+      },
+      "exploreCategory": "Explore by category",
+      "CATEGORIES": [
+        {
+          "slug": "suv",
+          "label": "SUVs",
+          "blurb": "Height, space and all-road confidence",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/38793933-709e-4e33-a633-b41835bff712.jpg",
+          "to": "/vehicles?category=suv"
+        },
+        {
+          "slug": "sedan",
+          "label": "Sedans",
+          "blurb": "Composed, efficient, refined",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/6dd37daf-87b9-4e9b-9500-f20f12ecfac7.jpg",
+          "to": "/vehicles?category=sedan"
+        },
+        {
+          "slug": "hatchback",
+          "label": "Hatchbacks",
+          "blurb": "Easy to park, easy to own",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/d3e8777c-2402-469f-8ecf-ee28388d11a5.jpg",
+          "to": "/vehicles?category=hatchback"
+        },
+        {
+          "slug": "mpv",
+          "label": "MPVs",
+          "blurb": "Seven seats for the whole family",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/1fedfe43-e2d0-4f46-959c-9919da3c2c19.jpg",
+          "to": "/vehicles?category=mpv"
+        },
+        {
+          "slug": "luxury",
+          "label": "Luxury",
+          "blurb": "Premium marques, inspected in full",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/2fdf0a15-43d3-48ea-82a3-b5b41ff85c9c.jpg",
+          "to": "/vehicles?category=luxury"
+        },
+        {
+          "slug": "sports",
+          "label": "Sports Cars",
+          "blurb": "For drivers who enjoy the drive",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/dbf9407e-e4a5-4b8c-adb2-5838d520188f.jpg",
+          "to": "/vehicles?category=sports"
+        }
+      ],
+      "featuredProducts": {
+        "handpicked": "Handpicked for You",
+        "viewAllVehicles": "View all vehicles"
+      },
+      "handoverImage": "https://cdn.magicpatterns.com/patterns/generated-images/2c7b2374-7536-4529-ba5d-ab785e677dff.jpg",
+      "heading": "Your next car is closer than you think.",
+      "options": [
+        {
+          "to": "/financing",
+          "title": "Explore Financing",
+          "body": "Estimate your monthly instalment and let us compare lenders for you."
+        },
+        {
+          "to": "/sell-your-car",
+          "title": "Trade In Your Vehicle",
+          "body": "Get a clear valuation on your current car and put it towards the next."
+        }
+      ],
+      "heading2": "Meet your next adventure.",
+      "description": "The new Defender 110 goes wherever the road ends — up through the tea country, down to the coast — then drives home in near silence.",
+      "spotlightImage": "https://cdn.magicpatterns.com/patterns/generated-images/c8893956-4998-43eb-a120-d8929c0ddb12.jpg",
+      "specs": [
+        {
+          "label": "3.0L mild-hybrid straight-six",
+          "value": "300",
+          "unit": "PS"
+        },
+        {
+          "label": "Maximum wading depth",
+          "value": "900",
+          "unit": "mm"
+        },
+        {
+          "label": "Terrain Response 2 & air suspension",
+          "unit": "",
+          "value": "4WD"
+        }
+      ],
+      "heading3": "Why buyers come back to Apex.",
+      "showroomImage": "https://cdn.magicpatterns.com/patterns/generated-images/5b8bb8cb-d63e-4a02-a6f9-a419e3025e43.jpg",
+      "exploreVehicles": "Explore Vehicles",
+      "contactTeam": "Contact Our Team",
+      "subtitle4": "{year} · Brand new · Ref {ref}",
+      "exploreVehicle2": "Explore This Vehicle",
+      "benefits": [
+        {
+          "title": "Carefully selected vehicles",
+          "body": "Every pre-owned car is inspected before it is listed. If it does not meet our standard, it does not go on the floor."
+        },
+        {
+          "title": "Transparent vehicle information",
+          "body": "Mileage, ownership history and inspection notes are shared up front, so you can compare with confidence."
+        },
+        {
+          "title": "Financing assistance",
+          "body": "We help you compare leasing and loan options from partner lenders and handle the paperwork with you."
+        },
+        {
+          "title": "Professional customer support",
+          "body": "One advisor from first enquiry to handover — and still a phone call away after you drive out."
+        }
+      ],
+      "justArrived": "Just arrived",
+      "exploreVehicle": "Explore Vehicle"
+    },
+    "faq": {
+      "heading": "Still have a question?",
+      "title": "Frequently asked questions",
+      "subtitle": "Straight answers about buying, inspection, financing, trade-ins and warranty.",
+      "searchQuestionsPlaceholder": "Search questions",
+      "subtitle2": "Try another word, or ask our team directly.",
+      "subtitle3": "Our advisors are available .",
+      "askWhatsapp": "Ask on WhatsApp",
+      "contactPage": "Contact page",
+      "heading2": "No questions match “”"
+    },
+    "vehicles": {
+      "heading": "Specifications",
+      "heading2": "About this vehicle",
+      "subtitle2": "Interior colour: ",
+      "heading3": "Key features",
+      "heading4": "Estimate your monthly payment",
+      "heading5": "You may also consider",
+      "heading6": "Interested in this vehicle?",
+      "heading7": "Filter vehicles",
+      "contact": {
+        "formSubmitLabel": "Clear all",
+        "formSubmitLabel2": "Clear all"
+      },
+      "condition": "Condition",
+      "makeModel": "Make & model",
+      "anyMakePlaceholder": "Any make",
+      "anyModelPlaceholder": "Any model",
+      "anyBodyTypePlaceholder": "Any body type",
+      "priceLkr": "Price (LKR)",
+      "noMinPlaceholder": "No min",
+      "noMaxPlaceholder": "No max",
+      "year": "Year",
+      "anyPlaceholder": "Any",
+      "anyPlaceholder2": "Any",
+      "fuelType": "Fuel type",
+      "transmission": "Transmission",
+      "mileage": "Mileage",
+      "anyMileagePlaceholder": "Any mileage",
+      "driveType": "Drive type",
+      "exteriorColour": "Exterior colour",
+      "anyColourPlaceholder": "Any colour",
+      "gallery": {
+        "representativeImageLabel": "· representative image",
+        "view3dLabel": "View in 3D",
+        "item3dUnavailableLabel": "3D unavailable",
+        "ofLabel": "· · of",
+        "emptyMessage": "Vehicle photographs have not been added yet."
+      },
+      "form": {
+        "searchMakeModelYearPlaceholder": "Search by make, model or year"
+      },
+      "sortLabel": "Sort by",
+      "SORT_OPTIONS": [
+        {
+          "label": "Newest first",
+          "value": "newest"
+        },
+        {
+          "label": "Oldest first",
+          "value": "oldest"
+        },
+        {
+          "label": "Price: low to high",
+          "value": "price-asc"
+        },
+        {
+          "label": "Price: high to low",
+          "value": "price-desc"
+        },
+        {
+          "label": "Year: newest first",
+          "value": "year-desc"
+        }
+      ],
+      "clearAllLabel": "Clear all",
+      "loadMoreVehiclesLabel": "Load more vehicles",
+      "clearAllFiltersLabel": "Clear all filters",
+      "subtitle3": "Apex Motors · 3D showroom",
+      "loading3dVehicle": "Loading 3D vehicle…",
+      "subtitle4": "Drag to rotate · Scroll or pinch to zoom",
+      "resetViewLabel": "Reset view",
+      "subtitle5": "Adjust the deposit and term to see how the {model} could fit your budget.",
+      "description": "Speak to an advisor about the {year} {name}, ref {ref}. We usually reply within the hour during opening times.",
+      "call": "Call",
+      "whatsappUs": "WhatsApp us",
+      "whatsapp": "WhatsApp",
+      "applyFiltersLabel": "Apply filters ·",
+      "subtitle6": "vehicles",
+      "subtitle7": "Showing",
+      "subtitle8": "Viewing of",
+      "heading8": "Filters",
+      "autoRotateLabel": "Auto rotate",
+      "make2": "Make",
+      "model2": "Model",
+      "bodyType2": "Body type",
+      "minimum2": "Minimum",
+      "maximum2": "Maximum",
+      "from2": "From",
+      "to2": "To",
+      "mileageRange2": "Mileage range",
+      "colour2": "Colour"
+    },
+    "about": {
+      "title": "A dealership built on straight answers.",
+      "showroomImage": "https://cdn.magicpatterns.com/patterns/generated-images/5b8bb8cb-d63e-4a02-a6f9-a419e3025e43.jpg",
+      "description": "We have stayed deliberately small. Our stock is chosen rather than accumulated, and every car is one we are prepared to put our name to. That means fewer vehicles on the floor, and more time with each customer.",
+      "description2": "Most of our buyers come through recommendation. We think that is because we answer questions plainly, price fairly, and stay in touch long after the paperwork is signed.",
+      "heading": "Our mission",
+      "description3": "To make buying a car in Sri Lanka transparent, unhurried and fair — for first-time buyers and enthusiasts alike.",
+      "heading2": "Our vision",
+      "description4": "To be the dealership people recommend without being asked, because the experience was simply better.",
+      "heading3": "Why customers choose us",
+      "PRINCIPLES": [
+        {
+          "title": "We list what we would buy ourselves",
+          "body": "Every pre-owned vehicle is inspected before it reaches the floor. Cars that do not meet the standard are turned away, however good the margin."
+        },
+        {
+          "title": "The full picture, before you visit",
+          "body": "Mileage, ownership, service history and inspection notes are shared up front, so the conversation starts from facts."
+        },
+        {
+          "title": "One advisor, start to finish",
+          "body": "The person who answers your first message is the person who hands you the keys — and the one you call afterwards."
+        }
+      ],
+      "handoverImage": "https://cdn.magicpatterns.com/patterns/generated-images/2c7b2374-7536-4529-ba5d-ab785e677dff.jpg",
+      "handoverDayShowroom": "Handover day at the showroom.",
+      "detailImage": "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg",
+      "srcImage": "https://cdn.magicpatterns.com/patterns/generated-images/6dd37daf-87b9-4e9b-9500-f20f12ecfac7.jpg",
+      "heading4": "What we do",
+      "SERVICES": [
+        {
+          "title": "Brand-new & pre-owned sales",
+          "body": "Selected stock across leading marques.",
+          "to": "/vehicles"
+        },
+        {
+          "title": "Financing assistance",
+          "body": "Compare partner lenders with our help.",
+          "to": "/financing"
+        },
+        {
+          "title": "Trade-in & purchase",
+          "body": "Clear, itemised valuations.",
+          "to": "/sell-your-car"
+        },
+        {
+          "title": "Vehicle sourcing",
+          "body": "Tell us what you want; we find it.",
+          "to": "/contact"
+        }
+      ],
+      "heading5": "Come and see us.",
+      "subtitle": "Since ",
+      "description5": "began as a small pre-owned lot on Baseline Road. Today we offer brand-new and carefully selected pre-owned vehicles, financing assistance and trade-ins — still from the same corner of Colombo.",
+      "contactTeam": "Contact our team",
+      "call": "Call"
+    },
+    "dealer": {
+      "name": "Apex Motors",
+      "wordmark": "APEX",
+      "wordmarkSuffix": "MOTORS",
+      "description": "An independent dealership in Colombo offering brand-new and carefully inspected pre-owned vehicles, with financing assistance and trade-in valuations under one roof.",
+      "phoneDisplay": "+94 11 234 5678",
+      "whatsappDisplay": "+94 77 123 4567",
+      "email": "sales@apexmotors.lk",
+      "addressLines": [
+        "No. 248, Baseline Road",
+        "Colombo 09",
+        "Sri Lanka"
+      ],
+      "city": "Colombo, Sri Lanka",
+      "hoursShort": "Mon–Sat 9:00–18:30",
+      "hours": [
+        {
+          "days": "Monday – Friday",
+          "time": "9:00 am – 6:30 pm"
+        },
+        {
+          "days": "Saturday",
+          "time": "9:00 am – 5:00 pm"
+        },
+        {
+          "days": "Sunday & Poya days",
+          "time": "By appointment"
+        }
+      ],
+      "socials": [
+        {
+          "label": "Facebook",
+          "href": "https://facebook.com"
+        },
+        {
+          "label": "Instagram",
+          "href": "https://instagram.com"
+        },
+        {
+          "label": "YouTube",
+          "href": "https://youtube.com"
+        },
+        {
+          "label": "TikTok",
+          "href": "https://tiktok.com"
+        }
+      ],
+      "established": 2009,
+      "tagline": "Your trusted vehicle partner in Colombo",
+      "phoneHref": "tel:+94112345678",
+      "whatsappNumber": "94771234567",
+      "mapQuery": "No.%20248%2C%20Baseline%20Road%2C%20Colombo%2009%2C%20Sri%20Lanka",
+      "whatsappUrl": "https://wa.me/94771234567"
+    },
+    "faqs": [
+      {
+        "id": "purchases",
+        "title": "Vehicle Purchases",
+        "items": [
+          {
+            "q": "Can I reserve a vehicle before visiting?",
+            "a": "Yes. A refundable reservation deposit holds a vehicle for up to 72 hours while you arrange a viewing or finance. Contact our team to confirm the current deposit amount."
+          },
+          {
+            "q": "Are the prices on the website negotiable?",
+            "a": "Listed prices reflect the condition, specification and market value of each vehicle. Our advisors are happy to discuss the total package, including trade-in value and finance terms."
+          },
+          {
+            "q": "What documents do I need to buy a car?",
+            "a": "Your NIC or passport, proof of address, and — if you are financing — recent salary slips or business documents. We will confirm the exact list when you enquire."
+          },
+          {
+            "q": "Do you handle registration and transfer?",
+            "a": "Yes. For brand-new vehicles we manage first registration with the DMT; for pre-owned vehicles we prepare the transfer documents on your behalf."
+          }
+        ]
+      },
+      {
+        "id": "inspection",
+        "title": "Vehicle Inspection",
+        "items": [
+          {
+            "q": "Are pre-owned vehicles inspected?",
+            "a": "Every pre-owned vehicle goes through a multi-point mechanical, electrical and body inspection before it is listed. The report is available on request."
+          },
+          {
+            "q": "Can I bring my own mechanic?",
+            "a": "Of course. Book a time with us and your mechanic can inspect the vehicle at our showroom."
+          },
+          {
+            "q": "Is the mileage verified?",
+            "a": "We check service records and, where available, agent history to verify odometer readings before listing."
+          }
+        ]
+      },
+      {
+        "id": "financing",
+        "title": "Financing",
+        "items": [
+          {
+            "q": "Do you offer leasing or loans?",
+            "a": "We work with several banks and leasing companies to help you compare offers. Approval, rates and terms are decided by the lender."
+          },
+          {
+            "q": "How much down payment do I need?",
+            "a": "It depends on the vehicle and lender, and on current regulatory loan-to-value limits. Our finance advisor will explain the minimum for your chosen car."
+          },
+          {
+            "q": "Is the online calculator a finance offer?",
+            "a": "No. The calculator gives an illustrative estimate only. Your actual instalment will depend on the lender’s approved rate, fees and term."
+          }
+        ]
+      },
+      {
+        "id": "trade-in",
+        "title": "Trade-In",
+        "items": [
+          {
+            "q": "How is my trade-in valued?",
+            "a": "We consider make, model, year, mileage, condition, service history and current market demand. You receive a clear, itemised valuation after inspection."
+          },
+          {
+            "q": "Can I trade in a car that is still under lease?",
+            "a": "Yes. We can settle the outstanding balance with your lender and deduct it from the valuation."
+          },
+          {
+            "q": "Do I have to buy from you to sell my car?",
+            "a": "No. We also purchase vehicles outright, subject to inspection."
+          }
+        ]
+      },
+      {
+        "id": "warranty",
+        "title": "Warranty",
+        "items": [
+          {
+            "q": "Do brand-new vehicles include a warranty?",
+            "a": "Brand-new vehicles carry the warranty terms provided by the manufacturer or importer. We will share the exact coverage for your chosen vehicle."
+          },
+          {
+            "q": "Is there a warranty on pre-owned vehicles?",
+            "a": "Selected pre-owned vehicles may include a limited dealership warranty or remaining manufacturer cover. Ask our team about the specific vehicle you are interested in."
+          }
+        ]
+      },
+      {
+        "id": "support",
+        "title": "Customer Support",
+        "items": [
+          {
+            "q": "What are your opening hours?",
+            "a": "Monday to Friday 9:00 am – 6:30 pm and Saturday 9:00 am – 5:00 pm. Sunday and Poya day visits are by appointment."
+          },
+          {
+            "q": "Can I enquire on WhatsApp?",
+            "a": "Yes — WhatsApp is often the fastest way to reach us. Use the WhatsApp button on any vehicle page and the vehicle details are included automatically."
+          },
+          {
+            "q": "Do you deliver vehicles outside Colombo?",
+            "a": "Delivery island-wide can be arranged. Charges depend on the distance; our team will confirm when you purchase."
+          }
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "id": "t1",
+        "name": "Dilshan P.",
+        "location": "Nugegoda",
+        "vehicle": "Toyota Corolla Cross Hybrid",
+        "quote": "They sent the inspection report before I even visited, and the car matched it exactly. The leasing paperwork was handled while I waited."
+      },
+      {
+        "id": "t2",
+        "name": "Shalini F.",
+        "location": "Kandy",
+        "vehicle": "Honda Vezel",
+        "quote": "I traded in my old Axio and the valuation was fair and explained line by line. No pressure at any point, which I appreciated."
+      },
+      {
+        "id": "t3",
+        "name": "Ruwan M.",
+        "location": "Negombo",
+        "vehicle": "Toyota Noah Hybrid",
+        "quote": "We needed seven seats on a budget. The team suggested two options I had not considered and arranged a test drive the same afternoon."
+      }
+    ],
+    "notFound": {
+      "code": "404",
+      "title": "This page could not be found.",
+      "description": "The vehicle or page may no longer be available. Explore our current collection.",
+      "browseVehicles": "Browse all vehicles"
+    },
+    "catalog": {
+      "products": [
+        {
+          "id": "v01",
+          "title": "Land Cruiser Prado",
+          "brand": "Toyota",
+          "price": 86500000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/38793933-709e-4e33-a633-b41835bff712.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/38793933-709e-4e33-a633-b41835bff712.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/2cc6c136-474c-4957-a7d2-cd4ed231e7d3.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/423e5ac3-dab0-41bf-9d66-c06b37c05882.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/f7c3d5ee-c000-4884-913b-946aa0605ab3.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "The new-generation Prado returns to its roots with a squarer, more purposeful body, a reinforced ladder frame and a cabin that finally matches its price point. This example is brand new, unregistered and supplied with full manufacturer documentation.\n\nThe 2.8-litre turbo-diesel pairs with an 8-speed automatic and full-time 4WD with a lockable centre differential, so it is as composed on the Kandy road as it is on an estate track. Seven seats, with the third row folding flat into the floor.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "toyota-land-cruiser-prado-2025",
+              "ref": "APX-25-0141",
+              "variant": "TX-L 2.8 Diesel",
+              "year": 2025,
+              "condition": "New",
+              "mileage": 12,
+              "fuel": "Diesel",
+              "transmission": "Automatic",
+              "drive": "4WD",
+              "engineCc": 2755,
+              "exteriorColor": "Pearl White",
+              "interiorColor": "Black leather",
+              "doors": 5,
+              "seats": 7,
+              "registration": "Unregistered",
+              "featured": true,
+              "newArrival": true,
+              "addedOn": "2025-05-18",
+              "tagline": "The all-new generation, built for every road the island has.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Toyota Safety Sense 3.0",
+                    "Adaptive cruise control",
+                    "Lane tracing assist",
+                    "Blind-spot monitor",
+                    "360° panoramic view monitor"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Tri-zone climate control",
+                    "Ventilated front seats",
+                    "Power tailgate",
+                    "Third-row seating"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Black leather upholstery",
+                    "Heated steering wheel",
+                    "Ambient lighting"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "LED headlamps",
+                    "18\" alloy wheels",
+                    "Roof rails",
+                    "Side steps"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "12.3\" touchscreen",
+                    "Wireless Apple CarPlay & Android Auto",
+                    "Multi-terrain select",
+                    "Digital rear-view mirror"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Side profile"
+                },
+                "image2": {
+                  "label": "Rear three-quarter"
+                },
+                "image3": {
+                  "label": "Interior"
+                },
+                "image4": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image5": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true,
+                "luxury": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v02",
+          "title": "Vezel",
+          "brand": "Honda",
+          "price": 18750000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/279cc4a3-4b33-4766-be7e-0ac2f32d23b5.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/279cc4a3-4b33-4766-be7e-0ac2f32d23b5.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "One local owner, 8,400 km, serviced at the agent. The e:HEV system runs on electric power for most city driving, which is where it returns its best economy.\n\nThe Z grade adds the larger touchscreen, LED lighting and Honda Sensing. Interior is clean with no wear on the bolsters; the battery health report is available on request.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "honda-vezel-hybrid-2024",
+              "ref": "APX-24-0127",
+              "variant": "e:HEV Z",
+              "year": 2024,
+              "condition": "Used",
+              "mileage": 8400,
+              "fuel": "Hybrid",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1496,
+              "exteriorColor": "Premium Crystal Blue",
+              "interiorColor": "Black & grey fabric",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Registered 2024",
+              "featured": true,
+              "newArrival": false,
+              "addedOn": "2025-04-22",
+              "tagline": "Hybrid economy in a body that works in Colombo traffic.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Honda Sensing",
+                    "Collision mitigation braking",
+                    "Road departure mitigation",
+                    "Six airbags"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Keyless entry & push start",
+                    "Rear air vents"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "Full LED headlamps",
+                    "18\" alloy wheels"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "9\" touchscreen",
+                    "Apple CarPlay & Android Auto",
+                    "Reverse camera"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v03",
+          "title": "Corolla Cross",
+          "brand": "Toyota",
+          "price": 22900000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/b1633f6b-d18e-4dfa-8955-563dc55a4ab3.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/b1633f6b-d18e-4dfa-8955-563dc55a4ab3.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "Brand new and unregistered. The Corolla Cross Hybrid is the quiet favourite of families who want SUV height without SUV running costs.\n\nThe 1.8-litre hybrid system is proven and simple to maintain, and the boot comfortably takes a week of luggage.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "toyota-corolla-cross-2025",
+              "ref": "APX-25-0138",
+              "variant": "Hybrid Z",
+              "year": 2025,
+              "condition": "New",
+              "mileage": 18,
+              "fuel": "Hybrid",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1798,
+              "exteriorColor": "Celestite Silver",
+              "interiorColor": "Black leatherette",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Unregistered",
+              "featured": true,
+              "newArrival": true,
+              "addedOn": "2025-05-12",
+              "tagline": "A sensible family SUV, done properly.",
+              "model3DUrl": "/models/toyota-corolla-cross.glb",
+              "model3DAttribution": {
+                "creator": "Nieve5677",
+                "sourceUrl": "https://sketchfab.com/3d-models/cc503d26ea694dce85e7d0f1491b0e30",
+                "license": "CC BY"
+              },
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Toyota Safety Sense",
+                    "Pre-collision system",
+                    "Blind-spot monitor",
+                    "Seven airbags"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Power driver seat",
+                    "Power tailgate"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "LED headlamps",
+                    "18\" alloy wheels",
+                    "Panoramic sunroof"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "10.5\" touchscreen",
+                    "Wireless phone charging",
+                    "Panoramic view monitor"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v04",
+          "title": "Swift",
+          "brand": "Suzuki",
+          "price": 8950000,
+          "currency": "LKR",
+          "category": "Hatchback",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/d3e8777c-2402-469f-8ecf-ee28388d11a5.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/d3e8777c-2402-469f-8ecf-ee28388d11a5.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "A tidy RS-grade Swift with 21,500 km and a full Suzuki service record. Ideal as a first car or a dependable city runabout.\n\nThe CVT gearbox keeps it smooth in stop-start traffic, and parts and servicing are inexpensive island-wide.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "suzuki-swift-2023",
+              "ref": "APX-23-0094",
+              "variant": "RS 1.2",
+              "year": 2023,
+              "condition": "Used",
+              "mileage": 21500,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1197,
+              "exteriorColor": "Burning Red",
+              "interiorColor": "Black fabric",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Registered 2023",
+              "featured": false,
+              "newArrival": false,
+              "addedOn": "2025-03-02",
+              "tagline": "Light, nimble and easy to own.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Dual front airbags",
+                    "ABS with EBD",
+                    "Rear parking sensors"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Automatic climate control",
+                    "Keyless entry"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "LED projector headlamps",
+                    "16\" alloy wheels",
+                    "RS body kit"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "7\" touchscreen",
+                    "Reverse camera"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "hatchback": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v05",
+          "title": "X5",
+          "brand": "BMW",
+          "price": 58500000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/dd9bb310-baca-407c-98c8-8ef44ea2e901.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/dd9bb310-baca-407c-98c8-8ef44ea2e901.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "A plug-in hybrid X5 in M Sport trim with 34,200 km. The 3.0-litre straight-six and electric motor together produce 394 hp, with around 70 km of electric range for daily commuting.\n\nTwo previous owners, agent maintained, with a recent independent battery and body inspection on file.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "bmw-x5-xdrive45e-2022",
+              "ref": "APX-22-0071",
+              "variant": "xDrive45e M Sport",
+              "year": 2022,
+              "condition": "Used",
+              "mileage": 34200,
+              "fuel": "Hybrid",
+              "transmission": "Automatic",
+              "drive": "AWD",
+              "engineCc": 2998,
+              "exteriorColor": "Carbon Black",
+              "interiorColor": "Black Vernasca leather",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Registered 2022",
+              "featured": true,
+              "newArrival": false,
+              "addedOn": "2025-02-14",
+              "tagline": "Six-cylinder refinement with a plug-in conscience.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Driving Assistant Professional",
+                    "Active blind-spot detection",
+                    "Parking Assistant Plus"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Four-zone climate control",
+                    "Panoramic glass roof",
+                    "Soft-close doors",
+                    "Air suspension"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Vernasca leather",
+                    "Ambient lighting",
+                    "Heated front seats"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "M Sport package",
+                    "21\" M alloy wheels",
+                    "Laser headlights"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "Live Cockpit Professional",
+                    "Harman Kardon audio",
+                    "Head-up display",
+                    "Gesture control"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true,
+                "luxury": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v06",
+          "title": "C-Class",
+          "brand": "Mercedes-Benz",
+          "price": 42500000,
+          "currency": "LKR",
+          "category": "Sedan",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/2fdf0a15-43d3-48ea-82a3-b5b41ff85c9c.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/2fdf0a15-43d3-48ea-82a3-b5b41ff85c9c.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "AMG Line C 200 with 15,800 km and a single owner. The 1.5-litre turbo with EQ Boost mild-hybrid is quietly quick and impressively economical.\n\nCurrently reserved pending finance approval — enquire to be notified if it becomes available again.",
+          "isAvailable": false,
+          "customData": {
+            "vehicle": {
+              "slug": "mercedes-benz-c200-2023",
+              "ref": "APX-23-0112",
+              "variant": "C 200 AMG Line",
+              "year": 2023,
+              "condition": "Used",
+              "mileage": 15800,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "RWD",
+              "engineCc": 1496,
+              "exteriorColor": "Obsidian Black",
+              "interiorColor": "Macchiato beige leather",
+              "doors": 4,
+              "seats": 5,
+              "registration": "Registered 2023",
+              "featured": true,
+              "newArrival": false,
+              "addedOn": "2025-04-03",
+              "tagline": "A small S-Class in every way that matters.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Active Brake Assist",
+                    "Attention Assist",
+                    "Parking package with camera"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Memory front seats",
+                    "Keyless-Go"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Leather upholstery",
+                    "64-colour ambient lighting"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "AMG Line body styling",
+                    "18\" AMG alloy wheels",
+                    "LED High Performance headlamps"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "11.9\" MBUX portrait touchscreen",
+                    "12.3\" driver display",
+                    "Wireless charging"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "sedan": true,
+                "luxury": true
+              },
+              "availability": "Reserved"
+            }
+          }
+        },
+        {
+          "id": "v07",
+          "title": "X-Trail",
+          "brand": "Nissan",
+          "price": 24800000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/c5e8036c-c7b0-40fb-9d82-f955eeb6e253.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/c5e8036c-c7b0-40fb-9d82-f955eeb6e253.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "The e-POWER X-Trail is driven solely by its electric motors; the 1.5-litre engine acts as a generator. The result is EV-like smoothness with no charging required.\n\nThis brand-new example has the e-4ORCE twin-motor AWD system and seven seats.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "nissan-x-trail-e-power-2024",
+              "ref": "APX-24-0133",
+              "variant": "e-POWER e-4ORCE",
+              "year": 2024,
+              "condition": "New",
+              "mileage": 25,
+              "fuel": "Hybrid",
+              "transmission": "Automatic",
+              "drive": "AWD",
+              "engineCc": 1497,
+              "exteriorColor": "Champagne Silver",
+              "interiorColor": "Black leather",
+              "doors": 5,
+              "seats": 7,
+              "registration": "Unregistered",
+              "featured": false,
+              "newArrival": true,
+              "addedOn": "2025-05-06",
+              "tagline": "Electric drive, with the petrol engine only ever charging.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "ProPILOT Assist",
+                    "Intelligent Around View Monitor",
+                    "Rear cross-traffic alert"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Tri-zone climate control",
+                    "Heated front seats",
+                    "Hands-free power tailgate"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "Adaptive LED headlamps",
+                    "19\" alloy wheels",
+                    "Panoramic sunroof"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "12.3\" touchscreen",
+                    "Head-up display",
+                    "Wireless Apple CarPlay"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v08",
+          "title": "Civic",
+          "brand": "Honda",
+          "price": 19600000,
+          "currency": "LKR",
+          "category": "Sedan",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/6dd37daf-87b9-4e9b-9500-f20f12ecfac7.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/6dd37daf-87b9-4e9b-9500-f20f12ecfac7.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "Eleventh-generation Civic RS with 18,900 km and agent service history. The 1.5 turbo is lively and the chassis is one of the best in its class.\n\nClean, unmarked interior; both keys and owner manuals present.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "honda-civic-2023",
+              "ref": "APX-23-0105",
+              "variant": "1.5 VTEC Turbo RS",
+              "year": 2023,
+              "condition": "Used",
+              "mileage": 18900,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1498,
+              "exteriorColor": "Crystal Black Pearl",
+              "interiorColor": "Black leather & suede",
+              "doors": 4,
+              "seats": 5,
+              "registration": "Registered 2023",
+              "featured": false,
+              "newArrival": false,
+              "addedOn": "2025-03-19",
+              "tagline": "A grown-up Civic with a sense of humour.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Honda Sensing",
+                    "LaneWatch camera",
+                    "Eight airbags"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Power driver seat"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Leather & suede seats",
+                    "Honeycomb air vent trim"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "RS styling",
+                    "18\" black alloy wheels",
+                    "LED headlamps"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "9\" touchscreen",
+                    "Bose 12-speaker audio",
+                    "Wireless charging"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Side profile"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "sedan": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v09",
+          "title": "Sportage",
+          "brand": "Kia",
+          "price": 21400000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/3da62a34-c9e1-4080-96ea-d2e62931bb98.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/3da62a34-c9e1-4080-96ea-d2e62931bb98.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "A brand-new GT-Line Sportage, currently in transit and expected in our showroom within three weeks. Reservations are open.\n\nThe dual curved panoramic display and generous standard equipment make it one of the most complete SUVs at this price.",
+          "isAvailable": false,
+          "customData": {
+            "vehicle": {
+              "slug": "kia-sportage-2024",
+              "ref": "APX-24-0129",
+              "variant": "1.6 T-GDi GT-Line",
+              "year": 2024,
+              "condition": "New",
+              "mileage": 30,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1598,
+              "exteriorColor": "Experience Green",
+              "interiorColor": "Black & grey leather",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Unregistered",
+              "featured": false,
+              "newArrival": true,
+              "addedOn": "2025-05-20",
+              "tagline": "Bold design, generously equipped.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Forward collision avoidance",
+                    "Blind-spot view monitor",
+                    "Smart cruise control"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Ventilated front seats",
+                    "Smart power tailgate"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "GT-Line styling",
+                    "19\" alloy wheels",
+                    "Panoramic sunroof"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "Dual 12.3\" curved display",
+                    "Harman Kardon audio",
+                    "Wireless charging"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true
+              },
+              "availability": "In transit"
+            }
+          }
+        },
+        {
+          "id": "v10",
+          "title": "Yaris",
+          "brand": "Toyota",
+          "price": 9850000,
+          "currency": "LKR",
+          "category": "Hatchback",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/a0ab0d35-1a9a-4cfd-abea-4bc3d092cd4e.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/a0ab0d35-1a9a-4cfd-abea-4bc3d092cd4e.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "A single-owner Yaris with 32,600 km and a complete service book. Light steering and a tight turning circle make it easy in the city.\n\nRecently serviced with new tyres fitted.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "toyota-yaris-2022",
+              "ref": "APX-22-0066",
+              "variant": "1.0 G",
+              "year": 2022,
+              "condition": "Used",
+              "mileage": 32600,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 996,
+              "exteriorColor": "Super White",
+              "interiorColor": "Black fabric",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Registered 2022",
+              "featured": false,
+              "newArrival": false,
+              "addedOn": "2025-01-28",
+              "tagline": "Toyota reliability in a compact, frugal package.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Toyota Safety Sense",
+                    "Six airbags",
+                    "Reverse camera"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Automatic climate control",
+                    "Smart entry"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "8\" touchscreen",
+                    "Apple CarPlay & Android Auto"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "hatchback": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v11",
+          "title": "Defender",
+          "brand": "Land Rover",
+          "price": 112000000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/e6d7292e-2f6d-42fa-873a-fc70d8a729c9.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/e6d7292e-2f6d-42fa-873a-fc70d8a729c9.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "A brand-new Defender 110 in X-Dynamic HSE specification, finished in Gondwana Stone. The D300 mild-hybrid straight-six delivers effortless torque with surprising refinement.\n\nAir suspension, Terrain Response 2 and 900 mm wading depth mean it goes wherever the road ends — then drives home in near silence.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "land-rover-defender-110-2025",
+              "ref": "APX-25-0146",
+              "variant": "110 D300 X-Dynamic HSE",
+              "year": 2025,
+              "condition": "New",
+              "mileage": 15,
+              "fuel": "Diesel",
+              "transmission": "Automatic",
+              "drive": "4WD",
+              "engineCc": 2997,
+              "exteriorColor": "Gondwana Stone",
+              "interiorColor": "Ebony Windsor leather",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Unregistered",
+              "featured": true,
+              "newArrival": true,
+              "addedOn": "2025-05-24",
+              "tagline": "Capable of anything, comfortable everywhere.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "ClearSight ground view",
+                    "Adaptive cruise control",
+                    "3D surround camera",
+                    "Wade sensing"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Electronic air suspension",
+                    "Heated & cooled front seats",
+                    "Three-zone climate control"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Windsor leather",
+                    "Configurable ambient lighting"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "Matrix LED headlights",
+                    "20\" alloy wheels",
+                    "Sliding panoramic roof"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "Pivi Pro 11.4\" touchscreen",
+                    "Meridian sound system",
+                    "Terrain Response 2"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true,
+                "luxury": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v12",
+          "title": "Tucson",
+          "brand": "Hyundai",
+          "price": 17450000,
+          "currency": "LKR",
+          "category": "SUV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/41e22571-58c3-4dd5-afe7-957aa4924ada.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/41e22571-58c3-4dd5-afe7-957aa4924ada.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "Premium-grade Tucson with 26,300 km and one careful owner. The parametric grille with hidden lights still turns heads.\n\nUnder manufacturer warranty until 2026; full inspection report available.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "hyundai-tucson-2023",
+              "ref": "APX-23-0101",
+              "variant": "1.6 T-GDi Premium",
+              "year": 2023,
+              "condition": "Used",
+              "mileage": 26300,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1598,
+              "exteriorColor": "Amazon Grey",
+              "interiorColor": "Black leather",
+              "doors": 5,
+              "seats": 5,
+              "registration": "Registered 2023",
+              "featured": false,
+              "newArrival": false,
+              "addedOn": "2025-02-27",
+              "tagline": "Distinctive styling with a spacious, practical cabin.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Forward collision-avoidance assist",
+                    "Lane keeping assist",
+                    "Rear parking sensors"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual-zone climate control",
+                    "Heated front seats"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "Parametric hidden LED lamps",
+                    "18\" alloy wheels"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "10.25\" touchscreen",
+                    "Digital instrument cluster"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "suv": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v13",
+          "title": "Noah",
+          "brand": "Toyota",
+          "price": 19200000,
+          "currency": "LKR",
+          "category": "MPV",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/1fedfe43-e2d0-4f46-959c-9919da3c2c19.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/1fedfe43-e2d0-4f46-959c-9919da3c2c19.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "The family carrier of choice: 11,200 km, captain seats in the second row and powered sliding doors on both sides.\n\nThe 1.8 hybrid keeps running costs low even when fully loaded for the trip down south.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "toyota-noah-hybrid-2024",
+              "ref": "APX-24-0119",
+              "variant": "Hybrid S-Z",
+              "year": 2024,
+              "condition": "Used",
+              "mileage": 11200,
+              "fuel": "Hybrid",
+              "transmission": "Automatic",
+              "drive": "FWD",
+              "engineCc": 1797,
+              "exteriorColor": "White Pearl",
+              "interiorColor": "Black fabric",
+              "doors": 5,
+              "seats": 7,
+              "registration": "Registered 2024",
+              "featured": false,
+              "newArrival": true,
+              "addedOn": "2025-05-02",
+              "tagline": "Seven seats, two sliding doors, very little fuel.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Toyota Safety Sense",
+                    "Panoramic view monitor",
+                    "Seven airbags"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Dual power sliding doors",
+                    "Second-row captain seats",
+                    "Rear climate control"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "10.5\" touchscreen",
+                    "Rear-seat USB charging"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "mpv": true
+              },
+              "availability": "Available"
+            }
+          }
+        },
+        {
+          "id": "v14",
+          "title": "4 Series Coupé",
+          "brand": "BMW",
+          "price": 48900000,
+          "currency": "LKR",
+          "category": "Coupe",
+          "image": "https://cdn.magicpatterns.com/patterns/generated-images/dbf9407e-e4a5-4b8c-adb2-5838d520188f.jpg",
+          "gallery": [
+            "https://cdn.magicpatterns.com/patterns/generated-images/dbf9407e-e4a5-4b8c-adb2-5838d520188f.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+            "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg"
+          ],
+          "description": "M440i xDrive Coupé with 9,700 km. The 374 hp straight-six and all-wheel drive make it devastatingly quick in any weather.\n\nKept garaged, ceramic-coated from new, with full BMW service history.",
+          "isAvailable": true,
+          "customData": {
+            "vehicle": {
+              "slug": "bmw-m440i-coupe-2023",
+              "ref": "APX-23-0098",
+              "variant": "M440i xDrive",
+              "year": 2023,
+              "condition": "Used",
+              "mileage": 9700,
+              "fuel": "Petrol",
+              "transmission": "Automatic",
+              "drive": "AWD",
+              "engineCc": 2998,
+              "exteriorColor": "Brooklyn Grey",
+              "interiorColor": "Black Vernasca leather",
+              "doors": 2,
+              "seats": 4,
+              "registration": "Registered 2023",
+              "featured": false,
+              "newArrival": false,
+              "addedOn": "2025-03-28",
+              "tagline": "A straight-six grand tourer for the long way home.",
+              "featureGroups": [
+                {
+                  "name": "Safety",
+                  "items": [
+                    "Driving Assistant",
+                    "Parking Assistant with reversing assist"
+                  ]
+                },
+                {
+                  "name": "Comfort",
+                  "items": [
+                    "Sport seats with memory",
+                    "Three-zone climate control"
+                  ]
+                },
+                {
+                  "name": "Interior",
+                  "items": [
+                    "Vernasca leather",
+                    "M leather steering wheel"
+                  ]
+                },
+                {
+                  "name": "Exterior",
+                  "items": [
+                    "M Sport brakes",
+                    "19\" M alloy wheels",
+                    "Adaptive LED headlights"
+                  ]
+                },
+                {
+                  "name": "Technology",
+                  "items": [
+                    "Live Cockpit Professional",
+                    "Harman Kardon audio",
+                    "Head-up display"
+                  ]
+                }
+              ],
+              "photoLabels": {
+                "image0": {
+                  "label": "Front three-quarter"
+                },
+                "image1": {
+                  "label": "Interior",
+                  "representative": true
+                },
+                "image2": {
+                  "label": "Dashboard",
+                  "representative": true
+                },
+                "image3": {
+                  "label": "Wheel & lighting detail",
+                  "representative": true
+                }
+              },
+              "categoryFlags": {
+                "sports": true,
+                "luxury": true
+              },
+              "availability": "Available"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "styles": {
+    "about.title": {},
+    "about.description": {},
+    "about.description2": {},
+    "about.heading": {},
+    "about.description3": {},
+    "about.heading2": {},
+    "about.description4": {},
+    "about.heading3": {},
+    "about.PRINCIPLES.grid": {},
+    "about.handoverDayShowroom": {},
+    "about.heading4": {},
+    "about.SERVICES.grid": {},
+    "about.heading5": {},
+    "contact.title": {},
+    "contact.description": {},
+    "contact.methods.grid": {},
+    "contact.heading": {},
+    "contact.heading2": {},
+    "faq.heading": {},
+    "financing.hero.estimatePayment": {},
+    "financing.hero.speakFinanceAdvisor": {},
+    "financing.heading": {},
+    "financing.description": {},
+    "financing.STEPS.grid": {},
+    "home.subtitle": {},
+    "home.title": {},
+    "home.subtitle2": {},
+    "home.title2": {},
+    "home.subtitle3": {},
+    "sell-your-car.hero.getValuation": {},
+    "sell-your-car.heading": {},
+    "sell-your-car.STEPS.grid": {},
+    "sell-your-car.heading2": {},
+    "sell-your-car.BENEFITS.grid": {},
+    "vehicles.subtitle": {},
+    "vehicles.heading": {},
+    "vehicles.specs.grid": {},
+    "vehicles.heading2": {},
+    "vehicles.subtitle2": {},
+    "vehicles.heading3": {},
+    "vehicles.heading4": {},
+    "vehicles.heading5": {},
+    "vehicles.heading6": {},
+    "financing.vehiclePriceLkrLabel": {},
+    "financing.downPaymentLabel": {},
+    "financing.item10Label": {},
+    "financing.item80Label": {},
+    "financing.interestRatePerYearLabel": {},
+    "financing.subtitle": {},
+    "financing.description2": {},
+    "financing.heading2": {},
+    "financing.description3": {},
+    "financing.heading3": {},
+    "financing.description4": {},
+    "financing.description5": {},
+    "financing.form.subtitle": {},
+    "financing.contact.formSubmitLabel": {},
+    "contact.form.heading": {},
+    "contact.form.formSubmitLabel": {},
+    "home.form.subtitle": {},
+    "home.form.vehicleLabel": {},
+    "sell-your-car.form.heading": {},
+    "sell-your-car.form.heading2": {},
+    "home.about.heading": {},
+    "home.CATEGORIES.grid": {},
+    "home.testimonials.heading": {},
+    "home.testimonials.description": {},
+    "home.testimonials.readAllFaqsLabel": {},
+    "home.heading": {},
+    "home.options.grid": {},
+    "home.heading2": {},
+    "home.description": {},
+    "home.specs.grid": {},
+    "home.testimonials.heading2": {},
+    "home.testimonials.sampleTestimonialsReplaceRealReviews": {},
+    "home.heading3": {},
+    "home.BENEFITS.grid": {},
+    "common.FOOTER_LINKS.grid": {},
+    "common.CATEGORIES.grid": {},
+    "common.footer.brandNewLabel": {},
+    "common.footer.preOwnedLabel": {},
+    "common.footer.description": {},
+    "common.contact.whatsappLabel": {},
+    "faq.title": {},
+    "faq.subtitle": {},
+    "faq.subtitle2": {},
+    "common.optionalLabel": {},
+    "common.form.description": {},
+    "vehicles.heading7": {},
+    "vehicles.contact.formSubmitLabel": {},
+    "vehicles.contact.formSubmitLabel2": {},
+    "vehicles.gallery.representativeImageLabel": {},
+    "vehicles.gallery.view3dLabel": {},
+    "vehicles.gallery.item3dUnavailableLabel": {},
+    "vehicles.sortLabel": {},
+    "vehicles.SORT_OPTIONS.grid": {},
+    "vehicles.clearAllLabel": {},
+    "vehicles.loadMoreVehiclesLabel": {},
+    "vehicles.clearAllFiltersLabel": {},
+    "vehicles.subtitle3": {},
+    "vehicles.subtitle4": {},
+    "vehicles.resetViewLabel": {},
+    "common.featuredBadge": {},
+    "common.subtitle": {},
+    "products_detail.subtitle": {},
+    "home.testimonials.label": {},
+    "products_detail.specs.grid": {}
+  },
+  "theme": {
+    "primaryColor": "#B52C35",
+    "secondaryColor": "#171A1D",
+    "accentColor": "#B52C35",
+    "backgroundColor": "#F6F5F1",
+    "cardBackgroundColor": "#FFFFFF",
+    "textColor": "#24282B",
+    "borderColor": "#E6E5E0",
+    "headingFont": "Manrope, sans-serif",
+    "bodyFont": "Manrope, sans-serif",
+    "borderRadius": "2px",
+    "dark": {
+      "primaryColor": "#38bdf8",
+      "secondaryColor": "#f8fafc",
+      "accentColor": "#0284c7",
+      "backgroundColor": "#0b0f19",
+      "cardBackgroundColor": "#111827",
+      "textColor": "#f9fafb",
+      "borderColor": "#1f2937"
+    }
+  },
+  "assets": {
+    "hero": "https://cdn.magicpatterns.com/patterns/generated-images/78bcac7a-39fa-4361-9548-6443c1d64b77.jpg",
+    "spotlight": "https://cdn.magicpatterns.com/patterns/generated-images/c8893956-4998-43eb-a120-d8929c0ddb12.jpg",
+    "showroom": "https://cdn.magicpatterns.com/patterns/generated-images/5b8bb8cb-d63e-4a02-a6f9-a419e3025e43.jpg",
+    "handover": "https://cdn.magicpatterns.com/patterns/generated-images/2c7b2374-7536-4529-ba5d-ab785e677dff.jpg",
+    "detail": "https://cdn.magicpatterns.com/patterns/generated-images/cd980a9d-dfca-46df-9574-725e975458e8.jpg",
+    "interior": "https://cdn.magicpatterns.com/patterns/generated-images/4e2fb646-6957-4e31-82f3-8847d3b3fe10.jpg",
+    "dashboard": "https://cdn.magicpatterns.com/patterns/generated-images/e8719c66-4ef3-45a8-966c-9f5b1ba40cea.jpg",
+    "rear": "https://cdn.magicpatterns.com/patterns/generated-images/73f1c7b3-e7c7-4c88-bf5b-6eedfd5f5f5c.jpg"
+  }
+}

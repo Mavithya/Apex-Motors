@@ -1,14 +1,18 @@
-'use client'
+'use client';
+import Link from '@/components/ui/SiteLink'
+import { useSiteData } from "@deneb-ui/ui";
 
 import { useEffect, useRef, useState } from 'react'
 import { RotateCcw, RotateCw, X } from 'lucide-react'
 import type { ModelViewerElement } from '@google/model-viewer'
 import type { Vehicle } from '@/types/vehicle'
+import { withBasePath } from '@deneb-ui/ui'
 
 const INITIAL_ORBIT = '0deg 75deg auto'
 const INITIAL_FOV = '30deg'
 
 export function Vehicle3DModal({ name, model3DUrl, attribution, onClose }: { name: string; model3DUrl?: string; attribution?: Vehicle['model3DAttribution']; onClose: () => void }) {
+  const siteData = useSiteData();
   const hostRef = useRef<HTMLDivElement>(null)
   const modelRef = useRef<ModelViewerElement | null>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
@@ -41,10 +45,10 @@ export function Vehicle3DModal({ name, model3DUrl, attribution, onClose }: { nam
         const { ModelViewerElement } = await import('@google/model-viewer')
         if (cancelled || !hostRef.current) return
         // Meshopt is required by the locally hosted, compressed Corolla Cross GLB.
-        ModelViewerElement.meshoptDecoderLocation = '/models/meshopt_decoder.js'
+        ModelViewerElement.meshoptDecoderLocation = withBasePath('/models/meshopt_decoder.js')
         model = document.createElement('model-viewer')
         modelRef.current = model
-        model.setAttribute('src', model3DUrl!)
+        model.setAttribute('src', withBasePath(model3DUrl!))
         model.setAttribute('alt', `Interactive 3D model representing ${name}`)
         model.setAttribute('camera-controls', '')
         model.setAttribute('touch-action', 'none')
@@ -98,14 +102,18 @@ export function Vehicle3DModal({ name, model3DUrl, attribution, onClose }: { nam
       onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}
       className="fixed inset-0 z-[80] flex items-center justify-center bg-ink/85 p-2 backdrop-blur-[3px] sm:p-5"
     >
-      <section role="dialog" aria-modal="true" aria-label={`${name} 3D vehicle viewer`} className="flex h-[min(92dvh,900px)] w-full max-w-[1440px] flex-col overflow-hidden bg-white shadow-2xl sm:h-[min(90dvh,940px)]">
+      <section role="dialog" aria-modal="true" aria-label={`${name} 3D vehicle viewer`} className="flex h-[min(92dvh,900px)] w-full max-w-[1440px] flex-col overflow-clip bg-white shadow-2xl sm:h-[min(90dvh,940px)]">
         <header className="flex shrink-0 items-center justify-between gap-4 border-b border-line px-4 py-3 sm:px-7 sm:py-4">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">Apex Motors · 3D showroom</p>
-            <h2 className="mt-0.5 text-base font-extrabold tracking-tight text-ink sm:text-xl">{name}</h2>
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent"
+              data-preview-field-path="vehicles.subtitle3"
+              data-preview-style-target="vehicles.subtitle3"
+              data-preview-style-type="text">{siteData?.content?.vehicles?.subtitle3 ?? "Apex Motors · 3D showroom"}</p>
+            <h2 className="mt-0.5 text-base font-extrabold tracking-tight text-ink sm:text-xl" data-preview-static="Interface label, control, or calculated value">{name}</h2>
           </div>
-          <button ref={closeRef} type="button" onClick={onClose} aria-label="Close 3D viewer" className="flex h-10 w-10 shrink-0 items-center justify-center border border-line text-ink transition-colors hover:border-ink hover:bg-paper">
-            <X className="h-5 w-5" aria-hidden />
+          <button ref={closeRef} type="button" onClick={onClose} aria-label="Close 3D viewer" className="flex h-10 w-10 shrink-0 items-center justify-center border border-line text-ink transition-colors hover:border-ink hover:bg-paper" data-preview-static="Interface label, control, or calculated value">
+            <X className="h-5 w-5" aria-hidden data-preview-static="decorative-icon" />
           </button>
         </header>
 
@@ -115,34 +123,55 @@ export function Vehicle3DModal({ name, model3DUrl, attribution, onClose }: { nam
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-paper/90 px-6 text-center">
               {status === 'loading' ? (
                 <div role="status" className="flex flex-col items-center gap-4 text-sm font-semibold text-graphite">
-                  <span className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" /> Loading 3D vehicle…
+                  <span className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" data-preview-static="Interface label, control, or calculated value" /> <span
+                    data-preview-field-path="vehicles.loading3dVehicle"
+                    data-preview-style-target="vehicles.loading3dVehicle"
+                    data-preview-style-type="text">{siteData?.content?.vehicles?.loading3dVehicle ?? "Loading 3D vehicle…"}</span>
                 </div>
               ) : (
                 <div role="status" className="max-w-sm text-sm leading-relaxed text-graphite">
-                  <p className="text-lg font-extrabold text-ink">{status === 'unavailable' ? '3D model unavailable' : 'Unable to load the 3D model'}</p>
-                  <p className="mt-2">{status === 'unavailable' ? 'A 3D model has not been added for this vehicle yet.' : 'Please try again later. The vehicle photographs remain available in the gallery.'}</p>
+                  <p className="text-lg font-extrabold text-ink" data-preview-static="Interface label, control, or calculated value">{status === 'unavailable' ? '3D model unavailable' : 'Unable to load the 3D model'}</p>
+                  <p className="mt-2" data-preview-static="Interface label, control, or calculated value">{status === 'unavailable' ? 'A 3D model has not been added for this vehicle yet.' : 'Please try again later. The vehicle photographs remain available in the gallery.'}</p>
                 </div>
               )}
             </div>
           )}
-          {status === 'ready' && <p className="pointer-events-none absolute bottom-3 left-1/2 w-max max-w-[90%] -translate-x-1/2 bg-white/90 px-3 py-2 text-center text-[11px] font-medium text-muted shadow-sm sm:bottom-5 sm:text-xs">Drag to rotate · Scroll or pinch to zoom</p>}
+          {status === 'ready' && (<p
+            className="pointer-events-none absolute bottom-3 left-1/2 w-max max-w-[90%] -translate-x-1/2 bg-white/90 px-3 py-2 text-center text-[11px] font-medium text-muted shadow-sm sm:bottom-5 sm:text-xs"
+            data-preview-field-path="vehicles.subtitle4"
+            data-preview-style-target="vehicles.subtitle4"
+            data-preview-style-type="text">{siteData?.content?.vehicles?.subtitle4 ?? "Drag to rotate · Scroll or pinch to zoom"}</p>)}
         </div>
 
         <footer className="flex shrink-0 flex-col gap-3 border-t border-line px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-7 sm:py-4">
-          <p className="max-w-2xl text-[11px] leading-relaxed text-muted sm:text-xs">
+          <p className="max-w-2xl text-[11px] leading-relaxed text-muted sm:text-xs" data-preview-static="Interface label, control, or calculated value">
             {model3DUrl ? 'Representative 3D model; vehicle year and trim may differ.' : 'No 3D model has been configured for this vehicle.'}
-            {attribution && <> Model by <a href={attribution.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink">{attribution.creator}</a>, {attribution.license}.</>}
+            {attribution && <> Model by <Link href={attribution.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink"><span data-preview-static="Computed interface value">{attribution.creator}</span></Link>, {attribution.license}.</>}
           </p>
           <div className="flex shrink-0 gap-2">
-            <button type="button" onClick={resetCamera} disabled={status !== 'ready'} className="flex h-10 flex-1 items-center justify-center gap-2 border border-line px-3 text-xs font-bold text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none">
-              <RotateCcw className="h-4 w-4" aria-hidden /> Reset view
-            </button>
-            <button type="button" onClick={toggleAutoRotate} disabled={status !== 'ready'} aria-pressed={autoRotate} className="flex h-10 flex-1 items-center justify-center gap-2 border border-ink bg-ink px-3 text-xs font-bold text-white transition-colors hover:bg-graphite disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none">
-              <RotateCw className="h-4 w-4" aria-hidden /> Auto rotate {autoRotate ? 'on' : 'off'}
+            <button
+              type="button"
+              onClick={resetCamera}
+              disabled={status !== 'ready'}
+              className="flex h-10 flex-1 items-center justify-center gap-2 border border-line px-3 text-xs font-bold text-ink transition-colors hover:border-ink disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
+              data-preview-field-path="vehicles.resetViewLabel"
+              data-preview-style-target="vehicles.resetViewLabel"
+              data-preview-style-type="button">
+              <RotateCcw className="h-4 w-4" aria-hidden data-preview-static="decorative-icon" />{siteData?.content?.vehicles?.resetViewLabel ?? "Reset view"}</button>
+            <button
+              type="button"
+              onClick={toggleAutoRotate}
+              disabled={status !== 'ready'}
+              aria-pressed={autoRotate}
+              className="flex h-10 flex-1 items-center justify-center gap-2 border border-ink bg-ink px-3 text-xs font-bold text-white transition-colors hover:bg-graphite disabled:cursor-not-allowed disabled:opacity-40 sm:flex-none"
+              data-preview-field-path="vehicles.autoRotateLabel"
+              data-preview-style-target="vehicles.autoRotateLabel"
+              data-preview-style-type="button">
+              <RotateCw className="h-4 w-4" aria-hidden data-preview-static="decorative-icon" />{siteData?.content?.vehicles?.autoRotateLabel ?? "Auto rotate"}{autoRotate ? 'on' : 'off'}
             </button>
           </div>
         </footer>
       </section>
     </div>
-  )
+  );
 }

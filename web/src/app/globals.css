@@ -1,8 +1,9 @@
 /* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORT — DO NOT DELETE THIS COMMENT */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import '../fonts/deneb-fonts.css';
 
 /* CRITICAL: THE FOLLOWING TAILWIND IMPORT MUST NEVER BE DELETED — DO NOT DELETE THIS COMMENT */
 @import 'tailwindcss';
+@source '../../node_modules/@deneb-ui/ui/dist';
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
 @theme {
@@ -33,6 +34,13 @@ body {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 112px;
+}
+
+/* Keep the original full-width sections inside DENEB's flex-based page shell. */
+.apex-main > *,
+.apex-main [data-preview-page-key] > * {
+  width: 100%;
+  min-width: 0;
 }
 
 ::selection {

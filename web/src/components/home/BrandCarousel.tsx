@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { withBasePath } from '@deneb-ui/ui'
+import Link from '@/components/ui/SiteLink'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 type Brand = { name: string; logo: string; href: string }
@@ -27,18 +28,18 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
   }
 
   return (
-    <div className="mt-7 flex items-center gap-2 sm:gap-6" aria-label="Car brands carousel">
+    <div className="mt-7 flex items-center gap-2 sm:gap-6" aria-labelledby="label-brandcarousel-0"><span id="label-brandcarousel-0" className="sr-only" data-preview-static="Accessibility label">Car brands carousel</span>
       <button
         type="button"
         onClick={() => move(-1)}
         aria-label="Previous brand"
-        className="z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-stone focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:size-14"
+        className="z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-stone focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:size-14" data-preview-static="Interface label, control, or calculated value"
       >
-        <ChevronLeft size={22} strokeWidth={2} />
+        <ChevronLeft size={22} strokeWidth={2} data-preview-static="decorative-icon" />
       </button>
 
       <div
-        className="relative h-40 min-w-0 flex-1 overflow-hidden [--brand-slot:clamp(136px,22vw,264px)] sm:h-52 lg:h-60"
+        className="relative h-40 min-w-0 flex-1 overflow-clip [--brand-slot:clamp(136px,22vw,264px)] sm:h-52 lg:h-60"
         style={{ touchAction: 'pan-y' }}
         onTouchStart={(event) => { touchStart.current = event.touches[0].clientX }}
         onTouchEnd={(event) => {
@@ -53,7 +54,7 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
           style={{ transform: `translateX(calc(-${activeIndex + 0.5} * var(--brand-slot)))` }}
           onTransitionEnd={finishMove}
         >
-          {repeated.map((brand, index) => {
+          {repeated.map((brand, index: number) => {
             const distance = Math.abs(index - activeIndex)
             return (
               <Link
@@ -64,7 +65,7 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
                 tabIndex={distance <= 2 ? 0 : -1}
                 className={`flex h-full w-[var(--brand-slot)] shrink-0 items-center justify-center px-4 transition-[opacity,filter,transform] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-accent ${distance === 0 ? 'z-10 scale-100 opacity-100' : 'scale-75 opacity-55 grayscale hover:opacity-80'} ${distance > 2 ? 'pointer-events-none' : ''}`}
               >
-                <Image src={brand.logo} alt={brand.name} width={240} height={180} className="h-[85%] w-full object-contain" />
+                <Image src={withBasePath(brand.logo)} alt={brand.name} width={240} height={180} className="h-[85%] w-full object-contain" data-preview-static="Interface label, control, or calculated value" />
               </Link>
             )
           })}
@@ -75,10 +76,10 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
         type="button"
         onClick={() => move(1)}
         aria-label="Next brand"
-        className="z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-stone focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:size-14"
+        className="z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-stone focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:size-14" data-preview-static="Interface label, control, or calculated value"
       >
-        <ChevronRight size={22} strokeWidth={2} />
+        <ChevronRight size={22} strokeWidth={2} data-preview-static="decorative-icon" />
       </button>
     </div>
-  )
+  );
 }

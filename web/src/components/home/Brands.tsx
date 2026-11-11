@@ -1,3 +1,5 @@
+"use client";
+import { useSiteData } from "@deneb-ui/ui";
 import { BrandCarousel } from './BrandCarousel'
 import { VEHICLES } from '@/data/vehicles'
 
@@ -20,12 +22,18 @@ const brands = [
 }))
 
 export function Brands() {
+  const siteData = useSiteData();
   return (
     <section className="bg-white pb-24 pt-16" aria-labelledby="popular-brands-heading">
       <div className="mx-auto max-w-[1320px] px-5 sm:px-8">
-        <h2 id="popular-brands-heading" className="text-[22px] font-bold text-ink">Popular brands</h2>
+        <h2
+          id="popular-brands-heading"
+          className="text-[22px] font-bold text-ink"
+          data-preview-field-path="home.about.heading"
+          data-preview-style-target="home.about.heading"
+          data-preview-style-type="text">{siteData?.content?.home?.about?.heading ?? "Popular brands"}</h2>
         <BrandCarousel brands={brands} />
       </div>
     </section>
-  )
+  );
 }

@@ -1,13 +1,18 @@
+"use client";
+import Link from '@/components/ui/SiteLink'
+import { useSiteData } from "@deneb-ui/ui";
+import { useDealer } from '@/lib/useDealer'
 import React from 'react'
 import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 
-import { DEALER, whatsappLink } from '@/data/dealer'
 import { Breadcrumb } from '@/components/ui/PageHeader'
 import { ContactForm } from '@/components/forms/ContactForm'
 
-export const metadata = { title: 'Contact' }
 
 export default function Contact() {
+  const siteData = useSiteData();
+  const DEALER = useDealer()
+  const whatsappLink = (message?: string) => (DEALER.whatsappUrl ?? `https://wa.me/${DEALER.whatsappNumber}`) + (message ? '?text=' + encodeURIComponent(message) : '')
   const showMap = true
   const methods = [
     { icon: Phone, label: 'Telephone', value: DEALER.phoneDisplay, href: DEALER.phoneHref },
@@ -17,15 +22,19 @@ export default function Contact() {
 
   return (
     <>
-      <section className="bg-white">
+      <section data-preview-page-key="contact" className="bg-white">
         <div className="mx-auto max-w-[1320px] px-5 pb-14 pt-8 sm:px-8">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: 'Contact' }]} />
-          <h1 className="mt-10 max-w-3xl text-[42px] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[64px]">
-            Visit, call or message us.
-          </h1>
-          <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted">
-            WhatsApp is usually the quickest way to reach an advisor. For visits outside our opening hours, book an appointment.
-          </p>
+          <h1
+            className="mt-10 max-w-3xl text-[42px] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-[64px]"
+            data-preview-field-path="contact.title"
+            data-preview-style-target="contact.title"
+            data-preview-style-type="text">{siteData?.content?.contact?.title ?? "Visit, call or message us."}</h1>
+          <p
+            className="mt-5 max-w-xl text-[17px] leading-relaxed text-muted"
+            data-preview-field-path="contact.description"
+            data-preview-style-target="contact.description"
+            data-preview-style-type="text">{siteData?.content?.contact?.description ?? "WhatsApp is usually the quickest way to reach an advisor. For visits outside our opening hours, book an appointment."}</p>
         </div>
       </section>
 
@@ -33,47 +42,68 @@ export default function Contact() {
         <div className="mx-auto grid max-w-[1320px] gap-12 px-5 sm:px-8 lg:grid-cols-12">
           {/* Contact details */}
           <div className="lg:col-span-5">
-            <ul className="border-t border-line">
+            <ul className="border-t border-line" data-preview-style-target="contact.methods.grid" data-preview-style-type="grid">
               {methods.map(({ icon: Icon, label, value, href, newTab }) => (
-                <li key={label} className="border-b border-line">
-                  <a
+                <li
+                  key={label}
+                  className="border-b border-line"
+                  data-preview-style-target="contact.methods[*].card"
+                  data-preview-style-type="card">
+                  <Link
                     href={href}
                     target={newTab ? '_blank' : undefined}
                     rel={newTab ? 'noreferrer' : undefined}
                     className="group flex items-center gap-4 py-5"
-                  >
-                    <Icon className="h-5 w-5 shrink-0 text-accent" strokeWidth={1.75} aria-hidden />
+                    data-preview-field-path="contact.label"
+                    data-preview-style-target="contact.label"
+                    data-preview-style-type="button">
+                    <Icon
+                      className="h-5 w-5 shrink-0 text-accent"
+                      strokeWidth={1.75}
+                      aria-hidden
+
+                      data-preview-static="Decorative icon" />
                     <span className="min-w-0">
                       <span className="block text-[13px] text-muted">{label}</span>
                       <span className="block truncate text-[19px] font-bold text-ink transition-colors duration-150 group-hover:text-accent">
                         {value}
                       </span>
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
 
             <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <div>
-                <h2 className="flex items-center gap-2 text-[15px] font-bold text-ink">
-                  <MapPin className="h-4 w-4 text-accent" aria-hidden /> Showroom
-                </h2>
-                <address className="mt-3 not-italic text-[15px] leading-relaxed text-graphite">
-                  {DEALER.addressLines.map((l) => (
-                    <span key={l} className="block">
+                <h2
+                  className="flex items-center gap-2 text-[15px] font-bold text-ink"
+                  data-preview-field-path="contact.heading"
+                  data-preview-style-target="contact.heading"
+                  data-preview-style-type="text">
+                  <MapPin
+                    className="h-4 w-4 text-accent"
+                    aria-hidden
+                     />{siteData?.content?.contact?.heading ?? "Showroom"}</h2>
+                <address data-preview-list-path="dealer.addressLines" className="mt-3 not-italic text-[15px] leading-relaxed text-graphite">
+                  {DEALER.addressLines.map((l, index) => (
+                    <span key={l} data-preview-field-path={`dealer.addressLines[${index}]`} className="block">
                       {l}
                     </span>
                   ))}
                 </address>
               </div>
               <div>
-                <h2 className="text-[15px] font-bold text-ink">Business hours</h2>
-                <dl className="mt-3 space-y-1.5 text-[15px]">
-                  {DEALER.hours.map((h) => (
-                    <div key={h.days}>
-                      <dt className="text-muted">{h.days}</dt>
-                      <dd className="font-semibold text-graphite">{h.time}</dd>
+                <h2
+                  className="text-[15px] font-bold text-ink"
+                  data-preview-field-path="contact.heading2"
+                  data-preview-style-target="contact.heading2"
+                  data-preview-style-type="text">{siteData?.content?.contact?.heading2 ?? "Business hours"}</h2>
+                <dl data-preview-list-path="dealer.hours" className="mt-3 space-y-1.5 text-[15px]">
+                  {DEALER.hours.map((h, index) => (
+                    <div key={h.days} >
+                      <dt data-preview-field-path={`dealer.hours[${index}].days`} className="text-muted">{h.days}</dt>
+                      <dd data-preview-field-path={`dealer.hours[${index}].time`} className="font-semibold text-graphite">{h.time}</dd>
                     </div>
                   ))}
                 </dl>
@@ -87,16 +117,16 @@ export default function Contact() {
       </section>
 
       {showMap && (
-        <section aria-label="Map" className="bg-white">
+        <section aria-labelledby="label-page-0" className="bg-white"><span id="label-page-0" className="sr-only" data-preview-static="Accessibility label">Map</span>
           <iframe
             title={`Map showing ${DEALER.name}`}
             src={`https://www.google.com/maps?q=${encodeURIComponent(DEALER.mapQuery)}&output=embed`}
             className="block h-[420px] w-full border-0 grayscale"
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade" data-preview-static="Interface label, control, or calculated value"
           />
         </section>
       )}
     </>
-  )
+  );
 }

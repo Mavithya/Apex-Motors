@@ -1,0 +1,2841 @@
+{
+  "framework": "nextjs-static-export",
+  "version": 2,
+  "arcVersion": "2.2.0",
+  "schemaVersion": 2,
+  "visualEditing": {
+    "contractVersion": 1,
+    "mode": "strict",
+    "controlOnlyPaths": [
+      "additionalPages[*].id",
+      "additionalPages[*].route",
+      "catalog.products[*].currency",
+      "catalog.products[*].customData.vehicle.addedOn",
+      "catalog.products[*].customData.vehicle.availability",
+      "catalog.products[*].customData.vehicle.categoryFlags.hatchback",
+      "catalog.products[*].customData.vehicle.categoryFlags.luxury",
+      "catalog.products[*].customData.vehicle.categoryFlags.mpv",
+      "catalog.products[*].customData.vehicle.categoryFlags.sedan",
+      "catalog.products[*].customData.vehicle.categoryFlags.sports",
+      "catalog.products[*].customData.vehicle.categoryFlags.suv",
+      "catalog.products[*].customData.vehicle.condition",
+      "catalog.products[*].customData.vehicle.doors",
+      "catalog.products[*].customData.vehicle.drive",
+      "catalog.products[*].customData.vehicle.engineCc",
+      "catalog.products[*].customData.vehicle.exteriorColor",
+      "catalog.products[*].customData.vehicle.featured",
+      "catalog.products[*].customData.vehicle.fuel",
+      "catalog.products[*].customData.vehicle.interiorColor",
+      "catalog.products[*].customData.vehicle.mileage",
+      "catalog.products[*].customData.vehicle.model3DAttribution.creator",
+      "catalog.products[*].customData.vehicle.model3DAttribution.license",
+      "catalog.products[*].customData.vehicle.model3DAttribution.sourceUrl",
+      "catalog.products[*].customData.vehicle.model3DUrl",
+      "catalog.products[*].customData.vehicle.newArrival",
+      "catalog.products[*].customData.vehicle.photoLabels.image0.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image0.representative",
+      "catalog.products[*].customData.vehicle.photoLabels.image1.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image1.representative",
+      "catalog.products[*].customData.vehicle.photoLabels.image2.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image2.representative",
+      "catalog.products[*].customData.vehicle.photoLabels.image3.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image3.representative",
+      "catalog.products[*].customData.vehicle.photoLabels.image4.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image4.representative",
+      "catalog.products[*].customData.vehicle.photoLabels.image5.label",
+      "catalog.products[*].customData.vehicle.photoLabels.image5.representative",
+      "catalog.products[*].customData.vehicle.ref",
+      "catalog.products[*].customData.vehicle.registration",
+      "catalog.products[*].customData.vehicle.seats",
+      "catalog.products[*].customData.vehicle.slug",
+      "catalog.products[*].customData.vehicle.tagline",
+      "catalog.products[*].customData.vehicle.transmission",
+      "catalog.products[*].customData.vehicle.variant",
+      "catalog.products[*].customData.vehicle.year",
+      "catalog.products[*].id",
+      "catalog.products[*].isAvailable",
+      "common.CATEGORIES[*].slug",
+      "common.business.email",
+      "common.business.phone",
+      "common.business.whatsapp",
+      "common.copyright",
+      "common.featuredBadge",
+      "common.form.description",
+      "common.fuel",
+      "common.gearbox",
+      "common.header.call",
+      "common.header.findCar",
+      "common.header.savedVehicles",
+      "common.header.subtitle",
+      "common.header.whatsapp",
+      "common.headerCtaLabel",
+      "common.loadingVehicleDetails",
+      "common.logoUrl",
+      "common.mileage",
+      "common.navLabels.about",
+      "common.navLabels.arrivals",
+      "common.navLabels.contact",
+      "common.navLabels.faq",
+      "common.navLabels.financing",
+      "common.navLabels.home",
+      "common.navLabels.sell-your-car",
+      "common.navLabels.vehicles",
+      "common.optionalLabel",
+      "common.sectionCopy.home_NewArrivals_0",
+      "common.shortDescription",
+      "common.specLabels.spec0",
+      "common.specLabels.spec1",
+      "common.specLabels.spec2",
+      "common.specLabels.spec3",
+      "common.specLabels.spec4",
+      "common.specLabels.spec5",
+      "common.specLabels.spec6",
+      "common.specLabels.spec7",
+      "common.specLabels.spec8",
+      "common.subtitle",
+      "common.viewDetails",
+      "common.websiteTitle",
+      "contact.form.email",
+      "contact.form.email2",
+      "contact.form.formSubmitLabel",
+      "contact.form.formWhatsappUrl",
+      "contact.form.fullName",
+      "contact.form.fullName2",
+      "contact.form.heading",
+      "contact.form.item0771234567Placeholder",
+      "contact.form.message",
+      "contact.form.message2",
+      "contact.form.messageReceived",
+      "contact.form.messageReceived2",
+      "contact.form.phoneNumber",
+      "contact.form.phoneNumber2",
+      "contact.form.whatItAbout",
+      "contact.form.whatItAbout2",
+      "dealer.addressLines[*]",
+      "dealer.mapQuery",
+      "dealer.phoneHref",
+      "dealer.tagline",
+      "dealer.whatsappNumber",
+      "faq.heading2",
+      "faq.subtitle2",
+      "faqs[*].id",
+      "faqs[*].items[*].a",
+      "financing.form.anythingElse",
+      "financing.form.anythingElse2",
+      "financing.form.email",
+      "financing.form.email2",
+      "financing.form.employment",
+      "financing.form.employment2",
+      "financing.form.financeEnquiryReceived",
+      "financing.form.financeEnquiryReceived2",
+      "financing.form.fullName",
+      "financing.form.fullName2",
+      "financing.form.item0771234567Placeholder",
+      "financing.form.notDecidedYetPlaceholder",
+      "financing.form.phoneNumber",
+      "financing.form.phoneNumber2",
+      "financing.form.preferredLoanPeriod",
+      "financing.form.preferredLoanPeriod2",
+      "financing.form.subtitle",
+      "financing.form.vehicleInterest",
+      "financing.form.vehicleInterest2",
+      "financing.stepLabel",
+      "home.CATEGORIES[*].slug",
+      "home.exploreVehicle",
+      "home.exploreVehicle2",
+      "home.exploreVehicles",
+      "home.featuredProducts.viewAllVehicles",
+      "home.form.callNow",
+      "home.form.email",
+      "home.form.email2",
+      "home.form.fullName",
+      "home.form.fullName2",
+      "home.form.item0771234567Placeholder",
+      "home.form.message",
+      "home.form.message2",
+      "home.form.phoneNumber",
+      "home.form.phoneNumber2",
+      "home.form.preferredDate",
+      "home.form.preferredDate2",
+      "home.form.srcImage",
+      "home.form.subtitle",
+      "home.form.subtitle2",
+      "home.form.time",
+      "home.form.time2",
+      "home.form.vehicleLabel",
+      "home.form.whatsapp",
+      "home.justArrived",
+      "notFound.browseVehicles",
+      "sell-your-car.form.additionalDetails",
+      "sell-your-car.form.additionalDetails2",
+      "sell-your-car.form.condition",
+      "sell-your-car.form.condition2",
+      "sell-your-car.form.contactName",
+      "sell-your-car.form.contactName2",
+      "sell-your-car.form.eG68000Placeholder",
+      "sell-your-car.form.eGAxioPlaceholder",
+      "sell-your-car.form.eGToyotaPlaceholder",
+      "sell-your-car.form.email",
+      "sell-your-car.form.email2",
+      "sell-your-car.form.heading",
+      "sell-your-car.form.heading2",
+      "sell-your-car.form.item0771234567Placeholder",
+      "sell-your-car.form.mileageKm",
+      "sell-your-car.form.mileageKm2",
+      "sell-your-car.form.model",
+      "sell-your-car.form.model2",
+      "sell-your-car.form.phoneNumber",
+      "sell-your-car.form.phoneNumber2",
+      "sell-your-car.form.selectConditionPlaceholder",
+      "sell-your-car.form.selectYearPlaceholder",
+      "sell-your-car.form.serviceHistoryModificationsOutstandingLease",
+      "sell-your-car.form.valuationRequestReceived",
+      "sell-your-car.form.valuationRequestReceived2",
+      "sell-your-car.form.vehicleMake",
+      "sell-your-car.form.vehicleMake2",
+      "sell-your-car.form.year",
+      "sell-your-car.form.year2",
+      "sell-your-car.stepLabel",
+      "testimonials[*].id",
+      "vehicles.SORT_OPTIONS[*].value",
+      "vehicles.autoRotateLabel",
+      "vehicles.call",
+      "vehicles.clearAllFiltersLabel",
+      "vehicles.clearAllLabel",
+      "vehicles.contact.formSubmitLabel2",
+      "vehicles.description",
+      "vehicles.form.searchMakeModelYearPlaceholder",
+      "vehicles.gallery.emptyMessage",
+      "vehicles.gallery.item3dUnavailableLabel",
+      "vehicles.gallery.ofLabel",
+      "vehicles.gallery.representativeImageLabel",
+      "vehicles.gallery.view3dLabel",
+      "vehicles.heading",
+      "vehicles.heading2",
+      "vehicles.heading3",
+      "vehicles.heading4",
+      "vehicles.heading5",
+      "vehicles.heading6",
+      "vehicles.heading8",
+      "vehicles.loadMoreVehiclesLabel",
+      "vehicles.loading3dVehicle",
+      "vehicles.resetViewLabel",
+      "vehicles.subtitle2",
+      "vehicles.subtitle3",
+      "vehicles.subtitle4",
+      "vehicles.subtitle5",
+      "vehicles.subtitle8",
+      "vehicles.whatsapp",
+      "vehicles.whatsappUs"
+    ]
+  },
+  "siteDataFile": "src/data/site-data.json",
+  "outputDirectory": "out",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "basePathEnvVar": "NEXT_PUBLIC_SITE_BASE_PATH",
+  "pages": [
+    {
+      "id": "home",
+      "label": "Home",
+      "route": "/",
+      "required": true
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "route": "/about"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "route": "/contact",
+      "required": true
+    },
+    {
+      "id": "faq",
+      "label": "Faq",
+      "route": "/faq"
+    },
+    {
+      "id": "financing",
+      "label": "Financing",
+      "route": "/financing"
+    },
+    {
+      "id": "products_detail",
+      "label": "Products Detail",
+      "route": "/products/detail"
+    },
+    {
+      "id": "sell-your-car",
+      "label": "Sell Your Car",
+      "route": "/sell-your-car"
+    },
+    {
+      "id": "vehicles",
+      "label": "Vehicles",
+      "route": "/vehicles"
+    }
+  ],
+  "editorSchema": {
+    "version": 1,
+    "sections": [
+      {
+        "type": "object",
+        "label": "common",
+        "fields": [
+          {
+            "key": "websiteTitle",
+            "type": "text",
+            "label": "website Title"
+          },
+          {
+            "key": "shortDescription",
+            "type": "textarea",
+            "label": "short Description"
+          },
+          {
+            "key": "logoUrl",
+            "type": "url",
+            "label": "logo Url"
+          },
+          {
+            "key": "headerCtaLabel",
+            "type": "text",
+            "label": "header Cta Label"
+          },
+          {
+            "key": "copyright",
+            "type": "text",
+            "label": "copyright"
+          },
+          {
+            "key": "navLabels",
+            "type": "object",
+            "label": "nav Labels",
+            "fields": [
+              {
+                "key": "home",
+                "type": "text",
+                "label": "home"
+              },
+              {
+                "key": "about",
+                "type": "text",
+                "label": "about"
+              },
+              {
+                "key": "contact",
+                "type": "text",
+                "label": "contact"
+              },
+              {
+                "key": "faq",
+                "type": "text",
+                "label": "faq"
+              },
+              {
+                "key": "financing",
+                "type": "text",
+                "label": "financing"
+              },
+              {
+                "key": "sell-your-car",
+                "type": "text",
+                "label": "sell your car"
+              },
+              {
+                "key": "vehicles",
+                "type": "text",
+                "label": "vehicles"
+              },
+              {
+                "key": "arrivals",
+                "type": "text",
+                "label": "arrivals"
+              }
+            ]
+          },
+          {
+            "key": "business",
+            "type": "object",
+            "label": "business",
+            "fields": [
+              {
+                "key": "phone",
+                "type": "text",
+                "label": "phone"
+              },
+              {
+                "key": "whatsapp",
+                "type": "text",
+                "label": "whatsapp"
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "email"
+              }
+            ]
+          },
+          {
+            "key": "faq",
+            "type": "object",
+            "label": "faq",
+            "fields": []
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "description",
+                "type": "textarea",
+                "label": "description"
+              }
+            ]
+          },
+          {
+            "key": "footer",
+            "type": "object",
+            "label": "footer",
+            "fields": [
+              {
+                "key": "brandNewUrl",
+                "type": "url",
+                "label": "brand New Url"
+              },
+              {
+                "key": "brandNewLabel",
+                "type": "text",
+                "label": "brand New Label"
+              },
+              {
+                "key": "preOwnedUrl",
+                "type": "url",
+                "label": "pre Owned Url"
+              },
+              {
+                "key": "preOwnedLabel",
+                "type": "text",
+                "label": "pre Owned Label"
+              },
+              {
+                "key": "visitShowroom",
+                "type": "text",
+                "label": "visit Showroom"
+              },
+              {
+                "key": "description",
+                "type": "textarea",
+                "label": "description"
+              },
+              {
+                "key": "tel",
+                "type": "text",
+                "label": "tel"
+              },
+              {
+                "key": "whatsapp",
+                "type": "text",
+                "label": "whatsapp"
+              },
+              {
+                "key": "explore2",
+                "type": "text",
+                "label": "explore2"
+              },
+              {
+                "key": "vehicles2",
+                "type": "text",
+                "label": "vehicles2"
+              }
+            ]
+          },
+          {
+            "key": "FOOTER_LINKS",
+            "type": "list",
+            "label": "FOOTER LINKS",
+            "itemLabel": "FOOTER LINKS",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              },
+              {
+                "key": "to",
+                "type": "url",
+                "label": "Destination"
+              }
+            ]
+          },
+          {
+            "key": "CATEGORIES",
+            "type": "list",
+            "label": "CATEGORIES",
+            "itemLabel": "CATEGORIES",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "slug",
+                "type": "text",
+                "label": "slug"
+              },
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              }
+            ]
+          },
+          {
+            "key": "contact",
+            "type": "object",
+            "label": "contact",
+            "fields": [
+              {
+                "key": "whatsappUrl",
+                "type": "url",
+                "label": "whatsapp Url"
+              },
+              {
+                "key": "whatsappLabel",
+                "type": "text",
+                "label": "whatsapp Label"
+              }
+            ]
+          },
+          {
+            "key": "optionalLabel",
+            "type": "text",
+            "label": "optional Label"
+          },
+          {
+            "key": "featuredBadge",
+            "type": "text",
+            "label": "featured Badge"
+          },
+          {
+            "key": "mileage",
+            "type": "text",
+            "label": "mileage"
+          },
+          {
+            "key": "fuel",
+            "type": "text",
+            "label": "fuel"
+          },
+          {
+            "key": "gearbox",
+            "type": "text",
+            "label": "gearbox"
+          },
+          {
+            "key": "subtitle",
+            "type": "text",
+            "label": "subtitle"
+          },
+          {
+            "key": "header",
+            "type": "object",
+            "label": "header",
+            "fields": [
+              {
+                "key": "subtitle",
+                "type": "text",
+                "label": "subtitle"
+              },
+              {
+                "key": "savedVehicles",
+                "type": "text",
+                "label": "saved Vehicles"
+              },
+              {
+                "key": "findCar",
+                "type": "text",
+                "label": "find Car"
+              },
+              {
+                "key": "call",
+                "type": "text",
+                "label": "call"
+              },
+              {
+                "key": "whatsapp",
+                "type": "text",
+                "label": "whatsapp"
+              }
+            ]
+          },
+          {
+            "key": "viewDetails",
+            "type": "text",
+            "label": "view Details"
+          },
+          {
+            "key": "loadingVehicleDetails",
+            "type": "text",
+            "label": "loading Vehicle Details"
+          },
+          {
+            "key": "specLabels",
+            "type": "object",
+            "label": "spec Labels",
+            "fields": [
+              {
+                "key": "spec0",
+                "type": "text",
+                "label": "spec0"
+              },
+              {
+                "key": "spec1",
+                "type": "text",
+                "label": "spec1"
+              },
+              {
+                "key": "spec2",
+                "type": "text",
+                "label": "spec2"
+              },
+              {
+                "key": "spec3",
+                "type": "text",
+                "label": "spec3"
+              },
+              {
+                "key": "spec4",
+                "type": "text",
+                "label": "spec4"
+              },
+              {
+                "key": "spec5",
+                "type": "text",
+                "label": "spec5"
+              },
+              {
+                "key": "spec6",
+                "type": "text",
+                "label": "spec6"
+              },
+              {
+                "key": "spec7",
+                "type": "text",
+                "label": "spec7"
+              },
+              {
+                "key": "spec8",
+                "type": "text",
+                "label": "spec8"
+              }
+            ]
+          },
+          {
+            "key": "sectionCopy",
+            "type": "object",
+            "label": "section Copy",
+            "fields": [
+              {
+                "key": "financing_page_0",
+                "type": "text",
+                "label": "financing page 0"
+              },
+              {
+                "key": "sell-your-car_page_0",
+                "type": "text",
+                "label": "sell your car page 0"
+              },
+              {
+                "key": "home_CategoryGrid_0",
+                "type": "text",
+                "label": "home Category Grid 0"
+              },
+              {
+                "key": "home_FeaturedVehicles_0",
+                "type": "text",
+                "label": "home Featured Vehicles 0"
+              },
+              {
+                "key": "home_NewArrivals_0",
+                "type": "text",
+                "label": "home New Arrivals 0"
+              }
+            ]
+          }
+        ],
+        "id": "common",
+        "path": "common"
+      },
+      {
+        "type": "object",
+        "label": "contact",
+        "fields": [
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "label",
+            "type": "text",
+            "label": "label"
+          },
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "messageReceived",
+                "type": "text",
+                "label": "message Received"
+              },
+              {
+                "key": "messageReceived2",
+                "type": "text",
+                "label": "message Received2"
+              },
+              {
+                "key": "heading",
+                "type": "text",
+                "label": "heading"
+              },
+              {
+                "key": "fullName",
+                "type": "text",
+                "label": "full Name"
+              },
+              {
+                "key": "fullName2",
+                "type": "text",
+                "label": "full Name2"
+              },
+              {
+                "key": "item0771234567Placeholder",
+                "type": "text",
+                "label": "item0771234567Placeholder"
+              },
+              {
+                "key": "phoneNumber",
+                "type": "text",
+                "label": "phone Number"
+              },
+              {
+                "key": "phoneNumber2",
+                "type": "text",
+                "label": "phone Number2"
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "email"
+              },
+              {
+                "key": "email2",
+                "type": "text",
+                "label": "email2"
+              },
+              {
+                "key": "whatItAbout",
+                "type": "text",
+                "label": "what It About"
+              },
+              {
+                "key": "whatItAbout2",
+                "type": "text",
+                "label": "what It About2"
+              },
+              {
+                "key": "message",
+                "type": "text",
+                "label": "message"
+              },
+              {
+                "key": "message2",
+                "type": "text",
+                "label": "message2"
+              },
+              {
+                "key": "formWhatsappUrl",
+                "type": "url",
+                "label": "form Whatsapp Url"
+              },
+              {
+                "key": "formSubmitLabel",
+                "type": "text",
+                "label": "form Submit Label"
+              }
+            ]
+          }
+        ],
+        "id": "contact",
+        "path": "contact",
+        "pageKey": "contact"
+      },
+      {
+        "type": "object",
+        "label": "sell your car",
+        "fields": [
+          {
+            "key": "hero",
+            "type": "object",
+            "label": "hero",
+            "fields": [
+              {
+                "key": "yourCurrentCarWorthMore",
+                "type": "text",
+                "label": "your Current Car Worth More"
+              },
+              {
+                "key": "getValuation",
+                "type": "text",
+                "label": "get Valuation"
+              },
+              {
+                "key": "image",
+                "type": "image",
+                "label": "image"
+              }
+            ]
+          },
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "STEPS",
+            "type": "list",
+            "label": "STEPS",
+            "itemLabel": "STEPS",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "valuationRequestReceived",
+                "type": "text",
+                "label": "valuation Request Received"
+              },
+              {
+                "key": "valuationRequestReceived2",
+                "type": "text",
+                "label": "valuation Request Received2"
+              },
+              {
+                "key": "heading",
+                "type": "text",
+                "label": "heading"
+              },
+              {
+                "key": "eGToyotaPlaceholder",
+                "type": "text",
+                "label": "e GToyota Placeholder"
+              },
+              {
+                "key": "vehicleMake",
+                "type": "text",
+                "label": "vehicle Make"
+              },
+              {
+                "key": "vehicleMake2",
+                "type": "text",
+                "label": "vehicle Make2"
+              },
+              {
+                "key": "eGAxioPlaceholder",
+                "type": "text",
+                "label": "e GAxio Placeholder"
+              },
+              {
+                "key": "model",
+                "type": "text",
+                "label": "model"
+              },
+              {
+                "key": "model2",
+                "type": "text",
+                "label": "model2"
+              },
+              {
+                "key": "selectYearPlaceholder",
+                "type": "text",
+                "label": "select Year Placeholder"
+              },
+              {
+                "key": "year",
+                "type": "text",
+                "label": "year"
+              },
+              {
+                "key": "year2",
+                "type": "text",
+                "label": "year2"
+              },
+              {
+                "key": "eG68000Placeholder",
+                "type": "text",
+                "label": "e G68000Placeholder"
+              },
+              {
+                "key": "mileageKm",
+                "type": "text",
+                "label": "mileage Km"
+              },
+              {
+                "key": "mileageKm2",
+                "type": "text",
+                "label": "mileage Km2"
+              },
+              {
+                "key": "selectConditionPlaceholder",
+                "type": "text",
+                "label": "select Condition Placeholder"
+              },
+              {
+                "key": "condition",
+                "type": "text",
+                "label": "condition"
+              },
+              {
+                "key": "condition2",
+                "type": "text",
+                "label": "condition2"
+              },
+              {
+                "key": "heading2",
+                "type": "text",
+                "label": "heading2"
+              },
+              {
+                "key": "contactName",
+                "type": "text",
+                "label": "contact Name"
+              },
+              {
+                "key": "contactName2",
+                "type": "text",
+                "label": "contact Name2"
+              },
+              {
+                "key": "item0771234567Placeholder",
+                "type": "text",
+                "label": "item0771234567Placeholder"
+              },
+              {
+                "key": "phoneNumber",
+                "type": "text",
+                "label": "phone Number"
+              },
+              {
+                "key": "phoneNumber2",
+                "type": "text",
+                "label": "phone Number2"
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "email"
+              },
+              {
+                "key": "email2",
+                "type": "text",
+                "label": "email2"
+              },
+              {
+                "key": "serviceHistoryModificationsOutstandingLease",
+                "type": "text",
+                "label": "service History Modifications Outstanding Lease"
+              },
+              {
+                "key": "additionalDetails",
+                "type": "text",
+                "label": "additional Details"
+              },
+              {
+                "key": "additionalDetails2",
+                "type": "text",
+                "label": "additional Details2"
+              }
+            ]
+          },
+          {
+            "key": "stepLabel",
+            "type": "text",
+            "label": "step Label"
+          },
+          {
+            "key": "benefits",
+            "type": "list",
+            "label": "benefits",
+            "itemLabel": "benefits",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          }
+        ],
+        "id": "sell-your-car",
+        "path": "sell-your-car",
+        "pageKey": "sell-your-car"
+      },
+      {
+        "type": "object",
+        "label": "financing",
+        "fields": [
+          {
+            "key": "hero",
+            "type": "object",
+            "label": "hero",
+            "fields": [
+              {
+                "key": "financeFitsWayDrive",
+                "type": "text",
+                "label": "finance Fits Way Drive"
+              },
+              {
+                "key": "estimatePayment",
+                "type": "text",
+                "label": "estimate Payment"
+              },
+              {
+                "key": "speakFinanceAdvisor",
+                "type": "text",
+                "label": "speak Finance Advisor"
+              },
+              {
+                "key": "image",
+                "type": "image",
+                "label": "image"
+              }
+            ]
+          },
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "STEPS",
+            "type": "list",
+            "label": "STEPS",
+            "itemLabel": "STEPS",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "vehiclePriceLkrLabel",
+            "type": "text",
+            "label": "vehicle Price Lkr Label"
+          },
+          {
+            "key": "downPaymentLabel",
+            "type": "text",
+            "label": "down Payment Label"
+          },
+          {
+            "key": "item10Label",
+            "type": "text",
+            "label": "item10Label"
+          },
+          {
+            "key": "item80Label",
+            "type": "text",
+            "label": "item80Label"
+          },
+          {
+            "key": "interestRatePerYearLabel",
+            "type": "text",
+            "label": "interest Rate Per Year Label"
+          },
+          {
+            "key": "subtitle",
+            "type": "text",
+            "label": "subtitle"
+          },
+          {
+            "key": "amountFinanced",
+            "type": "text",
+            "label": "amount Financed"
+          },
+          {
+            "key": "totalInterest",
+            "type": "text",
+            "label": "total Interest"
+          },
+          {
+            "key": "totalPayable",
+            "type": "text",
+            "label": "total Payable"
+          },
+          {
+            "key": "description2",
+            "type": "textarea",
+            "label": "description2"
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "description3",
+            "type": "textarea",
+            "label": "description3"
+          },
+          {
+            "key": "heading3",
+            "type": "text",
+            "label": "heading3"
+          },
+          {
+            "key": "description4",
+            "type": "textarea",
+            "label": "description4"
+          },
+          {
+            "key": "description5",
+            "type": "textarea",
+            "label": "description5"
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "financeEnquiryReceived",
+                "type": "text",
+                "label": "finance Enquiry Received"
+              },
+              {
+                "key": "financeEnquiryReceived2",
+                "type": "text",
+                "label": "finance Enquiry Received2"
+              },
+              {
+                "key": "fullName",
+                "type": "text",
+                "label": "full Name"
+              },
+              {
+                "key": "fullName2",
+                "type": "text",
+                "label": "full Name2"
+              },
+              {
+                "key": "item0771234567Placeholder",
+                "type": "text",
+                "label": "item0771234567Placeholder"
+              },
+              {
+                "key": "phoneNumber",
+                "type": "text",
+                "label": "phone Number"
+              },
+              {
+                "key": "phoneNumber2",
+                "type": "text",
+                "label": "phone Number2"
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "email"
+              },
+              {
+                "key": "email2",
+                "type": "text",
+                "label": "email2"
+              },
+              {
+                "key": "notDecidedYetPlaceholder",
+                "type": "text",
+                "label": "not Decided Yet Placeholder"
+              },
+              {
+                "key": "vehicleInterest",
+                "type": "text",
+                "label": "vehicle Interest"
+              },
+              {
+                "key": "vehicleInterest2",
+                "type": "text",
+                "label": "vehicle Interest2"
+              },
+              {
+                "key": "employment",
+                "type": "text",
+                "label": "employment"
+              },
+              {
+                "key": "employment2",
+                "type": "text",
+                "label": "employment2"
+              },
+              {
+                "key": "preferredLoanPeriod",
+                "type": "text",
+                "label": "preferred Loan Period"
+              },
+              {
+                "key": "preferredLoanPeriod2",
+                "type": "text",
+                "label": "preferred Loan Period2"
+              },
+              {
+                "key": "anythingElse",
+                "type": "text",
+                "label": "anything Else"
+              },
+              {
+                "key": "anythingElse2",
+                "type": "text",
+                "label": "anything Else2"
+              },
+              {
+                "key": "subtitle",
+                "type": "text",
+                "label": "subtitle"
+              }
+            ]
+          },
+          {
+            "key": "contact",
+            "type": "object",
+            "label": "contact",
+            "fields": [
+              {
+                "key": "formSubmitLabel",
+                "type": "text",
+                "label": "form Submit Label"
+              }
+            ]
+          },
+          {
+            "key": "stepLabel",
+            "type": "text",
+            "label": "step Label"
+          },
+          {
+            "key": "loanPeriod",
+            "type": "text",
+            "label": "loan Period"
+          },
+          {
+            "key": "subtitle2",
+            "type": "text",
+            "label": "subtitle2"
+          },
+          {
+            "key": "important",
+            "type": "text",
+            "label": "important"
+          }
+        ],
+        "id": "financing",
+        "path": "financing",
+        "pageKey": "financing"
+      },
+      {
+        "type": "object",
+        "label": "home",
+        "fields": [
+          {
+            "key": "hero",
+            "type": "object",
+            "label": "hero",
+            "fields": [
+              {
+                "key": "anyMakePlaceholder",
+                "type": "text",
+                "label": "any Make Placeholder"
+              },
+              {
+                "key": "anyModelPlaceholder",
+                "type": "text",
+                "label": "any Model Placeholder"
+              },
+              {
+                "key": "anyBodyTypePlaceholder",
+                "type": "textarea",
+                "label": "any Body Type Placeholder"
+              },
+              {
+                "key": "noLimitPlaceholder",
+                "type": "text",
+                "label": "no Limit Placeholder"
+              },
+              {
+                "key": "searchLabel",
+                "type": "text",
+                "label": "search Label"
+              },
+              {
+                "key": "make2",
+                "type": "text",
+                "label": "make2"
+              },
+              {
+                "key": "model2",
+                "type": "text",
+                "label": "model2"
+              },
+              {
+                "key": "bodyType2",
+                "type": "text",
+                "label": "bodyType2"
+              },
+              {
+                "key": "maximumBudget2",
+                "type": "text",
+                "label": "maximumBudget2"
+              }
+            ]
+          },
+          {
+            "key": "testimonials",
+            "type": "object",
+            "label": "testimonials",
+            "fields": [
+              {
+                "key": "heading",
+                "type": "text",
+                "label": "heading"
+              },
+              {
+                "key": "description",
+                "type": "textarea",
+                "label": "description"
+              },
+              {
+                "key": "readAllFaqsUrl",
+                "type": "url",
+                "label": "read All Faqs Url"
+              },
+              {
+                "key": "readAllFaqsLabel",
+                "type": "text",
+                "label": "read All Faqs Label"
+              },
+              {
+                "key": "heading2",
+                "type": "text",
+                "label": "heading2"
+              },
+              {
+                "key": "sampleTestimonialsReplaceRealReviews",
+                "type": "text",
+                "label": "sample Testimonials Replace Real Reviews"
+              }
+            ]
+          },
+          {
+            "key": "heroImage",
+            "type": "image",
+            "label": "hero Image"
+          },
+          {
+            "key": "title2",
+            "type": "text",
+            "label": "title2"
+          },
+          {
+            "key": "subtitle3",
+            "type": "text",
+            "label": "subtitle3"
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "subtitle",
+                "type": "text",
+                "label": "subtitle"
+              },
+              {
+                "key": "vehicleLabel",
+                "type": "text",
+                "label": "vehicle Label"
+              },
+              {
+                "key": "fullName",
+                "type": "text",
+                "label": "full Name"
+              },
+              {
+                "key": "fullName2",
+                "type": "text",
+                "label": "full Name2"
+              },
+              {
+                "key": "item0771234567Placeholder",
+                "type": "text",
+                "label": "item0771234567Placeholder"
+              },
+              {
+                "key": "phoneNumber",
+                "type": "text",
+                "label": "phone Number"
+              },
+              {
+                "key": "phoneNumber2",
+                "type": "text",
+                "label": "phone Number2"
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "email"
+              },
+              {
+                "key": "email2",
+                "type": "text",
+                "label": "email2"
+              },
+              {
+                "key": "preferredDate",
+                "type": "text",
+                "label": "preferred Date"
+              },
+              {
+                "key": "preferredDate2",
+                "type": "text",
+                "label": "preferred Date2"
+              },
+              {
+                "key": "time",
+                "type": "text",
+                "label": "time"
+              },
+              {
+                "key": "time2",
+                "type": "text",
+                "label": "time2"
+              },
+              {
+                "key": "message",
+                "type": "text",
+                "label": "message"
+              },
+              {
+                "key": "message2",
+                "type": "text",
+                "label": "message2"
+              },
+              {
+                "key": "srcImage",
+                "type": "image",
+                "label": "src Image"
+              },
+              {
+                "key": "subtitle2",
+                "type": "text",
+                "label": "subtitle2"
+              },
+              {
+                "key": "callNow",
+                "type": "text",
+                "label": "call Now"
+              },
+              {
+                "key": "whatsapp",
+                "type": "text",
+                "label": "whatsapp"
+              }
+            ]
+          },
+          {
+            "key": "about",
+            "type": "object",
+            "label": "about",
+            "fields": [
+              {
+                "key": "heading",
+                "type": "text",
+                "label": "heading"
+              }
+            ]
+          },
+          {
+            "key": "exploreCategory",
+            "type": "text",
+            "label": "explore Category"
+          },
+          {
+            "key": "CATEGORIES",
+            "type": "list",
+            "label": "CATEGORIES",
+            "itemLabel": "CATEGORIES",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "slug",
+                "type": "text",
+                "label": "slug"
+              },
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              },
+              {
+                "key": "blurb",
+                "type": "text",
+                "label": "blurb"
+              },
+              {
+                "key": "image",
+                "type": "image",
+                "label": "image"
+              },
+              {
+                "key": "to",
+                "type": "url",
+                "label": "to"
+              }
+            ]
+          },
+          {
+            "key": "featuredProducts",
+            "type": "object",
+            "label": "featured Products",
+            "fields": [
+              {
+                "key": "handpicked",
+                "type": "text",
+                "label": "handpicked"
+              },
+              {
+                "key": "viewAllVehicles",
+                "type": "text",
+                "label": "view All Vehicles"
+              }
+            ]
+          },
+          {
+            "key": "handoverImage",
+            "type": "image",
+            "label": "handover Image"
+          },
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "options",
+            "type": "list",
+            "label": "options",
+            "itemLabel": "options",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "to",
+                "type": "url",
+                "label": "to"
+              },
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "spotlightImage",
+            "type": "image",
+            "label": "spotlight Image"
+          },
+          {
+            "key": "specs",
+            "type": "list",
+            "label": "specs",
+            "itemLabel": "specs",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              },
+              {
+                "key": "value",
+                "type": "text",
+                "label": "value"
+              },
+              {
+                "key": "unit",
+                "type": "text",
+                "label": "unit"
+              }
+            ]
+          },
+          {
+            "key": "heading3",
+            "type": "text",
+            "label": "heading3"
+          },
+          {
+            "key": "showroomImage",
+            "type": "image",
+            "label": "showroom Image"
+          },
+          {
+            "key": "exploreVehicles",
+            "type": "text",
+            "label": "explore Vehicles"
+          },
+          {
+            "key": "contactTeam",
+            "type": "text",
+            "label": "contact Team"
+          },
+          {
+            "key": "subtitle4",
+            "type": "text",
+            "label": "subtitle4"
+          },
+          {
+            "key": "exploreVehicle2",
+            "type": "text",
+            "label": "explore Vehicle2"
+          },
+          {
+            "key": "benefits",
+            "type": "list",
+            "label": "benefits",
+            "itemLabel": "benefits",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "justArrived",
+            "type": "text",
+            "label": "justArrived"
+          },
+          {
+            "key": "exploreVehicle",
+            "type": "text",
+            "label": "exploreVehicle"
+          }
+        ],
+        "id": "home",
+        "path": "home",
+        "pageKey": "home"
+      },
+      {
+        "type": "object",
+        "label": "faq",
+        "fields": [
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "subtitle",
+            "type": "text",
+            "label": "subtitle"
+          },
+          {
+            "key": "searchQuestionsPlaceholder",
+            "type": "text",
+            "label": "search Questions Placeholder"
+          },
+          {
+            "key": "subtitle2",
+            "type": "text",
+            "label": "subtitle2"
+          },
+          {
+            "key": "subtitle3",
+            "type": "text",
+            "label": "subtitle3"
+          },
+          {
+            "key": "askWhatsapp",
+            "type": "text",
+            "label": "ask Whatsapp"
+          },
+          {
+            "key": "contactPage",
+            "type": "text",
+            "label": "contact Page"
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          }
+        ],
+        "id": "faq",
+        "path": "faq",
+        "pageKey": "faq"
+      },
+      {
+        "type": "object",
+        "label": "vehicles",
+        "fields": [
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "subtitle2",
+            "type": "text",
+            "label": "subtitle2"
+          },
+          {
+            "key": "heading3",
+            "type": "text",
+            "label": "heading3"
+          },
+          {
+            "key": "heading4",
+            "type": "text",
+            "label": "heading4"
+          },
+          {
+            "key": "heading5",
+            "type": "text",
+            "label": "heading5"
+          },
+          {
+            "key": "heading6",
+            "type": "text",
+            "label": "heading6"
+          },
+          {
+            "key": "heading7",
+            "type": "text",
+            "label": "heading7"
+          },
+          {
+            "key": "contact",
+            "type": "object",
+            "label": "contact",
+            "fields": [
+              {
+                "key": "formSubmitLabel",
+                "type": "text",
+                "label": "form Submit Label"
+              },
+              {
+                "key": "formSubmitLabel2",
+                "type": "text",
+                "label": "form Submit Label2"
+              }
+            ]
+          },
+          {
+            "key": "condition",
+            "type": "text",
+            "label": "condition"
+          },
+          {
+            "key": "makeModel",
+            "type": "text",
+            "label": "make Model"
+          },
+          {
+            "key": "anyMakePlaceholder",
+            "type": "text",
+            "label": "any Make Placeholder"
+          },
+          {
+            "key": "anyModelPlaceholder",
+            "type": "text",
+            "label": "any Model Placeholder"
+          },
+          {
+            "key": "anyBodyTypePlaceholder",
+            "type": "textarea",
+            "label": "any Body Type Placeholder"
+          },
+          {
+            "key": "priceLkr",
+            "type": "text",
+            "label": "price Lkr"
+          },
+          {
+            "key": "noMinPlaceholder",
+            "type": "text",
+            "label": "no Min Placeholder"
+          },
+          {
+            "key": "noMaxPlaceholder",
+            "type": "text",
+            "label": "no Max Placeholder"
+          },
+          {
+            "key": "year",
+            "type": "text",
+            "label": "year"
+          },
+          {
+            "key": "anyPlaceholder",
+            "type": "text",
+            "label": "any Placeholder"
+          },
+          {
+            "key": "anyPlaceholder2",
+            "type": "text",
+            "label": "any Placeholder2"
+          },
+          {
+            "key": "fuelType",
+            "type": "text",
+            "label": "fuel Type"
+          },
+          {
+            "key": "transmission",
+            "type": "text",
+            "label": "transmission"
+          },
+          {
+            "key": "mileage",
+            "type": "text",
+            "label": "mileage"
+          },
+          {
+            "key": "anyMileagePlaceholder",
+            "type": "text",
+            "label": "any Mileage Placeholder"
+          },
+          {
+            "key": "driveType",
+            "type": "text",
+            "label": "drive Type"
+          },
+          {
+            "key": "exteriorColour",
+            "type": "text",
+            "label": "exterior Colour"
+          },
+          {
+            "key": "anyColourPlaceholder",
+            "type": "text",
+            "label": "any Colour Placeholder"
+          },
+          {
+            "key": "gallery",
+            "type": "object",
+            "label": "gallery",
+            "fields": [
+              {
+                "key": "representativeImageLabel",
+                "type": "image",
+                "label": "representative Image Label"
+              },
+              {
+                "key": "view3dLabel",
+                "type": "text",
+                "label": "view3d Label"
+              },
+              {
+                "key": "item3dUnavailableLabel",
+                "type": "text",
+                "label": "item3d Unavailable Label"
+              },
+              {
+                "key": "ofLabel",
+                "type": "text",
+                "label": "of Label"
+              },
+              {
+                "key": "emptyMessage",
+                "type": "text",
+                "label": "Empty gallery message"
+              }
+            ]
+          },
+          {
+            "key": "form",
+            "type": "object",
+            "label": "form",
+            "fields": [
+              {
+                "key": "searchMakeModelYearPlaceholder",
+                "type": "text",
+                "label": "search Make Model Year Placeholder"
+              }
+            ]
+          },
+          {
+            "key": "sortLabel",
+            "type": "text",
+            "label": "sort Label"
+          },
+          {
+            "key": "SORT_OPTIONS",
+            "type": "list",
+            "label": "SORT OPTIONS",
+            "itemLabel": "SORT OPTIONS",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              },
+              {
+                "key": "value",
+                "type": "text",
+                "label": "Sort operation"
+              }
+            ]
+          },
+          {
+            "key": "clearAllLabel",
+            "type": "text",
+            "label": "clear All Label"
+          },
+          {
+            "key": "loadMoreVehiclesLabel",
+            "type": "text",
+            "label": "load More Vehicles Label"
+          },
+          {
+            "key": "clearAllFiltersLabel",
+            "type": "text",
+            "label": "clear All Filters Label"
+          },
+          {
+            "key": "subtitle3",
+            "type": "text",
+            "label": "subtitle3"
+          },
+          {
+            "key": "loading3dVehicle",
+            "type": "text",
+            "label": "loading3d Vehicle"
+          },
+          {
+            "key": "subtitle4",
+            "type": "text",
+            "label": "subtitle4"
+          },
+          {
+            "key": "resetViewLabel",
+            "type": "text",
+            "label": "reset View Label"
+          },
+          {
+            "key": "subtitle5",
+            "type": "text",
+            "label": "subtitle5"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "call",
+            "type": "text",
+            "label": "call"
+          },
+          {
+            "key": "whatsappUs",
+            "type": "text",
+            "label": "whatsapp Us"
+          },
+          {
+            "key": "whatsapp",
+            "type": "text",
+            "label": "whatsapp"
+          },
+          {
+            "key": "applyFiltersLabel",
+            "type": "text",
+            "label": "apply Filters Label"
+          },
+          {
+            "key": "subtitle6",
+            "type": "text",
+            "label": "subtitle6"
+          },
+          {
+            "key": "subtitle7",
+            "type": "text",
+            "label": "subtitle7"
+          },
+          {
+            "key": "subtitle8",
+            "type": "text",
+            "label": "subtitle8"
+          },
+          {
+            "key": "heading8",
+            "type": "text",
+            "label": "heading8"
+          },
+          {
+            "key": "autoRotateLabel",
+            "type": "text",
+            "label": "auto Rotate Label"
+          },
+          {
+            "key": "make2",
+            "type": "text",
+            "label": "make2"
+          },
+          {
+            "key": "model2",
+            "type": "text",
+            "label": "model2"
+          },
+          {
+            "key": "bodyType2",
+            "type": "text",
+            "label": "bodyType2"
+          },
+          {
+            "key": "minimum2",
+            "type": "text",
+            "label": "minimum2"
+          },
+          {
+            "key": "maximum2",
+            "type": "text",
+            "label": "maximum2"
+          },
+          {
+            "key": "from2",
+            "type": "text",
+            "label": "from2"
+          },
+          {
+            "key": "to2",
+            "type": "text",
+            "label": "to2"
+          },
+          {
+            "key": "mileageRange2",
+            "type": "text",
+            "label": "mileageRange2"
+          },
+          {
+            "key": "colour2",
+            "type": "text",
+            "label": "colour2"
+          }
+        ],
+        "id": "vehicles",
+        "path": "vehicles",
+        "pageKey": "vehicles"
+      },
+      {
+        "type": "object",
+        "label": "about",
+        "fields": [
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "showroomImage",
+            "type": "image",
+            "label": "showroom Image"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "description2",
+            "type": "textarea",
+            "label": "description2"
+          },
+          {
+            "key": "heading",
+            "type": "text",
+            "label": "heading"
+          },
+          {
+            "key": "description3",
+            "type": "textarea",
+            "label": "description3"
+          },
+          {
+            "key": "heading2",
+            "type": "text",
+            "label": "heading2"
+          },
+          {
+            "key": "description4",
+            "type": "textarea",
+            "label": "description4"
+          },
+          {
+            "key": "heading3",
+            "type": "text",
+            "label": "heading3"
+          },
+          {
+            "key": "PRINCIPLES",
+            "type": "list",
+            "label": "PRINCIPLES",
+            "itemLabel": "PRINCIPLES",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "handoverImage",
+            "type": "image",
+            "label": "handover Image"
+          },
+          {
+            "key": "handoverDayShowroom",
+            "type": "text",
+            "label": "handover Day Showroom"
+          },
+          {
+            "key": "detailImage",
+            "type": "image",
+            "label": "detail Image"
+          },
+          {
+            "key": "srcImage",
+            "type": "image",
+            "label": "src Image"
+          },
+          {
+            "key": "heading4",
+            "type": "text",
+            "label": "heading4"
+          },
+          {
+            "key": "SERVICES",
+            "type": "list",
+            "label": "SERVICES",
+            "itemLabel": "SERVICES",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "title"
+              },
+              {
+                "key": "body",
+                "type": "textarea",
+                "label": "body"
+              }
+            ]
+          },
+          {
+            "key": "heading5",
+            "type": "text",
+            "label": "heading5"
+          },
+          {
+            "key": "subtitle",
+            "type": "text",
+            "label": "subtitle"
+          },
+          {
+            "key": "description5",
+            "type": "textarea",
+            "label": "description5"
+          },
+          {
+            "key": "contactTeam",
+            "type": "text",
+            "label": "contact Team"
+          },
+          {
+            "key": "call",
+            "type": "text",
+            "label": "call"
+          }
+        ],
+        "id": "about",
+        "path": "about",
+        "pageKey": "about"
+      },
+      {
+        "type": "object",
+        "label": "dealer",
+        "fields": [
+          {
+            "key": "name",
+            "type": "text",
+            "label": "name"
+          },
+          {
+            "key": "wordmark",
+            "type": "text",
+            "label": "wordmark"
+          },
+          {
+            "key": "wordmarkSuffix",
+            "type": "text",
+            "label": "wordmark Suffix"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "phoneDisplay",
+            "type": "text",
+            "label": "phone Display"
+          },
+          {
+            "key": "whatsappDisplay",
+            "type": "text",
+            "label": "whatsapp Display"
+          },
+          {
+            "key": "email",
+            "type": "text",
+            "label": "email"
+          },
+          {
+            "key": "addressLines",
+            "type": "list",
+            "label": "address Lines",
+            "minItems": 0,
+            "maxItems": 200,
+            "itemField": {
+              "type": "text",
+              "label": "Item"
+            }
+          },
+          {
+            "key": "city",
+            "type": "text",
+            "label": "city"
+          },
+          {
+            "key": "hoursShort",
+            "type": "text",
+            "label": "hours Short"
+          },
+          {
+            "key": "hours",
+            "type": "list",
+            "label": "hours",
+            "itemLabel": "hours",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "days",
+                "type": "text",
+                "label": "days"
+              },
+              {
+                "key": "time",
+                "type": "text",
+                "label": "time"
+              }
+            ]
+          },
+          {
+            "key": "socials",
+            "type": "list",
+            "label": "socials",
+            "itemLabel": "socials",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "label",
+                "type": "text",
+                "label": "label"
+              },
+              {
+                "key": "href",
+                "type": "url",
+                "label": "href"
+              }
+            ]
+          },
+          {
+            "key": "established",
+            "type": "number",
+            "label": "established"
+          },
+          {
+            "key": "tagline",
+            "type": "text",
+            "label": "tagline"
+          },
+          {
+            "key": "phoneHref",
+            "type": "text",
+            "label": "phone Href"
+          },
+          {
+            "key": "whatsappNumber",
+            "type": "text",
+            "label": "whatsapp Number"
+          },
+          {
+            "key": "mapQuery",
+            "type": "text",
+            "label": "map Query"
+          },
+          {
+            "key": "whatsappUrl",
+            "type": "url",
+            "label": "WhatsApp contact URL"
+          }
+        ],
+        "id": "dealer",
+        "path": "dealer"
+      },
+      {
+        "type": "list",
+        "label": "faqs",
+        "itemLabel": "faqs",
+        "minItems": 0,
+        "maxItems": 200,
+        "fields": [
+          {
+            "key": "id",
+            "type": "text",
+            "label": "id"
+          },
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "items",
+            "type": "list",
+            "label": "items",
+            "itemLabel": "items",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "q",
+                "type": "text",
+                "label": "q"
+              },
+              {
+                "key": "a",
+                "type": "textarea",
+                "label": "Answer"
+              }
+            ]
+          }
+        ],
+        "id": "faqs",
+        "path": "faqs"
+      },
+      {
+        "type": "list",
+        "label": "testimonials",
+        "itemLabel": "testimonials",
+        "minItems": 0,
+        "maxItems": 200,
+        "fields": [
+          {
+            "key": "id",
+            "type": "text",
+            "label": "id"
+          },
+          {
+            "key": "name",
+            "type": "text",
+            "label": "name"
+          },
+          {
+            "key": "location",
+            "type": "text",
+            "label": "location"
+          },
+          {
+            "key": "vehicle",
+            "type": "text",
+            "label": "vehicle"
+          },
+          {
+            "key": "quote",
+            "type": "textarea",
+            "label": "quote"
+          }
+        ],
+        "id": "testimonials",
+        "path": "testimonials"
+      },
+      {
+        "type": "object",
+        "label": "not Found",
+        "fields": [
+          {
+            "key": "code",
+            "type": "text",
+            "label": "code"
+          },
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "browseVehicles",
+            "type": "text",
+            "label": "browse Vehicles"
+          }
+        ],
+        "id": "notFound",
+        "path": "notFound"
+      },
+      {
+        "type": "list",
+        "label": "vehicle Catalog",
+        "itemLabel": "vehicle Catalog",
+        "minItems": 0,
+        "maxItems": 200,
+        "fields": [
+          {
+            "key": "id",
+            "type": "text",
+            "label": "id"
+          },
+          {
+            "key": "title",
+            "type": "text",
+            "label": "title"
+          },
+          {
+            "key": "brand",
+            "type": "text",
+            "label": "brand"
+          },
+          {
+            "key": "price",
+            "type": "number",
+            "label": "price"
+          },
+          {
+            "key": "currency",
+            "type": "text",
+            "label": "currency"
+          },
+          {
+            "key": "category",
+            "type": "text",
+            "label": "category"
+          },
+          {
+            "key": "image",
+            "type": "image",
+            "label": "image"
+          },
+          {
+            "key": "gallery",
+            "type": "list",
+            "label": "gallery",
+            "minItems": 0,
+            "maxItems": 200,
+            "itemField": {
+              "type": "text",
+              "label": "Item"
+            }
+          },
+          {
+            "key": "description",
+            "type": "textarea",
+            "label": "description"
+          },
+          {
+            "key": "isAvailable",
+            "type": "boolean",
+            "label": "is Available"
+          },
+          {
+            "key": "customData",
+            "type": "object",
+            "label": "custom Data",
+            "fields": [
+              {
+                "key": "vehicle",
+                "type": "object",
+                "label": "vehicle",
+                "fields": [
+                  {
+                    "key": "slug",
+                    "type": "text",
+                    "label": "slug"
+                  },
+                  {
+                    "key": "ref",
+                    "type": "text",
+                    "label": "ref"
+                  },
+                  {
+                    "key": "variant",
+                    "type": "text",
+                    "label": "variant"
+                  },
+                  {
+                    "key": "year",
+                    "type": "number",
+                    "label": "year"
+                  },
+                  {
+                    "key": "condition",
+                    "type": "text",
+                    "label": "condition"
+                  },
+                  {
+                    "key": "mileage",
+                    "type": "number",
+                    "label": "mileage"
+                  },
+                  {
+                    "key": "fuel",
+                    "type": "text",
+                    "label": "fuel"
+                  },
+                  {
+                    "key": "transmission",
+                    "type": "text",
+                    "label": "transmission"
+                  },
+                  {
+                    "key": "drive",
+                    "type": "text",
+                    "label": "drive"
+                  },
+                  {
+                    "key": "engineCc",
+                    "type": "number",
+                    "label": "engine Cc"
+                  },
+                  {
+                    "key": "exteriorColor",
+                    "type": "text",
+                    "label": "exterior Color"
+                  },
+                  {
+                    "key": "interiorColor",
+                    "type": "text",
+                    "label": "interior Color"
+                  },
+                  {
+                    "key": "doors",
+                    "type": "number",
+                    "label": "doors"
+                  },
+                  {
+                    "key": "seats",
+                    "type": "number",
+                    "label": "seats"
+                  },
+                  {
+                    "key": "registration",
+                    "type": "text",
+                    "label": "registration"
+                  },
+                  {
+                    "key": "featured",
+                    "type": "boolean",
+                    "label": "featured"
+                  },
+                  {
+                    "key": "newArrival",
+                    "type": "boolean",
+                    "label": "new Arrival"
+                  },
+                  {
+                    "key": "addedOn",
+                    "type": "text",
+                    "label": "added On"
+                  },
+                  {
+                    "key": "tagline",
+                    "type": "text",
+                    "label": "tagline"
+                  },
+                  {
+                    "key": "featureGroups",
+                    "type": "list",
+                    "label": "feature Groups",
+                    "itemLabel": "feature Groups",
+                    "minItems": 0,
+                    "maxItems": 200,
+                    "fields": [
+                      {
+                        "key": "name",
+                        "type": "text",
+                        "label": "name"
+                      },
+                      {
+                        "key": "items",
+                        "type": "list",
+                        "label": "items",
+                        "minItems": 0,
+                        "maxItems": 200,
+                        "itemField": {
+                          "type": "text",
+                          "label": "Item"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "key": "photoLabels",
+                    "type": "object",
+                    "label": "photo Labels",
+                    "fields": [
+                      {
+                        "key": "image0",
+                        "type": "object",
+                        "label": "image0",
+                        "fields": [
+                          {
+                            "key": "label",
+                            "type": "text",
+                            "label": "label"
+                          },
+                          {
+                            "key": "representative",
+                            "type": "boolean",
+                            "label": "representative"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "image1",
+                        "type": "object",
+                        "label": "image1",
+                        "fields": [
+                          {
+                            "key": "label",
+                            "type": "text",
+                            "label": "label"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "image2",
+                        "type": "object",
+                        "label": "image2",
+                        "fields": [
+                          {
+                            "key": "label",
+                            "type": "text",
+                            "label": "label"
+                          },
+                          {
+                            "key": "representative",
+                            "type": "boolean",
+                            "label": "representative"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "image3",
+                        "type": "object",
+                        "label": "image3",
+                        "fields": [
+                          {
+                            "key": "label",
+                            "type": "text",
+                            "label": "label"
+                          },
+                          {
+                            "key": "representative",
+                            "type": "boolean",
+                            "label": "representative"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "key": "categoryFlags",
+                    "type": "object",
+                    "label": "category Flags",
+                    "fields": [
+                      {
+                        "key": "sports",
+                        "type": "boolean",
+                        "label": "sports"
+                      },
+                      {
+                        "key": "luxury",
+                        "type": "boolean",
+                        "label": "luxury"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "id": "vehicleCatalog",
+        "path": "catalog.products"
+      },
+      {
+        "id": "additionalPages",
+        "path": "additionalPages",
+        "type": "list",
+        "label": "Additional pages",
+        "itemLabel": "Page",
+        "minItems": 0,
+        "maxItems": 30,
+        "fields": [
+          {
+            "key": "id",
+            "type": "text",
+            "label": "ID"
+          },
+          {
+            "key": "title",
+            "type": "text",
+            "label": "Page title"
+          },
+          {
+            "key": "route",
+            "type": "url",
+            "label": "Page route"
+          }
+        ]
+      }
+    ]
+  }
+}
