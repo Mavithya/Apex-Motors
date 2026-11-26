@@ -214,7 +214,39 @@
         "message": "Message",
         "message2": "Message",
         "formWhatsappUrl": "https://wa.me/1234567890",
-        "formSubmitLabel": "Send message"
+        "formSubmitLabel": "Send message",
+        "topicOptions": [
+          {
+            "value": "Buying a vehicle",
+            "label": "Buying a vehicle"
+          },
+          {
+            "value": "Booking a test drive",
+            "label": "Booking a test drive"
+          },
+          {
+            "value": "Financing",
+            "label": "Financing"
+          },
+          {
+            "value": "Selling or trading in",
+            "label": "Selling or trading in"
+          },
+          {
+            "value": "Vehicle sourcing",
+            "label": "Vehicle sourcing"
+          },
+          {
+            "value": "Something else",
+            "label": "Something else"
+          }
+        ]
+      },
+      "icons": {
+        "telephone": "phone",
+        "whatsapp": "message-circle",
+        "email": "mail",
+        "showroom": "map-pin"
       }
     },
     "sell-your-car": {

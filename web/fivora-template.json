@@ -107,9 +107,9 @@
       "contact.form.messageReceived2",
       "contact.form.phoneNumber",
       "contact.form.phoneNumber2",
+      "contact.form.topicOptions[*].value",
       "contact.form.whatItAbout",
       "contact.form.whatItAbout2",
-      "dealer.mapQuery",
       "dealer.phoneHref",
       "dealer.tagline",
       "dealer.whatsappNumber",
@@ -795,6 +795,58 @@
                 "key": "formSubmitLabel",
                 "type": "text",
                 "label": "form Submit Label"
+              },
+              {
+                "key": "topicOptions",
+                "type": "list",
+                "label": "Enquiry topics",
+                "itemLabel": "Topic",
+                "minItems": 1,
+                "maxItems": 200,
+                "fields": [
+                  {
+                    "key": "label",
+                    "type": "text",
+                    "label": "Displayed choice"
+                  },
+                  {
+                    "key": "value",
+                    "type": "text",
+                    "label": "Unique form value",
+                    "description": "Keep this value unique and stable when renaming a displayed choice."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "icons",
+            "type": "object",
+            "label": "Contact icons",
+            "fields": [
+              {
+                "key": "telephone",
+                "type": "text",
+                "label": "Telephone icon",
+                "description": "Choose a Lucide icon using the visual editor icon picker."
+              },
+              {
+                "key": "whatsapp",
+                "type": "text",
+                "label": "WhatsApp icon",
+                "description": "Choose a Lucide icon using the visual editor icon picker."
+              },
+              {
+                "key": "email",
+                "type": "text",
+                "label": "Email icon",
+                "description": "Choose a Lucide icon using the visual editor icon picker."
+              },
+              {
+                "key": "showroom",
+                "type": "text",
+                "label": "Showroom icon",
+                "description": "Choose a Lucide icon using the visual editor icon picker."
               }
             ]
           }
@@ -2571,7 +2623,8 @@
           {
             "key": "mapQuery",
             "type": "text",
-            "label": "map Query"
+            "label": "Google Maps location",
+            "description": "Enter an address, coordinates, or a Google Maps link/embed URL."
           },
           {
             "key": "whatsappUrl",

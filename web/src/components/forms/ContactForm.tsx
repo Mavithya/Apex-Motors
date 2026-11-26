@@ -7,13 +7,29 @@ import { Button } from '@/components/ui/Button'
 import { TextField, SelectField, TextAreaField } from '@/components/ui/Field'
 import { FormSuccess } from '@/components/ui/FormSuccess'
 
-type Errors = Partial<Record<'name' | 'phone' | 'email' | 'message', string>>
+type Errors = Partial<Record<'name' | 'phone' | 'email' | 'message' | 'topic', string>>
 const TOPICS = ['Buying a vehicle', 'Booking a test drive', 'Financing', 'Selling or trading in', 'Vehicle sourcing', 'Something else']
 export function ContactForm() {
   const siteData = useSiteData();
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', email: '', topic: TOPICS[0], message: '' })
   const [errors, setErrors] = useState<Errors>({})
+  const configuredTopics: unknown = siteData.content?.contact?.form?.topicOptions
+  const source = configuredTopics === undefined ? TOPICS.map((value) => ({ value, label: value })) : configuredTopics
+  const seen = new Set<string>()
+  const topicOptions = Array.isArray(source) ? source.map((item: unknown, index) => {
+    const { value, label } = (item && typeof item === 'object' ? item : {}) as Record<string, unknown>
+    const valid = typeof value === 'string' && !!value.trim() && !seen.has(value)
+    if (valid) seen.add(value as string)
+    return {
+      value: valid ? value as string : `invalid-topic-${index}`,
+      label: typeof label === 'string' ? label : '',
+      disabled: !valid,
+      previewPath: `contact.form.topicOptions[${index}]`,
+    }
+  }) : []
+  const topic = topicOptions.some((option) => !option.disabled && option.value === form.topic)
+    ? form.topic : topicOptions.find((option) => !option.disabled)?.value ?? ''
 
   const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }))
@@ -25,6 +41,7 @@ export function ContactForm() {
     if (!PHONE_RE.test(cleanPhone(form.phone))) next.phone = 'Enter a Sri Lankan number, e.g. 077 123 4567.'
     if (!EMAIL_RE.test(form.email)) next.email = 'Enter a valid email address.'
     if (form.message.trim().length < 10) next.message = 'Tell us a little more — at least a sentence.'
+    if (!topic) next.topic = 'Choose an enquiry topic.'
     setErrors(next)
     if (!Object.keys(next).length) setSent(true)
   }
@@ -79,9 +96,19 @@ export function ContactForm() {
             previewPath="contact.form" />
           <SelectField
             label={siteData?.content?.contact?.form?.whatItAbout2 ?? "What is it about?"}
-            value={form.topic}
+            value={topic}
             onChange={update('topic')}
-            options={TOPICS.map((t) => ({ value: t, label: t }))}
+            options={topicOptions}
+            optionsPath="contact.form.topicOptions"
+            renderOption={(option, index) => (
+              <option key={index} value={option.value} disabled={option.disabled}
+                data-preview-item-path={`contact.form.topicOptions[${index}]`}
+                data-preview-field-path={`contact.form.topicOptions[${index}].label`}>
+                {option.label}
+              </option>
+            )}
+            disabled={!topic}
+            error={errors.topic}
             className="sm:col-span-2"
             data-preview-field-path="contact.form.whatItAbout2"
             previewPath="contact.form" />
