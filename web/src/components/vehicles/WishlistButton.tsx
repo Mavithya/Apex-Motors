@@ -22,6 +22,18 @@ const WishlistGlyph = dynamic(async () => {
   }
 }, { ssr: false, loading: WishlistGlyphFallback })
 
+/** Also serves as the visible empty-inventory save cue when there are no cards. */
+export function WishlistIcon({ editable = false, saved = false, className }: { editable?: boolean; saved?: boolean; className?: string }) {
+  const siteData = useSiteData()
+  const iconName = siteData.content?.common?.vehicleCard?.wishlistIcon ?? 'heart'
+  const glyph = iconName === 'heart'
+    ? <Heart className={cn('h-[18px] w-[18px]', saved && 'fill-accent')} aria-hidden data-preview-static="Decorative icon" />
+    : <WishlistGlyph name={iconName} saved={saved} />
+  return editable ? (
+    <span className={className} data-preview-field-path="common.vehicleCard.wishlistIcon" data-preview-control="icon-picker" data-preview-icon-type="lucide" data-preview-icon={iconName}>{glyph}</span>
+  ) : glyph
+}
+
 export function WishlistButton({
   id,
   label,
@@ -86,11 +98,7 @@ export function WishlistButton({
         className
       )}
     >
-      {iconName === 'heart' ? <Heart
-        className={cn('h-[18px] w-[18px]', saved && 'fill-accent')}
-        aria-hidden
-
-        data-preview-static="Decorative icon" /> : <WishlistGlyph name={iconName} saved={saved} />}
+      <WishlistIcon saved={saved} />
     </motion.button>
   );
 }

@@ -3,6 +3,7 @@
 import { SiteDataProvider, SiteDataContext, ThemeStyles, useSiteData, type TemplateTheme } from '@deneb-ui/ui'
 import initialSiteData from '@/data/site-data.json'
 import { useMemo, useState, type ReactNode } from 'react'
+import { PreviewQueryNavigation } from './PreviewQueryNavigation'
 
 function SiteTheme() {
   const siteData = useSiteData()
@@ -13,6 +14,7 @@ function SiteTheme() {
 export function SiteProviders({ children }: { children: ReactNode }) {
   return (
     <SiteDataProvider initialSiteData={initialSiteData}>
+      <PreviewQueryNavigation />
       <CatalogContent>{children}</CatalogContent>
     </SiteDataProvider>
   )

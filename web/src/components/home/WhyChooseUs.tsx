@@ -62,6 +62,7 @@ export function WhyChooseUs() {
               data-preview-style-type="card">
               <EditableIcon
                 fieldPath={`home.benefits[${index}].icon`}
+                data-preview-field-path={`home.benefits[${index}].icon`}
                 name={name}
                 className="h-6 w-6 text-accent"
                 size={24}

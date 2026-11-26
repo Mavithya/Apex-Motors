@@ -66,13 +66,15 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
           />
         </div>
 
-        <div data-preview-item-path={productPath} className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] xl:gap-14">
+        <div className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] xl:gap-14">
           {/* Left: gallery and detail */}
           <div className="min-w-0">
-            <Gallery key={v.id} images={v.images} name={name} previewPath={productPath ? `${productPath}.gallery` : undefined} coverPath={productPath ? `${productPath}.image` : undefined} imagePaths={imagePaths} productIndex={productIndex} catalogPath={catalogPath} galleryIndexes={v.images.map((image) => gallery.indexOf(image.src))} />
+            <div data-preview-item-path={productPath}>
+              <Gallery key={v.id} images={v.images} name={name} previewPath={productPath ? `${productPath}.gallery` : undefined} coverPath={productPath ? `${productPath}.image` : undefined} imagePaths={imagePaths} productIndex={productIndex} catalogPath={catalogPath} galleryIndexes={v.images.map((image) => gallery.indexOf(image.src))} />
+            </div>
 
             {/* Quick specifications */}
-            <section aria-labelledby="specs" className="mt-16">
+            <section data-preview-item-path={productPath} aria-labelledby="specs" className="mt-16">
               <h2
                 id="specs"
                 className="text-[26px] font-extrabold tracking-[-0.03em] text-ink"
@@ -93,7 +95,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
             </section>
 
             {/* Description */}
-            <section aria-labelledby="about-car" className="mt-16">
+            <section data-preview-item-path={productPath} aria-labelledby="about-car" className="mt-16">
               <h2
                 id="about-car"
                 className="text-[26px] font-extrabold tracking-[-0.03em] text-ink"
@@ -102,7 +104,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
                 data-preview-style-type="text">{siteData?.content?.vehicles?.heading2 ?? "About this vehicle"}</h2>
               <p
                 className="mt-5 text-[19px] font-semibold leading-snug text-ink"
-                data-preview-field-path={productPath ? `${productPath}.customData.vehicle.tagline` : undefined}
+                data-preview-field-path={`catalog.products[${productIndex}].customData.vehicle.tagline`}
                 data-preview-style-target={productPath ? `${productPath}.customData.vehicle.tagline` : undefined}
                 data-preview-style-type="text">{v.tagline}</p>
               <div className="mt-4 max-w-[68ch] space-y-4 text-[16px] leading-[1.7] text-graphite">
@@ -119,7 +121,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
             </section>
 
             {/* Key features */}
-            {(<section aria-labelledby="features" className="mt-16">
+            {(<section data-preview-item-path={productPath} aria-labelledby="features" className="mt-16">
               <h2
                 id="features"
                 className="text-[26px] font-extrabold tracking-[-0.03em] text-ink"
@@ -163,7 +165,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
           </div>
 
           {/* Right: info + enquiry */}
-          <aside className="lg:sticky lg:top-[96px] lg:self-start">
+          <aside data-preview-item-path={productPath} className="lg:sticky lg:top-[96px] lg:self-start">
             <EnquiryPanel key={v.id} vehicle={v} waMessage={waMessage} initialMode="info" previewPath={productPath} onView3D={() => setViewer3D(true)} />
           </aside>
         </div>

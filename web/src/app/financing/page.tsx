@@ -23,6 +23,7 @@ export default function Financing() {
   return (
     <>
       <PageHero
+        editableImage
         data-preview-page-key="financing"
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Financing' }]}
         title={siteData?.content?.financing?.hero?.financeFitsWayDrive ?? "Finance that fits the way you drive."}

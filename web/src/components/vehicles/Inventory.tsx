@@ -24,6 +24,7 @@ import { useWishlist } from '@/lib/useWishlist'
 import { Breadcrumb } from '@/components/ui/PageHeader'
 import { Button } from '@/components/ui/Button'
 import { VehicleCard } from '@/components/vehicles/VehicleCard'
+import { WishlistIcon } from '@/components/vehicles/WishlistButton'
 import { FilterPanel } from './FilterPanel'
 
 
@@ -80,8 +81,7 @@ export function InventoryContent({ query = '' }: { query?: string }) {
   return (
     <>
       {/* Page header */}
-      {/* The preview bridge supports this page-focus ID without treating query links as section scrolls. */}
-      <section id="vehicles_view" className="border-b border-line bg-white">
+      <section id="vehicles_view" data-preview-page-key="vehicles" className="border-b border-line bg-white">
         <div className="mx-auto max-w-[1320px] px-5 pb-12 pt-8 sm:px-8 lg:pb-16">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: savedView ? 'Saved' : filters.arrivals ? 'New Arrivals' : 'Vehicles' }]} />
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -252,6 +252,7 @@ export function InventoryContent({ query = '' }: { query?: string }) {
               </>
             ) : (
               <div className="mt-6 border border-dashed border-ink/20 bg-white px-6 py-20 text-center">
+                <WishlistIcon editable className="mx-auto mb-4 flex h-10 w-10 items-center justify-center text-muted" />
                 <h2 className="text-[24px] font-bold text-ink" data-preview-static="Interface label, control, or calculated value">
                   {savedView && !ids.length ? 'No saved vehicles yet' : 'No vehicles match these filters'}
                 </h2>

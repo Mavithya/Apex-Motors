@@ -278,19 +278,23 @@
       "benefits": [
         {
           "title": "One visit, not weeks of listings",
-          "body": "No calls from strangers, no test drives with people you do not know."
+          "body": "No calls from strangers, no test drives with people you do not know.",
+          "icon": "badge-check"
         },
         {
           "title": "Seamless upgrade",
-          "body": "Your trade-in value is deducted from your next car in a single transaction."
+          "body": "Your trade-in value is deducted from your next car in a single transaction.",
+          "icon": "star"
         },
         {
           "title": "Paperwork handled",
-          "body": "We manage the transfer documents and settle any outstanding lease."
+          "body": "We manage the transfer documents and settle any outstanding lease.",
+          "icon": "file-text"
         },
         {
           "title": "Prompt payment",
-          "body": "If you are selling outright, payment can be arranged once documents are verified."
+          "body": "If you are selling outright, payment can be arranged once documents are verified.",
+          "icon": "landmark"
         }
       ]
     },
@@ -355,7 +359,29 @@
         "preferredLoanPeriod2": "Preferred loan period",
         "anythingElse": "Anything else",
         "anythingElse2": "Anything else",
-        "subtitle": "Your current estimate will be attached:"
+        "subtitle": "Your current estimate will be attached:",
+        "employmentOptions": [
+          {
+            "value": "Salaried",
+            "label": "Salaried"
+          },
+          {
+            "value": "Self-employed",
+            "label": "Self-employed"
+          },
+          {
+            "value": "Business owner",
+            "label": "Business owner"
+          },
+          {
+            "value": "Professional",
+            "label": "Professional"
+          },
+          {
+            "value": "Other",
+            "label": "Other"
+          }
+        ]
       },
       "contact": {
         "formSubmitLabel": "Request a call back"
@@ -363,7 +389,30 @@
       "stepLabel": "Step",
       "loanPeriod": "Loan period",
       "subtitle2": "for {months} months",
-      "important": "Important."
+      "important": "Important.",
+      "loanTerms": [
+        {
+          "months": 12,
+          "label": "1 yr"
+        },
+        {
+          "months": 24,
+          "label": "2 yr"
+        },
+        {
+          "months": 36,
+          "label": "3 yr"
+        },
+        {
+          "months": 48,
+          "label": "4 yr"
+        },
+        {
+          "months": 60,
+          "label": "5 yr"
+        }
+      ],
+      "noLoanPeriodsLabel": "No loan periods available"
     },
     "home": {
       "brands": [
@@ -736,7 +785,9 @@
       "subtitle": "Since ",
       "description5": "began as a small pre-owned lot on Baseline Road. Today we offer brand-new and carefully selected pre-owned vehicles, financing assistance and trade-ins — still from the same corner of Colombo.",
       "contactTeam": "Contact our team",
-      "call": "Call"
+      "call": "Call",
+      "missionIcon": "target",
+      "visionIcon": "eye"
     },
     "dealer": {
       "name": "Apex Motors",

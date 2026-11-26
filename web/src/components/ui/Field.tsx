@@ -7,6 +7,8 @@ import { cn } from '@/lib/utils'
 const control =
   'w-full rounded-[3px] border bg-white px-3.5 text-[15px] text-graphite placeholder:text-muted/70 transition-colors duration-150 focus:border-ink focus:outline-none'
 
+type SelectOption = { value: string; label: string; previewPath?: string; disabled?: boolean }
+
 interface Base {
   label: string
   error?: string
@@ -82,27 +84,33 @@ export function SelectField({
   placeholder,
   previewPath,
   placeholderPath,
+  optionsPath,
+  renderOption,
   'data-preview-field-path': fieldPath,
   ...rest
 }: Base & {
-  options: { value: string; label: string }[]
+  options: SelectOption[]
   placeholder?: string
+  optionsPath?: string
+  renderOption?: (option: SelectOption, index: number) => React.ReactNode
 } & Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'className'>) {
   const id = useId()
+  const selectedPath = options.find((option) => option.value === String(rest.value ?? rest.defaultValue ?? ''))?.previewPath
   return (
     <Wrapper id={id} label={label} error={error} hint={hint} optional={optional} className={className} previewPath={previewPath} fieldPath={fieldPath}>
-      <div className="relative">
+      <div className="relative" data-preview-list-path={optionsPath}>
         <select
           id={id}
           aria-invalid={!!error}
+          aria-describedby={error ? `${id}-err` : undefined}
           className={cn(control, 'h-12 appearance-none pr-10', error ? 'border-accent' : 'border-line')}
-          data-preview-field-path={placeholderPath}
-        data-preview-static={placeholderPath ? undefined : "Form input"}
+          data-preview-field-path={selectedPath ? `${selectedPath}.label` : placeholderPath}
+          data-preview-static={selectedPath || placeholderPath || optionsPath ? undefined : "Form input"}
         {...rest}
         >
           {placeholder !== undefined && <option value="" data-preview-static="Form feedback or option">{placeholder}</option>}
-          {options.map((o) => (
-            <option key={o.value} value={o.value} data-preview-static="Form feedback or option">
+          {options.map((o, index) => renderOption ? renderOption(o, index) : (
+            <option key={o.previewPath ?? o.value} value={o.value} disabled={o.disabled} data-preview-item-path={o.previewPath} data-preview-field-path={o.previewPath ? `${o.previewPath}.label` : undefined} data-preview-static={o.previewPath ? undefined : "Form feedback or option"}>
               {o.label}
             </option>
           ))}

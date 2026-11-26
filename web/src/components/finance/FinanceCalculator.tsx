@@ -3,7 +3,8 @@ import { useSiteData } from "@deneb-ui/ui";
 
 import React, { useEffect, useMemo, useState } from 'react'
 import { Info } from 'lucide-react'
-import { calculateFinance, DEFAULT_RATE, LOAN_TERMS } from '@/lib/finance'
+import { calculateFinance, DEFAULT_RATE, resolveLoanTerm } from '@/lib/finance'
+import { useFinanceOptions } from '@/lib/useFinanceOptions'
 import { cn, formatLKR , interpolateCopy } from '@/lib/utils'
 
 /**
@@ -15,23 +16,29 @@ export function FinanceCalculator({
   lockPrice,
   tone = 'light',
   onEstimate,
+  selectedMonths,
+  onMonthsChange,
 }: {
   initialPrice: number
   lockPrice?: boolean
   tone?: 'light' | 'dark'
   onEstimate?: (summary: string) => void
+  selectedMonths?: number
+  onMonthsChange?: (months: number) => void
 }) {
   const siteData = useSiteData();
   const [price, setPrice] = useState(initialPrice)
   const [downPct, setDownPct] = useState(30)
-  const [months, setMonths] = useState(60)
+  const [requestedMonths, setMonths] = useState(60)
   const [rate, setRate] = useState(DEFAULT_RATE)
+  const { loanTerms } = useFinanceOptions()
+  const months = resolveLoanTerm(loanTerms, selectedMonths ?? requestedMonths)
 
   const down = Math.round((price * downPct) / 100)
   const result = useMemo(() => calculateFinance({ price, downPayment: down, months, rate }), [price, down, months, rate])
 
   useEffect(() => {
-    onEstimate?.(`${formatLKR(result.monthly)} / month over ${months} months, ${downPct}% down, ${rate}% p.a.`)
+    onEstimate?.(months ? `${formatLKR(result.monthly)} / month over ${months} months, ${downPct}% down, ${rate}% p.a.` : '')
   }, [result.monthly, months, downPct, rate, onEstimate])
 
   const dark = tone === 'dark'
@@ -59,7 +66,7 @@ export function FinanceCalculator({
             step={50000}
             value={price}
             readOnly={lockPrice}
-            onChange={(e) => setPrice(Math.max(0, Number(e.target.value)))}
+            onChange={(e) => { const value = Number(e.target.value); setPrice(Number.isFinite(value) ? Math.max(0, value) : 0) }}
             className={cn(inputCls, 'mt-2', lockPrice && 'cursor-default opacity-80')} data-preview-static="Interface label, control, or calculated value"
           />
         </div>
@@ -104,26 +111,31 @@ export function FinanceCalculator({
             data-preview-field-path="financing.loanPeriod"
             data-preview-style-target="financing.loanPeriod"
             data-preview-style-type="text">{siteData?.content?.financing?.loanPeriod ?? "Loan period"}</legend>
-          <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-6">
-            {LOAN_TERMS.map((m) => (
+          <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-6" data-preview-list-path="financing.loanTerms">
+            {loanTerms.map(({ months: m, label, index, valid }) => (
               <button
-                key={m}
+                key={index}
                 type="button"
-                onClick={() => setMonths(m)}
-                aria-pressed={months === m}
+                disabled={!valid}
+                onClick={() => { setMonths(m); onMonthsChange?.(m) }}
+                aria-pressed={valid && months === m}
                 className={cn(
-                  'h-11 rounded-[3px] border text-[14px] font-semibold transition-colors duration-150',
-                  months === m
+                  'min-h-11 min-w-0 rounded-[3px] border px-2 py-2 text-[14px] font-semibold break-words transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50',
+                  valid && months === m
                     ? 'border-accent bg-accent text-white'
                     : dark
                       ? 'border-white/20 text-white/80 hover:border-white'
                       : 'border-line text-graphite hover:border-ink'
                 )}
-                data-preview-static="collection-chrome">
-                {m / 12} yr
+                data-preview-item-path={`financing.loanTerms[${index}]`}
+                data-preview-field-path={`financing.loanTerms[${index}].label`}
+                data-preview-style-target={`financing.loanTerms[${index}].label`}
+                data-preview-style-type="button">
+                {label}
               </button>
             ))}
           </div>
+          {!months && <p role="status" className={cn('mt-2 text-sm', dark ? 'text-white/70' : 'text-muted')} data-preview-field-path="financing.noLoanPeriodsLabel">{siteData.content?.financing?.noLoanPeriodsLabel ?? 'No loan periods available'}</p>}
         </fieldset>
 
         <div>
@@ -140,7 +152,7 @@ export function FinanceCalculator({
             max={40}
             step={0.25}
             value={rate}
-            onChange={(e) => setRate(Math.min(40, Math.max(0, Number(e.target.value))))}
+            onChange={(e) => { const value = Number(e.target.value); setRate(Number.isFinite(value) ? Math.min(40, Math.max(0, value)) : 0) }}
             className={cn(inputCls, 'mt-2')} data-preview-static="Interface label, control, or calculated value"
           />
         </div>
@@ -153,13 +165,13 @@ export function FinanceCalculator({
           data-preview-style-target="financing.subtitle"
           data-preview-style-type="text">{siteData?.content?.financing?.subtitle ?? "Estimated monthly instalment"}</p>
         <p className="mt-2 text-[40px] font-extrabold leading-none tracking-[-0.02em] sm:text-[44px]" data-preview-static="Interface label, control, or calculated value">
-          {formatLKR(result.monthly)}
+          {months ? formatLKR(result.monthly) : '—'}
         </p>
         <p
           className="mt-2 text-[14px] text-white/70"
           data-preview-field-path="financing.subtitle2"
           data-preview-style-target="financing.subtitle2"
-          data-preview-style-type="text">{interpolateCopy(siteData?.content?.financing?.subtitle2 ?? "for {months} months", { months })}</p>
+          data-preview-style-type="text">{months ? interpolateCopy(siteData?.content?.financing?.subtitle2 ?? "for {months} months", { months }) : siteData.content?.financing?.noLoanPeriodsLabel ?? 'No loan periods available'}</p>
 
         <dl className="mt-8 space-y-3 border-t border-white/15 pt-6 text-[14px]">
           <Row
@@ -174,7 +186,7 @@ export function FinanceCalculator({
             previewPath="financing" />
           <Row
             label={siteData?.content?.financing?.totalPayable ?? "Total payable"}
-            value={formatLKR(result.totalPayable + down)}
+            value={months ? formatLKR(result.totalPayable + down) : '—'}
             data-preview-field-path="financing.totalPayable"
             previewPath="financing" />
         </dl>

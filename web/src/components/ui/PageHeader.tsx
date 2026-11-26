@@ -42,6 +42,7 @@ export function PageHero({
   introPath,
   image,
   imagePath,
+  editableImage = false,
   children,
   'data-preview-field-path': fieldPath,
   'data-preview-page-key': pageKey
@@ -50,6 +51,7 @@ export function PageHero({
   title: string
   introPath?: string
   imagePath?: string
+  editableImage?: boolean
   intro: string
   image: string
   children?: React.ReactNode
@@ -59,15 +61,15 @@ export function PageHero({
   return (
     <section data-preview-page-key={pageKey} className="relative isolate overflow-clip bg-ink">
       <img data-preview-field-path={imagePath} src={(image && typeof image === 'string' && image.trim() !== '') ? image : undefined} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-55" />
-      <div className="absolute inset-0 -z-10 bg-ink/40" aria-hidden />
-      <div className="mx-auto max-w-[1320px] px-5 pb-16 pt-10 sm:px-8 lg:pb-24 lg:pt-14">
+      <div className={`absolute inset-0 -z-10 bg-ink/40${editableImage ? ' pointer-events-none' : ''}`} aria-hidden />
+      <div className={`mx-auto max-w-[1320px] px-5 pb-16 pt-10 sm:px-8 lg:pb-24 lg:pt-14${editableImage ? ' pointer-events-none [&_a]:pointer-events-auto' : ''}`}>
         <Breadcrumb items={crumbs} tone="light" />
         <h1
-          className="mt-14 max-w-3xl text-[40px] font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:mt-24 lg:text-[68px]"
+          className={`mt-14 max-w-3xl text-[40px] font-extrabold leading-[1.05] tracking-[-0.02em] text-white sm:text-[56px] lg:mt-24 lg:text-[68px]${editableImage ? ' pointer-events-auto' : ''}`}
           data-preview-field-path={fieldPath} data-preview-static={fieldPath ? undefined : "Interface label"}>
           {title}
         </h1>
-        <p data-preview-field-path={introPath} className="mt-6 max-w-xl text-[17px] leading-relaxed text-white/80">{intro}</p>
+        <p data-preview-field-path={introPath} className={`mt-6 max-w-xl text-[17px] leading-relaxed text-white/80${editableImage ? ' pointer-events-auto' : ''}`}>{intro}</p>
         {children && <div className="mt-9 flex flex-wrap gap-3">{children}</div>}
       </div>
     </section>

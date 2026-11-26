@@ -1,16 +1,38 @@
 "use client";
-import { useSiteData } from "@deneb-ui/ui";
+import { EditableIcon, useSiteData } from "@deneb-ui/ui";
 import { useVehicleCatalog } from '@/lib/useVehicleCatalog'
 import { useDealer, useDealerImages } from '@/lib/useDealer'
 /* eslint-disable @next/next/no-img-element -- Preserve the original CDN photography URLs and image sizing. */
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Circle, Eye, MapPin, Target } from 'lucide-react'
+import dynamic from 'next/dynamic'
 
 import Link from '@/components/ui/SiteLink'
 import { Breadcrumb } from '@/components/ui/PageHeader'
 import { ButtonLink, ButtonAnchor } from '@/components/ui/Button'
 
+function PurposeIconFallback() {
+  return <Circle size={26} strokeWidth={1.6} aria-hidden />
+}
 
+const AdditionalPurposeIcon = dynamic(async () => {
+  const { DynamicIcon, iconNames } = await import('lucide-react/dynamic')
+  return function AdditionalPurposeIcon({ name }: { name: string }) {
+    const iconName = iconNames.find((icon) => icon === name) ?? 'circle'
+    return <DynamicIcon name={iconName} size={26} strokeWidth={1.6} aria-hidden fallback={PurposeIconFallback} />
+  }
+}, { ssr: false, loading: PurposeIconFallback })
+
+function normalizeIcon(name: string) {
+  return name.replace(/Icon$/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().trim() || 'circle'
+}
+
+function PurposeGlyph({ name }: { name: string }) {
+  if (name === 'target') return <Target size={26} strokeWidth={1.6} aria-hidden />
+  if (name === 'eye') return <Eye size={26} strokeWidth={1.6} aria-hidden />
+  if (name === 'circle') return <PurposeIconFallback />
+  return <AdditionalPurposeIcon key={name} name={name} />
+}
 
 /** All copy on this page is editable placeholder content for the template. */
 const DEFAULT_PRINCIPLES = [
@@ -45,6 +67,8 @@ export default function About() {
   const getVehicle = (slug: string) => VEHICLES.find((vehicle) => vehicle.slug === slug)
   const headline = siteData?.content?.about?.title ?? 'A dealership built on straight answers.'
   const established = DEALER.established
+  const missionIcon = normalizeIcon(siteData.content?.about?.missionIcon ?? 'target')
+  const visionIcon = normalizeIcon(siteData.content?.about?.visionIcon ?? 'eye')
   const civic = getVehicle('honda-civic-2023')
   return (
     <>
@@ -69,11 +93,21 @@ export default function About() {
 
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto grid max-w-[1320px] gap-10 px-5 sm:px-8 lg:grid-cols-12">
-          <p
-            className="text-[14px] font-semibold text-muted lg:col-span-3"
-            data-preview-field-path="about.subtitle"
-            data-preview-style-target="about.subtitle"
-            data-preview-style-type="text">{siteData?.content?.about?.subtitle ?? "Since ·"}<span data-preview-field-path="dealer.established">{established}</span> · {DEALER.city}</p>
+          <div className="self-start border-l-2 border-accent pl-5 lg:col-span-3 lg:mt-1">
+            <p
+              className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted"
+              data-preview-field-path="about.subtitle"
+              data-preview-style-target="about.subtitle"
+              data-preview-style-type="text">{siteData?.content?.about?.subtitle ?? 'Since'}</p>
+            <p className="mt-2 text-[48px] font-extrabold leading-none tracking-[-0.04em] text-ink sm:text-[56px]"
+              data-preview-field-path="dealer.established"
+              data-preview-style-target="dealer.established"
+              data-preview-style-type="text">{established}</p>
+            <p className="mt-5 flex items-start gap-2 text-[13px] font-medium leading-relaxed text-graphite">
+              <MapPin size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden data-preview-static="Decorative location icon" />
+              <span data-preview-field-path="dealer.city">{DEALER.city}</span>
+            </p>
+          </div>
           <div className="lg:col-span-8">
             <p
               className="text-[24px] font-semibold leading-[1.4] tracking-[-0.01em] text-ink sm:text-[30px]"
@@ -98,26 +132,40 @@ export default function About() {
       {/* Mission & vision */}
       <section className="bg-ink py-20 text-white lg:py-24">
         <div className="mx-auto grid max-w-[1320px] gap-12 px-5 sm:px-8 md:grid-cols-2">
-          <div className="border-t border-white/20 pt-6">
+          <div className="group border-t border-white/20 pt-7">
+            <div className="flex items-center gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-[3px] bg-accent text-white transition-transform duration-200 ease-out group-hover:-translate-y-0.5 motion-reduce:transform-none">
+                <EditableIcon fieldPath="about.missionIcon" data-preview-field-path="about.missionIcon"
+                  name={missionIcon} size={26} strokeWidth={1.6} style={{ display: 'flex' }}
+                  customIcon={<PurposeGlyph name={missionIcon} />} />
+              </span>
             <h2
-              className="text-[14px] font-bold text-white/60"
+              className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/70"
               data-preview-field-path="about.heading"
               data-preview-style-target="about.heading"
               data-preview-style-type="text">{siteData?.content?.about?.heading ?? "Our mission"}</h2>
+            </div>
             <p
-              className="mt-4 text-[24px] font-semibold leading-[1.35] sm:text-[28px]"
+              className="mt-6 text-[23px] font-semibold leading-[1.45] tracking-[-0.015em] sm:text-[28px]"
               data-preview-field-path="about.description3"
               data-preview-style-target="about.description3"
               data-preview-style-type="text">{siteData?.content?.about?.description3 ?? "To make buying a car in Sri Lanka transparent, unhurried and fair — for first-time buyers and enthusiasts alike."}</p>
           </div>
-          <div className="border-t border-white/20 pt-6">
+          <div className="group border-t border-white/20 pt-7">
+            <div className="flex items-center gap-4">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-[3px] bg-accent text-white transition-transform duration-200 ease-out group-hover:-translate-y-0.5 motion-reduce:transform-none">
+                <EditableIcon fieldPath="about.visionIcon" data-preview-field-path="about.visionIcon"
+                  name={visionIcon} size={26} strokeWidth={1.6} style={{ display: 'flex' }}
+                  customIcon={<PurposeGlyph name={visionIcon} />} />
+              </span>
             <h2
-              className="text-[14px] font-bold text-white/60"
+              className="text-[12px] font-bold uppercase tracking-[0.14em] text-white/70"
               data-preview-field-path="about.heading2"
               data-preview-style-target="about.heading2"
               data-preview-style-type="text">{siteData?.content?.about?.heading2 ?? "Our vision"}</h2>
+            </div>
             <p
-              className="mt-4 text-[24px] font-semibold leading-[1.35] sm:text-[28px]"
+              className="mt-6 text-[23px] font-semibold leading-[1.45] tracking-[-0.015em] sm:text-[28px]"
               data-preview-field-path="about.description4"
               data-preview-style-target="about.description4"
               data-preview-style-type="text">{siteData?.content?.about?.description4 ?? "To be the dealership people recommend without being asked, because the experience was simply better."}</p>
@@ -225,8 +273,19 @@ export default function About() {
               data-preview-field-path="about.heading5"
               data-preview-style-target="about.heading5"
               data-preview-style-type="text">{siteData?.content?.about?.heading5 ?? "Come and see us."}</h2>
-            <p className="mt-3 text-[16px] text-muted" data-preview-static="chrome">
-              {DEALER.addressLines.join(', ')} · {DEALER.hoursShort}
+            <p className="mt-3 text-[16px] leading-relaxed text-muted">
+              <span data-preview-list-path="dealer.addressLines">
+                {DEALER.addressLines.map((line, index) => (
+                  <React.Fragment key={index}>
+                    <span data-preview-item-path={`dealer.addressLines[${index}]`}
+                      data-preview-field-path={`dealer.addressLines[${index}]`}>{line}</span>
+                    {index < DEALER.addressLines.length - 1 && <span data-preview-static="Address separator">{', '}</span>}
+                  </React.Fragment>
+                ))}
+              </span>
+              {DEALER.addressLines.length > 0 && DEALER.hoursShort && <span aria-hidden data-preview-static="Address and hours separator">{' · '}</span>}
+              <span data-preview-field-path="dealer.hoursShort" data-preview-style-target="dealer.hoursShort"
+                data-preview-style-type="text">{DEALER.hoursShort}</span>
             </p>
           </div>
           <div className="flex flex-wrap gap-3">

@@ -82,10 +82,11 @@ export function FilterPanel({
                     'h-10 whitespace-nowrap rounded-[3px] border text-[13px] font-semibold transition-colors duration-150',
                     draft.condition === c ? 'border-ink bg-ink text-white' : 'border-line bg-white text-graphite hover:border-ink'
                   )}
-                  data-preview-field-path={`vehicles.conditionLabels.${labelKey}`}
                   data-preview-style-target={`vehicles.conditionLabels.${labelKey}`}
                   data-preview-style-type="text">
-                  {conditionLabels[labelKey] ?? (c || 'Any')}
+                  {labelKey === 'any' ? <span data-preview-field-path="vehicles.conditionLabels.any">{conditionLabels.any ?? 'Any'}</span>
+                    : labelKey === 'new' ? <span data-preview-field-path="vehicles.conditionLabels.new">{conditionLabels.new ?? 'New'}</span>
+                    : <span data-preview-field-path="vehicles.conditionLabels.used">{conditionLabels.used ?? 'Used'}</span>}
                 </button>
               )
             })}

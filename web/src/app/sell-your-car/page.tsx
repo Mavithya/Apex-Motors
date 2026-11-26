@@ -1,8 +1,9 @@
 "use client";
-import { useSiteData } from "@deneb-ui/ui";
+import { EditableIcon, useSiteData } from "@deneb-ui/ui";
 import { useDealerImages } from '@/lib/useDealer'
 import React from 'react'
-import { Banknote, Clock3, FileCheck2, Repeat } from 'lucide-react'
+import { Banknote, Circle, Clock3, FileCheck2, Repeat, type LucideIcon } from 'lucide-react'
+import dynamic from 'next/dynamic'
 
 import { PageHero } from '@/components/ui/PageHeader'
 import { ButtonAnchor } from '@/components/ui/Button'
@@ -17,21 +18,35 @@ const DEFAULT_STEPS = [
   { title: 'Settle or trade', body: 'Take payment, or put the value straight towards your next vehicle.' },
 ]
 
-const DEFAULT_BENEFITS = [
-  { icon: Clock3, title: 'One visit, not weeks of listings', body: 'No calls from strangers, no test drives with people you do not know.' },
-  { icon: Repeat, title: 'Seamless upgrade', body: 'Your trade-in value is deducted from your next car in a single transaction.' },
-  { icon: FileCheck2, title: 'Paperwork handled', body: 'We manage the transfer documents and settle any outstanding lease.' },
-  { icon: Banknote, title: 'Prompt payment', body: 'If you are selling outright, payment can be arranged once documents are verified.' },
-]
+const BENEFIT_ICONS: Record<string, LucideIcon | undefined> = {
+  'clock-3': Clock3,
+  repeat: Repeat,
+  'file-check-corner': FileCheck2,
+  banknote: Banknote,
+  circle: Circle,
+}
+
+function BenefitIconFallback() {
+  return <Circle className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+}
+
+const AdditionalBenefitIcon = dynamic(async () => {
+  const { DynamicIcon, iconNames } = await import('lucide-react/dynamic')
+  return function AdditionalBenefitIcon({ name }: { name: string }) {
+    const iconName = iconNames.find((icon) => icon === name) ?? 'circle'
+    return <DynamicIcon name={iconName} size={20} strokeWidth={1.75} className="h-5 w-5" aria-hidden fallback={BenefitIconFallback} />
+  }
+}, { ssr: false, loading: BenefitIconFallback })
 
 export default function SellYourCar() {
   const siteData = useSiteData();
-  const benefits: { title: string; body: string }[] = siteData.content?.["sell-your-car"]?.benefits ?? []
+  const benefits: { title: string; body: string; icon?: string }[] = siteData.content?.["sell-your-car"]?.benefits ?? []
   const STEPS: typeof DEFAULT_STEPS = siteData?.content?.["sell-your-car"]?.STEPS ?? DEFAULT_STEPS
   const IMAGES = useDealerImages()
   return (
     <>
       <PageHero
+        editableImage
         data-preview-page-key="sell-your-car"
         crumbs={[{ label: 'Home', to: '/' }, { label: 'Sell or Trade In' }]}
         title={siteData?.content?.["sell-your-car"]?.hero?.yourCurrentCarWorthMore ?? "Your current car is worth more than you think."}
@@ -91,21 +106,28 @@ export default function SellYourCar() {
               data-preview-style-target="sell-your-car.heading2"
               data-preview-style-type="text">{siteData?.content?.["sell-your-car"]?.heading2 ?? "Why trade in with us"}</h2>
             <ul className="mt-8" data-preview-list-path="sell-your-car.benefits" data-preview-style-type="grid">
-              {benefits.map(({ title, body }, index) => {
-            const Icon = DEFAULT_BENEFITS[index % DEFAULT_BENEFITS.length].icon
+              {benefits.map(({ title, body, icon }, index) => {
+            const name = (icon || 'circle').replace(/Icon$/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().trim() || 'circle'
+            const Icon = Object.hasOwn(BENEFIT_ICONS, name) ? BENEFIT_ICONS[name] : undefined
             return (
                 <li
-                  key={title}
+                  key={index}
 
                   className="flex gap-4 border-t border-line py-5"
                   data-preview-item-path={`sell-your-car.benefits[${index}]`}
                   data-preview-style-type="card">
-                  <Icon
+                  <EditableIcon
+                    fieldPath={`sell-your-car.benefits[${index}].icon`}
+                    data-preview-field-path={`sell-your-car.benefits[${index}].icon`}
+                    name={name}
                     className="mt-0.5 h-5 w-5 shrink-0 text-accent"
+                    size={20}
                     strokeWidth={1.75}
-                    aria-hidden
-
-                    data-preview-static="Decorative icon" />
+                    style={{ display: 'flex' }}
+                    customIcon={Icon
+                      ? <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                      : <AdditionalBenefitIcon key={name} name={name} />}
+                  />
                   <div>
                     <h3 className="text-[16px] font-bold text-ink" data-preview-field-path={`sell-your-car.benefits[${index}].title`}>{title}</h3>
                     <p className="mt-1 text-[14px] leading-relaxed text-muted" data-preview-field-path={`sell-your-car.benefits[${index}].body`}>{body}</p>

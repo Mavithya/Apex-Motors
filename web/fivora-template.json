@@ -79,7 +79,6 @@
       "common.navLabels.home",
       "common.navLabels.sell-your-car",
       "common.navLabels.vehicles",
-      "common.optionalLabel",
       "common.sectionCopy.home_NewArrivals_0",
       "common.shortDescription",
       "common.specLabels.spec0",
@@ -110,7 +109,6 @@
       "contact.form.phoneNumber2",
       "contact.form.whatItAbout",
       "contact.form.whatItAbout2",
-      "dealer.addressLines[*]",
       "dealer.mapQuery",
       "dealer.phoneHref",
       "dealer.tagline",
@@ -124,7 +122,7 @@
       "financing.form.email",
       "financing.form.email2",
       "financing.form.employment",
-      "financing.form.employment2",
+      "financing.form.employmentOptions[*].value",
       "financing.form.financeEnquiryReceived",
       "financing.form.financeEnquiryReceived2",
       "financing.form.fullName",
@@ -134,10 +132,11 @@
       "financing.form.phoneNumber",
       "financing.form.phoneNumber2",
       "financing.form.preferredLoanPeriod",
-      "financing.form.preferredLoanPeriod2",
       "financing.form.subtitle",
       "financing.form.vehicleInterest",
       "financing.form.vehicleInterest2",
+      "financing.loanTerms[*].months",
+      "financing.noLoanPeriodsLabel",
       "financing.stepLabel",
       "home.CATEGORIES[*].slug",
       "home.brands[*].name",
@@ -167,34 +166,17 @@
       "home.justArrived",
       "notFound.browseVehicles",
       "sell-your-car.form.additionalDetails",
-      "sell-your-car.form.additionalDetails2",
       "sell-your-car.form.condition",
-      "sell-your-car.form.condition2",
       "sell-your-car.form.contactName",
-      "sell-your-car.form.contactName2",
-      "sell-your-car.form.eG68000Placeholder",
-      "sell-your-car.form.eGAxioPlaceholder",
-      "sell-your-car.form.eGToyotaPlaceholder",
       "sell-your-car.form.email",
-      "sell-your-car.form.email2",
-      "sell-your-car.form.heading",
-      "sell-your-car.form.heading2",
-      "sell-your-car.form.item0771234567Placeholder",
       "sell-your-car.form.mileageKm",
-      "sell-your-car.form.mileageKm2",
       "sell-your-car.form.model",
-      "sell-your-car.form.model2",
       "sell-your-car.form.phoneNumber",
-      "sell-your-car.form.phoneNumber2",
-      "sell-your-car.form.selectConditionPlaceholder",
-      "sell-your-car.form.selectYearPlaceholder",
-      "sell-your-car.form.serviceHistoryModificationsOutstandingLease",
+      "sell-your-car.form.requestSellingLabel",
       "sell-your-car.form.valuationRequestReceived",
       "sell-your-car.form.valuationRequestReceived2",
       "sell-your-car.form.vehicleMake",
-      "sell-your-car.form.vehicleMake2",
       "sell-your-car.form.year",
-      "sell-your-car.form.year2",
       "sell-your-car.stepLabel",
       "testimonials[*].id",
       "vehicles.SORT_OPTIONS[*].value",
@@ -1026,6 +1008,26 @@
                 "key": "additionalDetails2",
                 "type": "text",
                 "label": "additional Details2"
+              },
+              {
+                "key": "tradeInLabel",
+                "type": "text",
+                "label": "Trade-in tab label"
+              },
+              {
+                "key": "sellOutrightLabel",
+                "type": "text",
+                "label": "Sell outright tab label"
+              },
+              {
+                "key": "requestTradeInLabel",
+                "type": "text",
+                "label": "Trade-in submit button"
+              },
+              {
+                "key": "requestSellingLabel",
+                "type": "text",
+                "label": "Selling submit button"
               }
             ]
           },
@@ -1042,6 +1044,12 @@
             "minItems": 0,
             "maxItems": 200,
             "fields": [
+              {
+                "key": "icon",
+                "type": "text",
+                "label": "Benefit icon",
+                "description": "Choose a Lucide icon for this benefit."
+              },
               {
                 "key": "title",
                 "type": "text",
@@ -1294,6 +1302,26 @@
                 "key": "subtitle",
                 "type": "text",
                 "label": "subtitle"
+              },
+              {
+                "key": "employmentOptions",
+                "type": "list",
+                "label": "Employment choices",
+                "itemLabel": "Employment choice",
+                "minItems": 1,
+                "maxItems": 200,
+                "fields": [
+                  {
+                    "key": "label",
+                    "type": "text",
+                    "label": "Displayed label"
+                  },
+                  {
+                    "key": "value",
+                    "type": "text",
+                    "label": "Unique form value"
+                  }
+                ]
               }
             ]
           },
@@ -1328,6 +1356,33 @@
             "key": "important",
             "type": "text",
             "label": "important"
+          },
+          {
+            "key": "loanTerms",
+            "type": "list",
+            "label": "Loan periods (calculator and enquiry)",
+            "itemLabel": "Loan period",
+            "minItems": 1,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "label",
+                "type": "text",
+                "label": "Button label"
+              },
+              {
+                "key": "months",
+                "type": "number",
+                "label": "Duration in months (e.g. 84 = 7 years)",
+                "min": 1,
+                "step": 1
+              }
+            ]
+          },
+          {
+            "key": "noLoanPeriodsLabel",
+            "type": "text",
+            "label": "Empty loan-period message"
           }
         ],
         "id": "financing",
@@ -2375,6 +2430,18 @@
             "key": "call",
             "type": "text",
             "label": "call"
+          },
+          {
+            "key": "missionIcon",
+            "type": "text",
+            "label": "Mission icon",
+            "description": "Choose a Lucide icon using the visual editor icon picker."
+          },
+          {
+            "key": "visionIcon",
+            "type": "text",
+            "label": "Vision icon",
+            "description": "Choose a Lucide icon using the visual editor icon picker."
           }
         ],
         "id": "about",

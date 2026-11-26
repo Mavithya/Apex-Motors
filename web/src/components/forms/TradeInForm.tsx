@@ -11,6 +11,7 @@ const YEARS = Array.from({ length: 21 }, (_, i) => String(2025 - i))
 type Field = 'make' | 'model' | 'year' | 'mileage' | 'condition' | 'name' | 'phone' | 'email'
 export function TradeInForm() {
   const siteData = useSiteData();
+  const copy = siteData.content?.['sell-your-car']?.form
   const [mode, setMode] = useState('trade-in')
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ make: '', model: '', year: '', mileage: '', condition: '', name: '', phone: '', email: '', details: '' })
@@ -62,9 +63,12 @@ export function TradeInForm() {
                   onClick={() => setMode(m)}
                   className={`h-9 whitespace-nowrap px-4 text-[13px] font-semibold transition-colors duration-150 ${
                     mode === m ? 'bg-ink text-white' : 'text-graphite hover:text-ink'
-                  }`} data-preview-static="Interface label, control, or calculated value"
+                  }`}
+                  data-preview-field-path={m === 'trade-in' ? 'sell-your-car.form.tradeInLabel' : 'sell-your-car.form.sellOutrightLabel'}
+                  data-preview-style-target={m === 'trade-in' ? 'sell-your-car.form.tradeInLabel' : 'sell-your-car.form.sellOutrightLabel'}
+                  data-preview-style-type="button"
                 >
-                  {m === 'trade-in' ? 'Trade in' : 'Sell outright'}
+                  {m === 'trade-in' ? copy?.tradeInLabel ?? 'Trade in' : copy?.sellOutrightLabel ?? 'Sell outright'}
                 </button>
               ))}
             </div>
@@ -169,8 +173,12 @@ export function TradeInForm() {
               data-preview-field-path="sell-your-car.form.additionalDetails2"
               previewPath="sell-your-car.form" placeholderPath="sell-your-car.form.serviceHistoryModificationsOutstandingLease" />
           </div>
-          <Button type="submit" size="lg" className="mt-8 w-full sm:w-auto" data-preview-static="Interface label, control, or calculated value">
-            {mode === 'trade-in' ? 'Request trade-in valuation' : 'Request a selling offer'}
+          <Button
+            type="submit" size="lg" className="mt-8 w-full sm:w-auto"
+            data-preview-field-path={mode === 'trade-in' ? 'sell-your-car.form.requestTradeInLabel' : 'sell-your-car.form.requestSellingLabel'}
+            data-preview-style-target={mode === 'trade-in' ? 'sell-your-car.form.requestTradeInLabel' : 'sell-your-car.form.requestSellingLabel'}
+            data-preview-style-type="button">
+            {mode === 'trade-in' ? copy?.requestTradeInLabel ?? 'Request trade-in valuation' : copy?.requestSellingLabel ?? 'Request a selling offer'}
           </Button>
         </form>
       )}

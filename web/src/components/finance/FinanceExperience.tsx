@@ -8,10 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { TextField, SelectField, TextAreaField } from '@/components/ui/Field'
 import { FormSuccess } from '@/components/ui/FormSuccess'
 import { Info } from 'lucide-react'
-import { LOAN_TERMS } from '@/lib/finance'
+import { resolveLoanTerm } from '@/lib/finance'
+import { useFinanceOptions } from '@/lib/useFinanceOptions'
 import { formatLKR } from '@/lib/utils'
 import { FinanceCalculator } from './FinanceCalculator'
-type Errors = Partial<Record<'name' | 'phone' | 'email', string>>
+type Errors = Partial<Record<'name' | 'phone' | 'email' | 'employment' | 'term', string>>
 export function FinanceExperience() {
   const siteData = useSiteData();
   const VEHICLES = useVehicleCatalog()
@@ -20,6 +21,9 @@ export function FinanceExperience() {
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', email: '', vehicle: '', employment: 'Salaried', term: '60', message: '' })
   const [errors, setErrors] = useState<Errors>({})
+  const { loanTerms, employmentOptions } = useFinanceOptions()
+  const months = resolveLoanTerm(loanTerms, Number(form.term))
+  const employment = employmentOptions.some((option) => !option.disabled && option.value === form.employment) ? form.employment : employmentOptions.find((option) => !option.disabled)?.value ?? ''
 
   const update = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }))
@@ -30,6 +34,8 @@ export function FinanceExperience() {
     if (form.name.trim().length < 2) next.name = 'Please enter your full name.'
     if (!PHONE_RE.test(cleanPhone(form.phone))) next.phone = 'Enter a Sri Lankan number, e.g. 077 123 4567.'
     if (!EMAIL_RE.test(form.email)) next.email = 'Enter a valid email so we can send the comparison.'
+    if (!months) next.term = 'Choose a loan period.'
+    if (!employment) next.employment = 'Choose your employment.'
     setErrors(next)
     if (!Object.keys(next).length) setSent(true)
   }
@@ -51,7 +57,7 @@ export function FinanceExperience() {
             data-preview-style-target="financing.description3"
             data-preview-style-type="text">{siteData?.content?.financing?.description3 ?? "Enter a vehicle price, your down payment, a loan period and an interest rate to see an indicative monthly figure."}</p>
           <div className="mt-10">
-            <FinanceCalculator initialPrice={startingPrice} tone="dark" onEstimate={setEstimate} />
+            <FinanceCalculator initialPrice={startingPrice} tone="dark" onEstimate={setEstimate} selectedMonths={months} onMonthsChange={(value) => setForm((current) => ({ ...current, term: String(value) }))} />
           </div>
         </div>
       </section>
@@ -139,16 +145,30 @@ export function FinanceExperience() {
                   previewPath="financing.form" placeholderPath="financing.form.notDecidedYetPlaceholder" />
                 <SelectField
                   label={siteData?.content?.financing?.form?.employment2 ?? "Employment"}
-                  value={form.employment}
+                  value={employment}
                   onChange={update('employment')}
-                  options={['Salaried', 'Self-employed', 'Business owner', 'Professional', 'Other'].map((x) => ({ value: x, label: x }))}
+                  options={employmentOptions}
+                  renderOption={(option, index) => (
+                    <option key={index} value={option.value} disabled={option.disabled}
+                      data-preview-item-path={`financing.form.employmentOptions[${index}]`}
+                      data-preview-field-path={`financing.form.employmentOptions[${index}].label`}>
+                      {option.label}
+                    </option>
+                  )}
+                  optionsPath="financing.form.employmentOptions"
+                  error={errors.employment}
+                  disabled={!employment}
                   data-preview-field-path="financing.form.employment2"
                   previewPath="financing.form" />
                 <SelectField
                   label={siteData?.content?.financing?.form?.preferredLoanPeriod2 ?? "Preferred loan period"}
-                  value={form.term}
+                  value={months ? String(months) : ''}
                   onChange={update('term')}
-                  options={LOAN_TERMS.map((m) => ({ value: String(m), label: `${m} months (${m / 12} yr)` }))}
+                  options={loanTerms.map((term) => ({ value: term.valid ? String(term.months) : `invalid-term-${term.index}`, label: term.valid ? `${term.months} months (${term.label})` : term.label, disabled: !term.valid, previewPath: `financing.loanTerms[${term.index}]` }))}
+                  optionsPath="financing.loanTerms"
+                  placeholder={months ? undefined : siteData.content?.financing?.noLoanPeriodsLabel ?? 'No loan periods available'}
+                  disabled={!months}
+                  error={errors.term}
                   data-preview-field-path="financing.form.preferredLoanPeriod2"
                   previewPath="financing.form" />
                 <TextAreaField

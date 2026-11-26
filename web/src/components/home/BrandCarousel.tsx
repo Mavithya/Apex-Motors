@@ -57,19 +57,28 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
           style={{ transform: `translateX(calc(-${activeIndex + 0.5} * var(--brand-slot)))` }}
           onTransitionEnd={finishMove}
         >
-          {repeated.map((brand, index: number) => {
-            const distance = Math.abs(index - activeIndex)
-            const visible = distance <= 2
+          {repeated.map((brand, slotIndex: number) => {
+            const index = slotIndex % count
+            const distance = Math.abs(slotIndex - activeIndex)
+            const isCopy = count > 1 && (slotIndex < count || slotIndex >= count * 2)
+            const itemClass = `flex h-full w-[var(--brand-slot)] shrink-0 items-center justify-center px-4 transition-[opacity,filter,transform] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-accent ${distance === 0 ? 'z-10 scale-100 opacity-100' : 'scale-75 opacity-55 grayscale hover:opacity-80'} ${distance > 2 ? 'pointer-events-none' : ''}`
+            if (isCopy) return (
+              <Link key={slotIndex} href={brand.href || '#'} aria-label={`View ${brand.name} vehicles`}
+                aria-hidden={distance > 2} tabIndex={distance <= 2 ? 0 : -1} className={itemClass}
+                data-preview-static="Looping carousel copy; edit the original brand item">
+                <EditableImage src={brand.logo} alt={brand.name} width={240} height={180} fit="contain"
+                  className="h-[85%] w-full object-contain" data-preview-static="Looping carousel image copy" />
+              </Link>
+            )
             return (
               <Link
-                key={index}
+                key={slotIndex}
                 href={brand.href || '#'}
-                data-preview-item-path={visible ? `home.brands[${index % count}]` : undefined}
-                data-preview-field-path={visible ? `home.brands[${index % count}].href` : undefined}
+                data-preview-item-path={`home.brands[${index}]`}
+                data-preview-field-path={`home.brands[${index}].href`}
                 aria-label={`View ${brand.name} vehicles`}
-                aria-hidden={distance > 2}
                 tabIndex={distance <= 2 ? 0 : -1}
-                className={`flex h-full w-[var(--brand-slot)] shrink-0 items-center justify-center px-4 transition-[opacity,filter,transform] duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-accent ${distance === 0 ? 'z-10 scale-100 opacity-100' : 'scale-75 opacity-55 grayscale hover:opacity-80'} ${distance > 2 ? 'pointer-events-none' : ''}`}
+                className={itemClass}
               >
                 <EditableImage
                   src={brand.logo}
@@ -78,8 +87,7 @@ export function BrandCarousel({ brands }: { brands: Brand[] }) {
                   height={180}
                   fit="contain"
                   className="h-[85%] w-full object-contain"
-                  data-preview-field-path={visible ? `home.brands[${index % count}].logo` : undefined}
-                  data-preview-static={visible ? undefined : 'Offscreen carousel copy'}
+                  data-preview-field-path={`home.brands[${index}].logo`}
                 />
               </Link>
             )
