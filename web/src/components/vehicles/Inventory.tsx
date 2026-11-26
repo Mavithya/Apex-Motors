@@ -73,7 +73,9 @@ export function InventoryContent({ query = '' }: { query?: string }) {
     updateUrl(next)
   }
 
-  const title = savedView ? 'Your saved vehicles' : filters.arrivals ? 'New Arrivals' : 'Explore Our Collection'
+  const inventoryCopy = siteData.content?.vehicles?.inventory
+  const defaultHeader = !savedView && !filters.arrivals
+  const title = savedView ? 'Your saved vehicles' : filters.arrivals ? 'New Arrivals' : inventoryCopy?.title ?? 'Explore Our Collection'
 
   return (
     <>
@@ -83,11 +85,21 @@ export function InventoryContent({ query = '' }: { query?: string }) {
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: savedView ? 'Saved' : filters.arrivals ? 'New Arrivals' : 'Vehicles' }]} />
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
-              <h1 className="text-[40px] font-extrabold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[56px]" data-preview-static="Interface label, control, or calculated value">{title}</h1>
-              <p className="mt-4 text-[16px] leading-relaxed text-muted" data-preview-static="Interface label, control, or calculated value">
+              <h1
+                className="text-[40px] font-extrabold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[56px]"
+                data-preview-field-path={defaultHeader ? 'vehicles.inventory.title' : undefined}
+                data-preview-style-target={defaultHeader ? 'vehicles.inventory.title' : undefined}
+                data-preview-style-type="text"
+                data-preview-static={defaultHeader ? undefined : 'Inventory view title'}>{title}</h1>
+              <p
+                className="mt-4 text-[16px] leading-relaxed text-muted"
+                data-preview-field-path={savedView ? undefined : 'vehicles.inventory.description'}
+                data-preview-style-target={savedView ? undefined : 'vehicles.inventory.description'}
+                data-preview-style-type="text"
+                data-preview-static={savedView ? 'Saved vehicles explanation' : undefined}>
                 {savedView
                   ? 'Vehicles you have saved on this device. Saved cars are stored in your browser only.'
-                  : 'Brand-new and inspected pre-owned vehicles, available for viewing at our Colombo showroom. Filter by what matters to you.'}
+                  : inventoryCopy?.description ?? 'Brand-new and inspected pre-owned vehicles, available for viewing at our Colombo showroom. Filter by what matters to you.'}
               </p>
             </div>
             <p

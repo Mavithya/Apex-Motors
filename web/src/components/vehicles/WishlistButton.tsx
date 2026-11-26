@@ -27,11 +27,13 @@ export function WishlistButton({
   label,
   className,
   variant = 'icon',
+  compact = false,
 }: {
   id: string
   label: string
   className?: string
   variant?: 'icon' | 'text'
+  compact?: boolean
 }) {
   const { has, toggle } = useWishlist()
   const siteData = useSiteData()
@@ -44,8 +46,11 @@ export function WishlistButton({
         type="button"
         onClick={() => toggle(id)}
         aria-pressed={saved}
+        aria-label={saved ? `Remove ${label} from saved` : `Save ${label}`}
+        title={compact ? (saved ? 'Saved' : 'Save') : undefined}
         className={cn(
-          'inline-flex h-11 items-center gap-2 whitespace-nowrap rounded-[3px] border px-4 text-sm font-semibold transition-colors duration-150',
+          'inline-flex shrink-0 items-center whitespace-nowrap rounded-[3px] border font-semibold transition-colors duration-150',
+          compact ? 'h-10 min-w-10 justify-center gap-1 px-1.5 text-[11px]' : 'h-11 gap-2 px-4 text-sm',
           saved ? 'border-accent text-accent' : 'border-line text-ink hover:border-ink',
           className
         )} data-preview-static="Interface label, control, or calculated value"
@@ -55,7 +60,7 @@ export function WishlistButton({
           aria-hidden
 
           data-preview-static="Decorative icon" />
-        {saved ? 'Saved' : 'Save'}
+        <span className={compact ? 'hidden @min-[320px]:inline' : undefined}>{saved ? 'Saved' : 'Save'}</span>
       </button>
     );
   }

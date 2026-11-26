@@ -48,7 +48,6 @@
       "catalog.products[*].customData.vehicle.registration",
       "catalog.products[*].customData.vehicle.seats",
       "catalog.products[*].customData.vehicle.slug",
-      "catalog.products[*].customData.vehicle.tagline",
       "catalog.products[*].customData.vehicle.transmission",
       "catalog.products[*].customData.vehicle.variant",
       "catalog.products[*].customData.vehicle.year",
@@ -1882,6 +1881,45 @@
             "key": "heading7",
             "type": "text",
             "label": "heading7"
+          },
+          {
+            "key": "inventory",
+            "type": "object",
+            "label": "Inventory introduction",
+            "fields": [
+              {
+                "key": "title",
+                "type": "text",
+                "label": "Inventory heading"
+              },
+              {
+                "key": "description",
+                "type": "textarea",
+                "label": "Inventory description"
+              }
+            ]
+          },
+          {
+            "key": "conditionLabels",
+            "type": "object",
+            "label": "Condition filter button labels",
+            "fields": [
+              {
+                "key": "any",
+                "type": "text",
+                "label": "Any condition label"
+              },
+              {
+                "key": "new",
+                "type": "text",
+                "label": "New vehicles label"
+              },
+              {
+                "key": "used",
+                "type": "text",
+                "label": "Used vehicles label"
+              }
+            ]
           },
           {
             "key": "contact",

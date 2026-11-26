@@ -28,6 +28,7 @@ export function FilterPanel({
   bare?: boolean
 }) {
   const siteData = useSiteData();
+  const conditionLabels = siteData.content?.vehicles?.conditionLabels ?? {}
   const VEHICLES = useVehicleCatalog()
   const MAKES = Array.from(new Set(VEHICLES.map(v => v.make))).filter(Boolean).sort()
   const COLORS = Array.from(new Set(VEHICLES.map(v => v.exteriorColor))).filter(Boolean).sort()
@@ -69,20 +70,25 @@ export function FilterPanel({
           data-preview-field-path="vehicles.condition"
           previewPath="vehicles">
           <div className="grid grid-cols-3 gap-1.5">
-            {(['', 'New', 'Used'] as ('' | Condition)[]).map((c) => (
-              <button
-                key={c || 'any'}
-                type="button"
-                aria-pressed={draft.condition === c}
-                onClick={() => set('condition', c)}
-                className={cn(
-                  'h-10 whitespace-nowrap rounded-[3px] border text-[13px] font-semibold transition-colors duration-150',
-                  draft.condition === c ? 'border-ink bg-ink text-white' : 'border-line bg-white text-graphite hover:border-ink'
-                )}
-               data-preview-static="Filter option">
-                {c === '' ? 'Any' : c === 'New' ? 'New' : 'Used'}
-              </button>
-            ))}
+            {(['', 'New', 'Used'] as ('' | Condition)[]).map((c) => {
+              const labelKey = c === '' ? 'any' : c === 'New' ? 'new' : 'used'
+              return (
+                <button
+                  key={c || 'any'}
+                  type="button"
+                  aria-pressed={draft.condition === c}
+                  onClick={() => set('condition', c)}
+                  className={cn(
+                    'h-10 whitespace-nowrap rounded-[3px] border text-[13px] font-semibold transition-colors duration-150',
+                    draft.condition === c ? 'border-ink bg-ink text-white' : 'border-line bg-white text-graphite hover:border-ink'
+                  )}
+                  data-preview-field-path={`vehicles.conditionLabels.${labelKey}`}
+                  data-preview-style-target={`vehicles.conditionLabels.${labelKey}`}
+                  data-preview-style-type="text">
+                  {conditionLabels[labelKey] ?? (c || 'Any')}
+                </button>
+              )
+            })}
           </div>
         </Group>
 

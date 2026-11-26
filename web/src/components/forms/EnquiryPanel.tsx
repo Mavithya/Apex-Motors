@@ -3,7 +3,7 @@ import { useSiteData } from "@deneb-ui/ui";
 import { useDealer } from '@/lib/useDealer'
 
 import React, { useState } from 'react'
-import { CalendarCheck, Info, MessageCircle, Phone } from 'lucide-react'
+import { Box, CalendarCheck, Info, MessageCircle, Phone } from 'lucide-react'
 import type { Vehicle } from '@/types/vehicle'
 import { cleanPhone, cn, EMAIL_RE, formatLKR, PHONE_RE , interpolateCopy } from '@/lib/utils'
 import { ButtonAnchor, Button } from '@/components/ui/Button'
@@ -15,7 +15,7 @@ import { Badge } from '@/components/vehicles/VehicleCard'
 type Mode = 'info' | 'test-drive'
 type Errors = Partial<Record<'name' | 'phone' | 'email' | 'date', string>>
 
-export function EnquiryPanel({ vehicle: v, waMessage, initialMode, previewPath }: { vehicle: Vehicle; waMessage: string; initialMode: Mode; previewPath?: string }) {
+export function EnquiryPanel({ vehicle: v, waMessage, initialMode, previewPath, onView3D }: { vehicle: Vehicle; waMessage: string; initialMode: Mode; previewPath?: string; onView3D: () => void }) {
   const siteData = useSiteData();
   const DEALER = useDealer()
   const whatsappLink = (message?: string) => (DEALER.whatsappUrl ?? `https://wa.me/${DEALER.whatsappNumber}`) + (message ? '?text=' + encodeURIComponent(message) : '')
@@ -58,16 +58,44 @@ export function EnquiryPanel({ vehicle: v, waMessage, initialMode, previewPath }
         </p>
         <h1 data-preview-field-path={previewPath ? `${previewPath}.title` : undefined} className="mt-1 text-[32px] font-extrabold leading-[1.08] tracking-[-0.035em] text-ink">{v.model}</h1>
         <p className="mt-1 text-[15px] text-muted" data-preview-static="Interface label, control, or calculated value">{v.variant}</p>
-        <div className="mt-5 flex items-end justify-between gap-4">
-          <div>
-            <p
-              className="text-[12px] text-muted"
-              data-preview-field-path="home.form.subtitle"
-              data-preview-style-target="home.form.subtitle"
-              data-preview-style-type="text">{siteData?.content?.home?.form?.subtitle ?? "Price"}</p>
-            <p data-preview-field-path={previewPath ? `${previewPath}.price` : undefined} className="text-[27px] font-extrabold tracking-[-0.035em] text-ink">{formatLKR(v.price)}</p>
+        <div className="@container mt-5">
+          <p
+            className="text-[12px] text-muted"
+            data-preview-field-path="home.form.subtitle"
+            data-preview-style-target="home.form.subtitle"
+            data-preview-style-type="text">{siteData?.content?.home?.form?.subtitle ?? "Price"}</p>
+          <div className="mt-1 flex items-center gap-1.5">
+            <p data-preview-field-path={previewPath ? `${previewPath}.price` : undefined} className="shrink-0 whitespace-nowrap text-[clamp(1rem,5.2cqi,1.6875rem)] font-extrabold tracking-[-0.035em] text-ink">{formatLKR(v.price)}</p>
+            <div className="ml-auto flex shrink-0 items-center gap-1.5">
+              <WishlistButton id={v.id} label={`${v.make} ${v.model}`} variant="text" compact />
+              {v.model3DUrl ? (
+                <button
+                  type="button"
+                  onClick={onView3D}
+                  title={siteData.content?.vehicles?.gallery?.view3dLabel ?? 'View in 3D'}
+                  aria-label={siteData.content?.vehicles?.gallery?.view3dLabel ?? 'View in 3D'}
+                  className="inline-flex h-10 min-w-10 items-center justify-center gap-1 whitespace-nowrap rounded-[3px] border border-line px-1.5 text-[11px] font-semibold text-ink transition-colors hover:border-ink hover:text-accent"
+                  data-preview-field-path="vehicles.gallery.view3dLabel"
+                  data-preview-style-target="vehicles.gallery.view3dLabel"
+                  data-preview-style-type="button">
+                  <Box className="h-4 w-4 shrink-0 text-accent" aria-hidden data-preview-static="Decorative icon" />
+                  <span className="hidden @min-[320px]:inline">{siteData.content?.vehicles?.gallery?.view3dLabel ?? 'View in 3D'}</span>
+                </button>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  aria-label={siteData.content?.vehicles?.gallery?.item3dUnavailableLabel ?? '3D unavailable'}
+                  title={siteData.content?.vehicles?.gallery?.item3dUnavailableLabel ?? '3D unavailable'}
+                  className="inline-flex h-10 min-w-10 cursor-not-allowed items-center justify-center gap-1 whitespace-nowrap rounded-[3px] border border-line bg-paper px-1.5 text-[11px] font-semibold text-muted"
+                  data-preview-field-path="vehicles.gallery.item3dUnavailableLabel"
+                  data-preview-style-target="vehicles.gallery.item3dUnavailableLabel"
+                  data-preview-style-type="text">
+                  <Box className="h-4 w-4 shrink-0" aria-hidden data-preview-static="Decorative icon" />
+                  <span className="hidden @min-[320px]:inline">{siteData.content?.vehicles?.gallery?.item3dUnavailableLabel ?? '3D unavailable'}</span>
+                </span>
+              )}
+            </div>
           </div>
-          <WishlistButton id={v.id} label={`${v.make} ${v.model}`} variant="text" />
         </div>
         <p
           className="mt-3 text-[12px] text-muted"

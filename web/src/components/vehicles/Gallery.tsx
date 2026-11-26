@@ -4,19 +4,14 @@ import { useSiteData } from "@deneb-ui/ui";
 
 import React, { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Box, ChevronLeft, ChevronRight, Expand, X } from 'lucide-react'
-import dynamic from 'next/dynamic'
-import type { Vehicle, VehicleImage } from '@/types/vehicle'
+import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react'
+import type { VehicleImage } from '@/types/vehicle'
 import { cn } from '@/lib/utils'
 
-const Vehicle3DModal = dynamic(() => import('./Vehicle3DModal').then((module) => module.Vehicle3DModal), { ssr: false })
-
-export function Gallery({ images, name, model3DUrl, model3DAttribution, previewPath, imagePaths, coverPath, productIndex, galleryIndexes }: { images: VehicleImage[]; name: string; model3DUrl?: string; model3DAttribution?: Vehicle['model3DAttribution']; previewPath?: string; imagePaths?: (string | undefined)[]; coverPath?: string; productIndex?: number; catalogPath?: string; galleryIndexes?: number[] }) {
+export function Gallery({ images, name, previewPath, imagePaths, coverPath, productIndex, galleryIndexes }: { images: VehicleImage[]; name: string; previewPath?: string; imagePaths?: (string | undefined)[]; coverPath?: string; productIndex?: number; catalogPath?: string; galleryIndexes?: number[] }) {
   const siteData = useSiteData();
   const [index, setIndex] = useState(0)
   const [viewer, setViewer] = useState(false)
-  const [viewer3D, setViewer3D] = useState(false)
-  const close3D = useCallback(() => setViewer3D(false), [])
   const current = images[index]
 
   const go = useCallback((dir: 1 | -1) => setIndex((i) => (i + dir + images.length) % images.length), [images.length])
@@ -66,32 +61,6 @@ export function Gallery({ images, name, model3DUrl, model3DAttribution, previewP
               data-preview-style-type="text">{siteData?.content?.vehicles?.gallery?.representativeImageLabel ?? "· representative image"}</span>)}
           </span>
           <span className="pointer-events-auto relative z-10 flex items-center gap-2">
-            {model3DUrl ? (
-              <button
-                type="button"
-                onClick={() => setViewer3D(true)}
-                className="flex h-10 items-center gap-2 bg-white/95 px-3.5 text-[12px] font-bold text-ink shadow-sm transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-accent sm:text-[13px]"
-                data-preview-field-path="vehicles.gallery.view3dLabel"
-                data-preview-style-target="vehicles.gallery.view3dLabel"
-                data-preview-style-type="button">
-                <Box
-                  className="h-4 w-4 text-accent"
-                  aria-hidden
-
-                  data-preview-static="Decorative icon" />{siteData?.content?.vehicles?.gallery?.view3dLabel ?? "View in 3D"}</button>
-            ) : (
-              <span
-                className="flex h-10 items-center gap-2 bg-ink/80 px-3 text-[11px] font-semibold text-white/80"
-                aria-label="3D view not available for this vehicle"
-                data-preview-field-path="vehicles.gallery.item3dUnavailableLabel"
-                data-preview-style-target="vehicles.gallery.item3dUnavailableLabel"
-                data-preview-style-type="text">
-                <Box
-                  className="h-4 w-4"
-                  aria-hidden
-
-                  data-preview-static="Decorative icon" />{siteData?.content?.vehicles?.gallery?.item3dUnavailableLabel ?? "3D unavailable"}</span>
-            )}
             <button type="button" aria-label="Open full-screen image viewer" onClick={() => setViewer(true)} className="flex h-10 w-10 items-center justify-center bg-white/95 text-ink" data-preview-static="Interface label, control, or calculated value">
               <Expand
                 className="h-4 w-4"
@@ -161,7 +130,6 @@ export function Gallery({ images, name, model3DUrl, model3DAttribution, previewP
           </motion.div>
         )}
       </AnimatePresence>
-      {viewer3D && <Vehicle3DModal name={name} model3DUrl={model3DUrl} attribution={model3DAttribution} onClose={close3D} />}
     </GalleryFrame>
   );
 }

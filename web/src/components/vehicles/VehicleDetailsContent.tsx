@@ -4,7 +4,8 @@ import { useSiteData, useProducts } from '@deneb-ui/ui'
 import { useVehicleCatalog, useCatalogPath } from '@/lib/useVehicleCatalog'
 import { useDealer } from '@/lib/useDealer'
 import { vehicleFeatureGroups } from '@/lib/vehicleCatalog'
-import React from 'react'
+import React, { useCallback, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { MessageCircle, Phone } from 'lucide-react'
 
 import {  similarVehicles } from '@/data/vehicles'
@@ -17,7 +18,11 @@ import { Gallery } from '@/components/vehicles/Gallery'
 import { EnquiryPanel } from '@/components/forms/EnquiryPanel'
 import type { Vehicle } from '@/types/vehicle'
 
+const Vehicle3DModal = dynamic(() => import('./Vehicle3DModal').then((module) => module.Vehicle3DModal), { ssr: false })
+
 export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
+  const [viewer3D, setViewer3D] = useState(false)
+  const close3D = useCallback(() => setViewer3D(false), [])
   const siteData = useSiteData()
   const catalogPath = useCatalogPath()
   const catalog = useVehicleCatalog()
@@ -64,7 +69,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
         <div data-preview-item-path={productPath} className="mx-auto grid max-w-[1320px] gap-10 px-5 pb-20 pt-6 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] xl:gap-14">
           {/* Left: gallery and detail */}
           <div className="min-w-0">
-            <Gallery key={v.id} images={v.images} name={name} model3DUrl={v.model3DUrl} model3DAttribution={v.model3DAttribution} previewPath={productPath ? `${productPath}.gallery` : undefined} coverPath={productPath ? `${productPath}.image` : undefined} imagePaths={imagePaths} productIndex={productIndex} catalogPath={catalogPath} galleryIndexes={v.images.map((image) => gallery.indexOf(image.src))} />
+            <Gallery key={v.id} images={v.images} name={name} previewPath={productPath ? `${productPath}.gallery` : undefined} coverPath={productPath ? `${productPath}.image` : undefined} imagePaths={imagePaths} productIndex={productIndex} catalogPath={catalogPath} galleryIndexes={v.images.map((image) => gallery.indexOf(image.src))} />
 
             {/* Quick specifications */}
             <section aria-labelledby="specs" className="mt-16">
@@ -95,7 +100,11 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
                 data-preview-field-path="vehicles.heading2"
                 data-preview-style-target="vehicles.heading2"
                 data-preview-style-type="text">{siteData?.content?.vehicles?.heading2 ?? "About this vehicle"}</h2>
-              <p className="mt-5 text-[19px] font-semibold leading-snug text-ink" data-preview-static="Interface label, control, or calculated value">{v.tagline}</p>
+              <p
+                className="mt-5 text-[19px] font-semibold leading-snug text-ink"
+                data-preview-field-path={productPath ? `${productPath}.customData.vehicle.tagline` : undefined}
+                data-preview-style-target={productPath ? `${productPath}.customData.vehicle.tagline` : undefined}
+                data-preview-style-type="text">{v.tagline}</p>
               <div className="mt-4 max-w-[68ch] space-y-4 text-[16px] leading-[1.7] text-graphite">
                 {v.description.map((p) => (
                   <p data-preview-field-path={`catalog.products[${productIndex}].description`} key={p.slice(0, 24)}>{p}</p>
@@ -155,7 +164,7 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
 
           {/* Right: info + enquiry */}
           <aside className="lg:sticky lg:top-[96px] lg:self-start">
-            <EnquiryPanel key={v.id} vehicle={v} waMessage={waMessage} initialMode="info" previewPath={productPath} />
+            <EnquiryPanel key={v.id} vehicle={v} waMessage={waMessage} initialMode="info" previewPath={productPath} onView3D={() => setViewer3D(true)} />
           </aside>
         </div>
 
@@ -227,6 +236,8 @@ export function VehicleDetailsContent({ vehicle }: { vehicle: Vehicle }) {
             </Link>
           </div>
         </div>
-      </div></div>
+      </div>
+      {viewer3D && <Vehicle3DModal key={v.id} name={name} model3DUrl={v.model3DUrl} attribution={v.model3DAttribution} onClose={close3D} />}
+    </div>
   );
 }
