@@ -154,6 +154,9 @@
       },
       "optionalLabel": "Optional",
       "featuredBadge": "Featured",
+      "vehicleCard": {
+        "wishlistIcon": "heart"
+      },
       "mileage": "Mileage",
       "fuel": "Fuel",
       "gearbox": "Gearbox",
@@ -363,6 +366,58 @@
       "important": "Important."
     },
     "home": {
+      "brands": [
+        {
+          "name": "Audi",
+          "logo": "/brands/audi-logo.svg",
+          "href": "/contact"
+        },
+        {
+          "name": "Land Rover",
+          "logo": "/brands/land-rover-logo.svg",
+          "href": "/vehicles?make=Land%20Rover"
+        },
+        {
+          "name": "BMW",
+          "logo": "/brands/bmw-logo.svg",
+          "href": "/vehicles?make=BMW"
+        },
+        {
+          "name": "Honda",
+          "logo": "/brands/honda-logo.png",
+          "href": "/vehicles?make=Honda"
+        },
+        {
+          "name": "Toyota",
+          "logo": "/brands/toyota-logo.svg",
+          "href": "/vehicles?make=Toyota"
+        },
+        {
+          "name": "Nissan",
+          "logo": "/brands/nissan-logo.svg",
+          "href": "/vehicles?make=Nissan"
+        },
+        {
+          "name": "Suzuki",
+          "logo": "/brands/suzuki-logo.svg",
+          "href": "/vehicles?make=Suzuki"
+        },
+        {
+          "name": "Mercedes-Benz",
+          "logo": "/brands/mercedes-benz-logo.svg",
+          "href": "/vehicles?make=Mercedes-Benz"
+        },
+        {
+          "name": "Kia",
+          "logo": "/brands/kia-logo.svg",
+          "href": "/vehicles?make=Kia"
+        },
+        {
+          "name": "Hyundai",
+          "logo": "/brands/hyundai-logo.svg",
+          "href": "/vehicles?make=Hyundai"
+        }
+      ],
       "hero": {
         "anyMakePlaceholder": "Any make",
         "anyModelPlaceholder": "Any model",
@@ -897,7 +952,7 @@
               "slug": "toyota-land-cruiser-prado-2025",
               "ref": "APX-25-0141",
               "variant": "TX-L 2.8 Diesel",
-              "year": 2025,
+              "year": 2026,
               "condition": "New",
               "mileage": 12,
               "fuel": "Diesel",

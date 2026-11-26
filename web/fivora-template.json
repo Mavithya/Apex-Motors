@@ -141,6 +141,7 @@
       "financing.form.vehicleInterest2",
       "financing.stepLabel",
       "home.CATEGORIES[*].slug",
+      "home.brands[*].name",
       "home.exploreVehicle",
       "home.exploreVehicle2",
       "home.exploreVehicles",
@@ -520,6 +521,19 @@
             "key": "featuredBadge",
             "type": "text",
             "label": "featured Badge"
+          },
+          {
+            "key": "vehicleCard",
+            "type": "object",
+            "label": "Vehicle cards",
+            "fields": [
+              {
+                "key": "wishlistIcon",
+                "type": "text",
+                "label": "Vehicle card wishlist icon",
+                "description": "Select a card's save button to choose a Lucide icon. Applies to all vehicle cards."
+              }
+            ]
           },
           {
             "key": "mileage",
@@ -1418,6 +1432,31 @@
             "key": "heroImage",
             "type": "image",
             "label": "hero Image"
+          },
+          {
+            "key": "brands",
+            "type": "list",
+            "label": "Popular brands",
+            "itemLabel": "Brand",
+            "minItems": 0,
+            "maxItems": 200,
+            "fields": [
+              {
+                "key": "name",
+                "type": "text",
+                "label": "Brand name"
+              },
+              {
+                "key": "logo",
+                "type": "image",
+                "label": "Brand logo"
+              },
+              {
+                "key": "href",
+                "type": "url",
+                "label": "Link destination"
+              }
+            ]
           },
           {
             "key": "title2",

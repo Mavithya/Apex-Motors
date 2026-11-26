@@ -32,8 +32,8 @@ export default function Home() {
           alt="Dark grey luxury SUV on a rain-wet city plaza at dusk"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_center]"
           data-preview-field-path="home.heroImage" />
-        <div className="absolute inset-0 -z-10 bg-ink/55 lg:bg-ink/30" aria-hidden />
-        <div className="mx-auto flex min-h-[600px] max-w-[1320px] flex-col justify-center px-5 pb-40 pt-20 sm:px-8 lg:min-h-[700px] lg:pb-48">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-ink/55 lg:bg-ink/30" aria-hidden />
+        <div className="pointer-events-none mx-auto flex min-h-[600px] max-w-[1320px] flex-col justify-center px-5 pb-40 pt-20 sm:px-8 lg:min-h-[700px] lg:pb-48 [&_h1]:pointer-events-auto [&_p]:pointer-events-auto [&_a]:pointer-events-auto">
           <h1
             className="max-w-[640px] text-[44px] font-extrabold leading-[1.02] tracking-[-0.03em] text-white sm:text-[64px] lg:text-[80px]"
             data-preview-field-path="home.title2"

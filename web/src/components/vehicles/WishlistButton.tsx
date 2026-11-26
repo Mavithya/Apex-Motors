@@ -3,8 +3,24 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
+import dynamic from 'next/dynamic'
+import { useSiteData } from '@deneb-ui/ui'
 import { useWishlist } from '@/lib/useWishlist'
 import { cn } from '@/lib/utils'
+
+function WishlistGlyphFallback() {
+  return <Heart className="h-[18px] w-[18px]" aria-hidden />
+}
+
+// Keep the default heart light; load other Lucide glyphs only when selected.
+const WishlistGlyph = dynamic(async () => {
+  const { DynamicIcon, iconNames } = await import('lucide-react/dynamic')
+  return function WishlistGlyph({ name, saved }: { name: string; saved: boolean }) {
+    const normalized = name.replace(/Icon$/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().trim()
+    const iconName = iconNames.find((icon) => icon === normalized) ?? 'heart'
+    return <DynamicIcon name={iconName} size={18} className={cn('h-[18px] w-[18px]', saved && 'fill-accent')} aria-hidden fallback={WishlistGlyphFallback} />
+  }
+}, { ssr: false, loading: WishlistGlyphFallback })
 
 export function WishlistButton({
   id,
@@ -18,6 +34,8 @@ export function WishlistButton({
   variant?: 'icon' | 'text'
 }) {
   const { has, toggle } = useWishlist()
+  const siteData = useSiteData()
+  const iconName = siteData.content?.common?.vehicleCard?.wishlistIcon ?? 'heart'
   const saved = has(id)
 
   if (variant === 'text') {
@@ -43,7 +61,11 @@ export function WishlistButton({
   }
 
   return (
-    <motion.button data-preview-static="Wishlist action"
+    <motion.button
+      data-preview-field-path="common.vehicleCard.wishlistIcon"
+      data-preview-control="icon-picker"
+      data-preview-icon-type="lucide"
+      data-preview-icon={iconName}
       type="button"
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.12 }}
@@ -59,11 +81,11 @@ export function WishlistButton({
         className
       )}
     >
-      <Heart
+      {iconName === 'heart' ? <Heart
         className={cn('h-[18px] w-[18px]', saved && 'fill-accent')}
         aria-hidden
 
-        data-preview-static="Decorative icon" />
+        data-preview-static="Decorative icon" /> : <WishlistGlyph name={iconName} saved={saved} />}
     </motion.button>
   );
 }
