@@ -1753,6 +1753,12 @@
             "maxItems": 200,
             "fields": [
               {
+                "key": "icon",
+                "type": "text",
+                "label": "Benefit icon",
+                "description": "Choose a Lucide icon for this benefit. Benefits without a selected icon show a neutral circle."
+              },
+              {
                 "key": "title",
                 "type": "text",
                 "label": "title"

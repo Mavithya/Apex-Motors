@@ -556,18 +556,22 @@
       "benefits": [
         {
           "title": "Carefully selected vehicles",
+          "icon": "badge-check",
           "body": "Every pre-owned car is inspected before it is listed. If it does not meet our standard, it does not go on the floor."
         },
         {
           "title": "Transparent vehicle information",
+          "icon": "file-text",
           "body": "Mileage, ownership history and inspection notes are shared up front, so you can compare with confidence."
         },
         {
           "title": "Financing assistance",
+          "icon": "landmark",
           "body": "We help you compare leasing and loan options from partner lenders and handle the paperwork with you."
         },
         {
           "title": "Professional customer support",
+          "icon": "handshake",
           "body": "One advisor from first enquiry to handover — and still a phone call away after you drive out."
         }
       ],
