@@ -57,6 +57,8 @@
       "common.business.email",
       "common.business.phone",
       "common.business.whatsapp",
+      "common.contact.whatsappLabel",
+      "common.contact.whatsappUrl",
       "common.copyright",
       "common.featuredBadge",
       "common.form.description",
@@ -91,6 +93,10 @@
       "common.specLabels.spec7",
       "common.specLabels.spec8",
       "common.subtitle",
+      "common.utilityBar.items[*].href",
+      "common.utilityBar.items[*].newTab",
+      "common.utilityBar.items[*].side",
+      "common.utilityBar.items[*].visibility",
       "common.viewDetails",
       "common.websiteTitle",
       "contact.form.email",
@@ -110,6 +116,7 @@
       "contact.form.topicOptions[*].value",
       "contact.form.whatItAbout",
       "contact.form.whatItAbout2",
+      "dealer.phoneDisplay",
       "dealer.phoneHref",
       "dealer.tagline",
       "dealer.whatsappNumber",
@@ -675,6 +682,64 @@
                 "key": "home_NewArrivals_0",
                 "type": "text",
                 "label": "home New Arrivals 0"
+              }
+            ]
+          },
+          {
+            "key": "utilityBar",
+            "type": "object",
+            "label": "Top utility bar",
+            "fields": [
+              {
+                "key": "items",
+                "type": "list",
+                "label": "Utility bar items",
+                "itemLabel": "Bar item",
+                "minItems": 0,
+                "maxItems": 200,
+                "fields": [
+                  {
+                    "key": "label",
+                    "type": "text",
+                    "label": "Text"
+                  },
+                  {
+                    "key": "icon",
+                    "type": "text",
+                    "label": "Icon",
+                    "description": "Select the icon in the bar to open the Lucide icon picker."
+                  },
+                  {
+                    "key": "href",
+                    "type": "text",
+                    "label": "Optional link",
+                    "description": "Leave blank for text only. Use tel:+94112345678, mailto:address@example.com, a website URL or a local route."
+                  },
+                  {
+                    "key": "side",
+                    "type": "select",
+                    "label": "Position",
+                    "options": [
+                      "Left",
+                      "Right"
+                    ]
+                  },
+                  {
+                    "key": "visibility",
+                    "type": "select",
+                    "label": "Show on",
+                    "options": [
+                      "Always",
+                      "Tablet and desktop",
+                      "Desktop only"
+                    ]
+                  },
+                  {
+                    "key": "newTab",
+                    "type": "boolean",
+                    "label": "Open link in new tab"
+                  }
+                ]
               }
             ]
           }

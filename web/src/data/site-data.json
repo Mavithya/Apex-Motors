@@ -190,6 +190,42 @@
         "home_CategoryGrid_0": "Start with the shape of car that fits your life, then narrow it down.",
         "home_FeaturedVehicles_0": "A rotating selection from our current stock — each one inspected, photographed and priced by our team.",
         "home_NewArrivals_0": "The latest additions to the showroom floor. New stock moves quickly — enquire early to arrange a viewing."
+      },
+      "utilityBar": {
+        "items": [
+          {
+            "label": "Colombo, Sri Lanka",
+            "icon": "map-pin",
+            "href": "",
+            "side": "Left",
+            "visibility": "Always",
+            "newTab": false
+          },
+          {
+            "label": "Mon–Sat 9:00–18:30",
+            "icon": "clock",
+            "href": "",
+            "side": "Left",
+            "visibility": "Desktop only",
+            "newTab": false
+          },
+          {
+            "label": "+94 11 234 5678",
+            "icon": "phone",
+            "href": "tel:+94112345678",
+            "side": "Right",
+            "visibility": "Tablet and desktop",
+            "newTab": false
+          },
+          {
+            "label": "WhatsApp",
+            "icon": "message-circle",
+            "href": "https://wa.me/94771234567",
+            "side": "Right",
+            "visibility": "Always",
+            "newTab": true
+          }
+        ]
       }
     },
     "contact": {

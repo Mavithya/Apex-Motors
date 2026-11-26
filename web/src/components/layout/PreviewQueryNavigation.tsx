@@ -15,9 +15,12 @@ export function PreviewQueryNavigation() {
     }
     const onClick = (event: MouseEvent) => {
       const preview = window as Window & { __fivoraSectionNavigationInstalled?: boolean }
-      if (!preview.__fivoraSectionNavigationInstalled || editing.current || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      if (!preview.__fivoraSectionNavigationInstalled || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
       const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null
       if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return
+      // SiteLink marks intentional navigation actions static. They must still
+      // route in Edit mode; editable destinations stay with Fivora's inspector.
+      if (editing.current && !anchor.hasAttribute('data-preview-static')) return
       const url = new URL(anchor.href, window.location.href)
       const normalize = (path: string) => path.replace(/\/+$/, '') || '/'
       if (url.origin !== window.location.origin || normalize(url.pathname) !== normalize(window.location.pathname) || url.search === window.location.search) return
