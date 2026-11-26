@@ -29,7 +29,7 @@ const WishlistGlyph = dynamic(async () => {
 }, { ssr: false, loading: WishlistIconFallback })
 
 export function Header() {
-  const pathname = usePathname()
+  const pathname = usePathname().replace(/\/+$/, '') || '/'
   const searchParams = useSearchParams()
   const active: NavKey | undefined = pathname === '/vehicles' && searchParams.get('view') === 'new-arrivals' ? 'arrivals' : (pathname.startsWith('/vehicles') || pathname.startsWith('/products/')) ? 'vehicles' : MAIN_NAV.find((item) => item.to === pathname)?.key
   return <HeaderContent key={`${pathname}?${searchParams.toString()}`} active={active} />
@@ -65,6 +65,7 @@ export function HeaderContent({ active }: { active?: NavKey }) {
                       data-preview-field-path={navPreviewPath(item.key)}
                       aria-haspopup="true"
                       aria-expanded={open === item.key}
+                      aria-current={isActive ? 'page' : undefined}
                       onFocus={() => setOpen(item.key)}
                       className={navClass(isActive)}
                     >

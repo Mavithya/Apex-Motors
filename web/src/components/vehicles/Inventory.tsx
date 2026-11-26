@@ -80,7 +80,8 @@ export function InventoryContent({ query = '' }: { query?: string }) {
   return (
     <>
       {/* Page header */}
-      <section data-preview-page-key="vehicles" className="border-b border-line bg-white">
+      {/* The preview bridge supports this page-focus ID without treating query links as section scrolls. */}
+      <section id="vehicles_view" className="border-b border-line bg-white">
         <div className="mx-auto max-w-[1320px] px-5 pb-12 pt-8 sm:px-8 lg:pb-16">
           <Breadcrumb items={[{ label: 'Home', to: '/' }, { label: savedView ? 'Saved' : filters.arrivals ? 'New Arrivals' : 'Vehicles' }]} />
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
