@@ -297,8 +297,8 @@
           },
           {
             "key": "logoUrl",
-            "type": "url",
-            "label": "logo Url"
+            "type": "image",
+            "label": "Header company logo"
           },
           {
             "key": "headerCtaLabel",
@@ -546,6 +546,22 @@
             "type": "object",
             "label": "header",
             "fields": [
+              {
+                "key": "homeUrl",
+                "type": "url",
+                "label": "Company logo destination"
+              },
+              {
+                "key": "savedVehiclesUrl",
+                "type": "url",
+                "label": "Saved vehicles destination"
+              },
+              {
+                "key": "wishlistIcon",
+                "type": "text",
+                "label": "Saved vehicles icon",
+                "description": "Choose an icon by selecting the heart in the header."
+              },
               {
                 "key": "subtitle",
                 "type": "text",
@@ -2294,12 +2310,12 @@
           {
             "key": "wordmark",
             "type": "text",
-            "label": "wordmark"
+            "label": "Company name (main wordmark)"
           },
           {
             "key": "wordmarkSuffix",
             "type": "text",
-            "label": "wordmark Suffix"
+            "label": "Company name (wordmark suffix)"
           },
           {
             "key": "description",

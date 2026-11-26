@@ -1,9 +1,10 @@
 'use client';
-import { useSiteData } from "@deneb-ui/ui";
+import { EditableIcon, useSiteData } from "@deneb-ui/ui";
 
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Heart, Menu, Search } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { MAIN_NAV, type NavKey } from '@/data/navigation'
 import { navPreviewPath, useNavigation } from '@/lib/useNavigation'
@@ -12,6 +13,20 @@ import { cn } from '@/lib/utils'
 import { useWishlist } from '@/lib/useWishlist'
 import { Logo } from './Logo'
 import { MobileNav } from './MobileNav'
+
+function WishlistIconFallback() {
+  return <Heart className="h-5 w-5" aria-hidden />
+}
+
+// Load the full Lucide picker catalogue only when a different icon is selected.
+const WishlistGlyph = dynamic(async () => {
+  const { DynamicIcon, iconNames } = await import('lucide-react/dynamic')
+  return function WishlistGlyph({ name }: { name: string }) {
+    const normalized = name.replace(/Icon$/i, '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase().trim()
+    const iconName = iconNames.find((icon) => icon === normalized) ?? 'heart'
+    return <DynamicIcon name={iconName} size={20} className="h-5 w-5" aria-hidden fallback={WishlistIconFallback} />
+  }
+}, { ssr: false, loading: WishlistIconFallback })
 
 export function Header() {
   const pathname = usePathname()
@@ -26,12 +41,13 @@ export function HeaderContent({ active }: { active?: NavKey }) {
   const [open, setOpen] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const { count } = useWishlist()
+  const wishlistIcon = siteData.content?.common?.header?.wishlistIcon ?? 'heart'
 
   return (
     <>
       <div className="sticky top-0 z-40 border-b border-line bg-white/95 shadow-[0_8px_24px_-22px_rgba(23,26,29,0.45)] backdrop-blur-md">
         <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between gap-4 px-5 sm:px-8">
-          <Logo />
+          <Logo editable />
 
           <nav aria-labelledby="label-header-0" className="hidden items-center xl:flex"><span id="label-header-0" className="sr-only" data-preview-static="Accessibility label">Main</span>
             {navigation.map((item) => {
@@ -102,11 +118,18 @@ export function HeaderContent({ active }: { active?: NavKey }) {
 
           <div className="flex items-center gap-2">
             <Link
-              href="/vehicles?view=saved"
-              aria-label={`Saved vehicles (${count})`}
+              href={siteData.content?.common?.header?.savedVehiclesUrl ?? '/vehicles?view=saved'}
+              data-preview-field-path="common.header.savedVehiclesUrl"
+              aria-label={`${siteData.content?.common?.header?.savedVehicles ?? 'Saved vehicles'} (${count})`}
               className="relative hidden h-11 w-11 items-center justify-center text-graphite transition-colors duration-150 hover:text-accent sm:flex"
             >
-              <Heart className="h-5 w-5" aria-hidden />
+              <EditableIcon
+                name="heart"
+                fieldPath="common.header.wishlistIcon"
+                size={20}
+                className="h-5 w-5"
+                customIcon={wishlistIcon === 'heart' ? undefined : <WishlistGlyph name={wishlistIcon} />}
+              />
               {count > 0 && (
                 <span className="absolute right-1.5 top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-white" data-preview-static="Interface label, control, or calculated value">
                   {count}

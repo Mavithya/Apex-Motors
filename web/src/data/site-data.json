@@ -159,6 +159,9 @@
       "gearbox": "Gearbox",
       "subtitle": "Price",
       "header": {
+        "homeUrl": "/",
+        "savedVehiclesUrl": "/vehicles?view=saved",
+        "wishlistIcon": "heart",
         "subtitle": "Browse by",
         "savedVehicles": "Saved vehicles",
         "findCar": "Find Your Car",
